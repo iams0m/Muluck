@@ -1,9 +1,9 @@
-package com.multi.muluck.main;
+package com.multi.muluck.plant;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("main")
-public class MainController {
+public class PlantController {
 
 	
 	/*
