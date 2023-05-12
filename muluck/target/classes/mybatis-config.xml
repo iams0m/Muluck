@@ -10,12 +10,13 @@
       <!-- <typeAlias type="com.multi.muluck.card.cardVO" alias="cardVO"></typeAlias> -->
       <!-- <typeAlias type="com.multi.muluck.chatbot.chatbotVO" alias="cardVO"></typeAlias> -->
       <typeAlias type="com.multi.muluck.card.CardVO" alias="cardVO"></typeAlias>
+      <typeAlias type="com.multi.muluck.plant.PlantVO" alias="plantVO"></typeAlias>
    </typeAliases>
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. 테이블당 한개 사용 -->
    <!-- src/main/resources/mapper -->
-      <!-- <mapper resource="mapper/mainMapper.xml" /> -->
       <mapper resource="mapper/cardMapper.xml" />
-      <!-- <mapper resource="mapper/chatbotMapper.xml" /> -->
+      <mapper resource="mapper/plantMapper.xml" />
+      
    </mappers>
 </configuration>

@@ -43,7 +43,7 @@
 		</div>
 	</nav>
         <header>
-            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+            <h1 class="site-heading text-center text-center d-none d-lg-block">
                 <img src="../resources/assets/img/무우럭.png"/>
             </h1>
         </header>
