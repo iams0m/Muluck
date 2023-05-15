@@ -16,7 +16,7 @@
 	</update> -->
 	
 	<select id="one" parameterType="String" resultType="plantVO">
-		select * from plant where plant_title = #{plant_title}
+		select * from plant where plant_species = #{plant_species}
 	</select>
 	
 	<select id="all" parameterType="plantVO" resultType="plantVO">

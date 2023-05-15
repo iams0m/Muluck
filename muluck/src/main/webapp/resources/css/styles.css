@@ -86,6 +86,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: #f2f1df;
 }
@@ -2114,7 +2115,7 @@ progress {
   vertical-align: bottom;
 }
 
-.table-group-divider {
+.table-group-ider {
   border-top: 2px solid currentcolor;
 }
 
@@ -2659,6 +2660,10 @@ textarea.form-control-lg {
 .form-check-inline {
   display: inline-block;
   margin-right: 1rem;
+}
+
+.btn{
+	background-color: rgb(20, 95, 55);
 }
 
 .btn-check {
