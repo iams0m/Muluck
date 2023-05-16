@@ -31,7 +31,7 @@ div {
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="index.jsp">Muluck</a>
+			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -89,15 +89,15 @@ div {
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="#">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="../card/card.jsp">반려식물 등록증</a></li>
 							</ul></li>
 					</ul>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../plant/plant.jsp">식물
+						class="nav-link text-uppercase" href="../plant/plant">식물 
 							도감</a></li>
 					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
+						<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 상점 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">나눔</a></li>

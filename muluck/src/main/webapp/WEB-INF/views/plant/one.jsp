@@ -119,7 +119,7 @@ div {
                                 <p class="lead fw-normal text-white-50 mb-4">푸릇푸릇 어린 몬스테라를 소개해요! 몬스테라는 성장하며 찢잎을 보여주는 식물이에요. 아직 어린 친구라 갈라진 잎이 나지 않았어요. 갈라진 잎은 8-10번째 잎부터 나오게 된답니다. 아직 어린 친구이기 때문에 잎이 갈라져서 나오는 과정을 경험하기 좋아요! 잎이 갈라져서 나는 이유는 옆에 있는 잎들과 빛을 나누어 받기 위해서라고 하니, 너무 기특한 식물이죠? 공기 정화와 함께 집안을 화사하게 만들어주는 마법의 식물이랍니다. 식린이에게 추천하는 키우기 쉬운 식물이에요!</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                     <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">살펴보기</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">반려식물 등록증 만들기</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href="../card/card.jsp">반려식물 등록증 만들기</a>
                                 </div>
                             </div>
                         </div>
