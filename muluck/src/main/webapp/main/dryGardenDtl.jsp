@@ -380,7 +380,7 @@ div {
 
 	if (resultCode.equals("00")) {
 	%>
-	<%-- <table  border="1" cellspacing="0" cellpadding="0">
+	<table  border="1" cellspacing="0" cellpadding="0">
 		<colgroup>
 			<col width="15%">
 			<col width="*">
@@ -521,7 +521,7 @@ div {
             	<%}%>
             </td>
         </tr>
-	</table> --%>
+	</table>
 	<header class="bg-dark py-5">
 	<div class="container px-5">
 		<div class="row gx-5 align-items-center justify-content-center">

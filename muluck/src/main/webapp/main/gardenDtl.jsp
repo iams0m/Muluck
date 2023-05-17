@@ -128,6 +128,8 @@ div {
 	String serviceName = "garden";
 	//오퍼레이션 명
 	String operationName = "gardenDtl";
+	
+	
 
 	//XML 받을 URL 생성
 	String parameter = "/" + serviceName + "/" + operationName;
@@ -160,7 +162,7 @@ div {
 		resultMsg = "";
 	}
 
-	//콘텐츠 번로 
+	//콘텐츠 번호
 	String cntntsNo = "";
 	//식물 학명         
 	String plntbneNm = "";
@@ -278,7 +280,7 @@ div {
 		distbNm = "";
 	}
 	try {
-		fmlNm = doc.getElementsByTagName("fmlNm").item(0).getFirstChild().getNodeValue();
+		fmlNm = doc.getElementsByTagName("fmlCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		fmlNm = "";
 	}
@@ -333,27 +335,27 @@ div {
 		etcEraInfo = "";
 	}
 	try {
-		managelevelCode = doc.getElementsByTagName("managelevelCode").item(0).getFirstChild().getNodeValue();
+		managelevelCode = doc.getElementsByTagName("managelevelCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		managelevelCode = "";
 	}
 	try {
-		grwtveCode = doc.getElementsByTagName("grwtveCode").item(0).getFirstChild().getNodeValue();
+		grwtveCode = doc.getElementsByTagName("grwtveCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		grwtveCode = "";
 	}
 	try {
-		grwhTpCode = doc.getElementsByTagName("grwhTpCode").item(0).getFirstChild().getNodeValue();
+		grwhTpCode = doc.getElementsByTagName("grwhTpCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		grwhTpCode = "";
 	}
 	try {
-		winterLwetTpCode = doc.getElementsByTagName("winterLwetTpCode").item(0).getFirstChild().getNodeValue();
+		winterLwetTpCode = doc.getElementsByTagName("winterLwetTpCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		winterLwetTpCode = "";
 	}
 	try {
-		hdCode = doc.getElementsByTagName("hdCode").item(0).getFirstChild().getNodeValue();
+		hdCode = doc.getElementsByTagName("hdCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		hdCode = "";
 	}
@@ -368,22 +370,22 @@ div {
 		soilInfo = "";
 	}
 	try {
-		watercycleSprngCode = doc.getElementsByTagName("watercycleSprngCode").item(0).getFirstChild().getNodeValue();
+		watercycleSprngCode = doc.getElementsByTagName("watercycleSprngCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		watercycleSprngCode = "";
 	}
 	try {
-		watercycleSummerCode = doc.getElementsByTagName("watercycleSummerCode").item(0).getFirstChild().getNodeValue();
+		watercycleSummerCode = doc.getElementsByTagName("watercycleSummerCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		watercycleSummerCode = "";
 	}
 	try {
-		watercycleAutumnCode = doc.getElementsByTagName("watercycleAutumnCode").item(0).getFirstChild().getNodeValue();
+		watercycleAutumnCode = doc.getElementsByTagName("watercycleAutumnCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		watercycleAutumnCode = "";
 	}
 	try {
-		watercycleWinterCode = doc.getElementsByTagName("watercycleWinterCode").item(0).getFirstChild().getNodeValue();
+		watercycleWinterCode = doc.getElementsByTagName("watercycleWinterCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		watercycleWinterCode = "";
 	}
@@ -493,47 +495,82 @@ div {
 		pcSmallInfo = "";
 	}
 	try {
-		managedemanddoCode = doc.getElementsByTagName("managedemanddoCode").item(0).getFirstChild().getNodeValue();
+		managedemanddoCode = doc.getElementsByTagName("managedemanddoCodeNm").item(0).getFirstChild().getNodeValue();
 	} catch (Exception e) {
 		managedemanddoCode = "";
 	}
 
 	if (resultCode.equals("00")) {
 	%>
-	<%-- <table  border="1" cellspacing="0" cellpadding="0">
+	<header class="bg-dark py-5">
+	<div class="container px-5">
+		<div class="row gx-5 align-items-center justify-content-center">
+			<div class="col-lg-8 col-xl-7 col-xxl-6">
+				<div class="my-5 text-center text-xl-start">
+				<p class="lead fw-normal text-white-50 mb-4"><%=plntbneNm%></p>
+				<p class="lead fw-normal text-white-50 mb-4"><%=fmlNm%></p>
+					<h1 class="display-5 fw-bolder text-white mb-2"><%=distbNm%></h1>
+					<p class="lead fw-normal text-white-50 mb-4"><%=fncltyInfo%></p>
+					<div
+						class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+						<a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">살펴보기</a>
+						<a class="btn btn-outline-light btn-lg px-4"
+							href="../card/card.jsp">반려식물 등록증 만들기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="../resources/assets/img/pexels-samuel-crosland-2557232.jpg"/></div>
+		</div>
+		<%
+			}
+		%>
+		<%-- 
+				<% if (!"".equals(mainImgUrl2)) {
+			%>
+			<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+				<img class="img-fluid rounded-3 my-5" src="<%=mainImgUrl2%>" />
+				
+			</div>
+			<%
+				}
+			%> --%>
+		<!-- <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="../resources/assets/img/pexels-samuel-crosland-2557232.jpg"/></div> -->
+	</div>
+	</header>
+	<table  border="1" cellspacing="0" cellpadding="0">
 		<colgroup>
 			<col width="15%">
 			<col width="*">
 		</colgroup>
-		<tr>
+		<%-- <tr>
             <th>식물학명</th>
             <td><%=plntbneNm%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>식물영명</th>
             <td><%=plntzrNm%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>유통명</th>
             <td><%=distbNm%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>과명</th>
             <td><%=fmlNm%></td>
         </tr>
         <tr>
             <th>원산지 정보</th>
             <td><%=orgplceInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>조언 정보</th>
             <td><%=adviseInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>이미지 평가 링크 경로</th>
             <td><%=imageEvlLinkCours%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>성장 높이 정보</th>
             <td><%=growthHgInfo%></td>
         </tr>
@@ -544,8 +581,8 @@ div {
         <tr>
             <th>잎 형태 정보</th>
             <td><%=lefStleInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>냄새 코드</th>
             <td><%=smellCode%></td>
         </tr>
@@ -556,68 +593,68 @@ div {
         <tr>
             <th>번식 시기 정보</th>
             <td><%=prpgtEraInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>기타 시기 정보</th>
             <td><%=etcEraInfo%></td>
-        </tr>
-        <tr>
-            <th>관리수준 코드</th>
+        </tr> --%>
+       <%--  <tr>
+            <th>관리수준</th>
             <td><%=managelevelCode%></td>
-        </tr>
-        <tr>
-            <th>생장속도 코드</th>
+        </tr> --%>
+        <%-- <tr>
+            <th>생장속도</th>
             <td><%=grwtveCode%></td>
-        </tr>
-        <tr>
-            <th>생육 온도 코드</th>
+        </tr> --%>
+        <%-- <tr>
+            <th>생육 온도</th>
             <td><%=grwhTpCode%></td>
-        </tr>
-        <tr>
-            <th>겨울 최저 온도 코드</th>
+        </tr> --%>
+        <%-- <tr>
+            <th>겨울 최저 온도</th>
             <td><%=winterLwetTpCode%></td>
-        </tr>
-        <tr>
-            <th>습도 코드</th>
+        </tr> --%>
+        <%-- <tr>
+            <th>습도</th>
             <td><%=hdCode%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>비료 정보</th>
             <td><%=frtlzrInfo%></td>
         </tr>
         <tr>
             <th>토양 정보</th>
             <td><%=soilInfo%></td>
-        </tr>
-        <tr>
-            <th>물주기 봄 코드</th>
+        </tr> --%>
+        <%-- <tr>
+            <th>물주기 봄</th>
             <td><%=watercycleSprngCode%></td>
         </tr>
         <tr>
-            <th>물주기 여름 코드</th>
+            <th>물주기 여름</th>
             <td><%=watercycleSummerCode%></td>
         </tr>
         <tr>
-            <th>물주기 가을 코드</th>
+            <th>물주기 가을</th>
             <td><%=watercycleAutumnCode%></td>
         </tr>
         <tr>
-            <th>물주기 겨울 코드</th>
+            <th>물주기 겨울</th>
             <td><%=watercycleWinterCode%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+       <%--  <tr>
             <th>병충해 관리 정보</th>
             <td><%=dlthtsManageInfo%></td>
         </tr>
         <tr>
             <th>특별관리 정보</th>
             <td><%=speclmanageInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>기능성 정보</th>
             <td><%=fncltyInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+<%--         <tr>
             <th>화분직경 대 정보</th>
             <td><%=flpodmtBigInfo%></td>
         </tr>
@@ -688,52 +725,18 @@ div {
         <tr>
             <th>가격 소 정보</th>
             <td><%=pcSmallInfo%></td>
-        </tr>
-        <tr>
+        </tr> --%>
+        <%-- <tr>
             <th>관리요구도 코드</th>
             <td><%=managedemanddoCode%></td>
-        </tr>
-	</table> --%>
-	<header class="bg-dark py-5">
-	<div class="container px-5">
-		<div class="row gx-5 align-items-center justify-content-center">
-			<div class="col-lg-8 col-xl-7 col-xxl-6">
-				<div class="my-5 text-center text-xl-start">
-					<h1 class="display-5 fw-bolder text-white mb-2"></h1>
-					<p class="lead fw-normal text-white-50 mb-4">산세베리아 하니는 짧고 통통하게
-						생긴 잎이 귀여운 산세베리아에요. 테두리를 따라 노란 무늬가 들어간 하니, 잎 전체가 초록색인 하니, 초록색 얼룩무늬가
-						있는 하니가 있어요. 키우기도 어렵지 않고 물을 가끔씩 주면 되기 때문에 초보자들에게도 추천하고 싶은 식물이에요.</p>
-					<div
-						class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-						<a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">살펴보기</a>
-						<a class="btn btn-outline-light btn-lg px-4"
-							href="../card/card.jsp">반려식물 등록증 만들기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<%
-			}
-		%>
-		<%-- <%
-				if (!"".equals(mainImgUrl2)) {
-			%>
-			<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-				<img class="img-fluid rounded-3 my-5" src="<%=mainImgUrl2%>" />
-			</div>
-			<%
-				}
-			%> --%>
-		<!-- <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="../resources/assets/img/pexels-samuel-crosland-2557232.jpg"/></div> -->
-	</div>
-	</div>
-	</header>
+        </tr> --%>
+	</table>
 	<%-- <%
 	}else{
 		out.println(resultMsg);
 	}
 %> --%>
-	<!-- Features section-->
+<%-- 	<!-- Features section-->
 	<section class="py-5" id="features">
 	<div class="container px-5 my-5">
 		<div class="row gx-5">
@@ -748,26 +751,27 @@ div {
 							<i class="bi bi-collection"></i>
 						</div>
 						<h2 class="h5">물</h2>
-						<p class="mb-0">Paragraph of text beneath the heading to
-							explain the heading. Here is just a bit more text.</p>
+						<p class="mb-0">봄 : <%=watercycleSprngCode%><br>
+										여름 : <%=watercycleSummerCode%><br>
+										가을 : <%=watercycleAutumnCode%><br>
+										겨울 : <%=watercycleWinterCode%></p>
 					</div>
 					<div class="col mb-5 h-100">
 						<div
 							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 							<i class="bi bi-building"></i>
 						</div>
-						<h2 class="h5">빛</h2>
-						<p class="mb-0">Paragraph of text beneath the heading to
-							explain the heading. Here is just a bit more text.</p>
+						<h2 class="h5">온도</h2>
+						<p class="mb-0"><%=grwhTpCode%>의 온도에서 잘 자라요</p>
 					</div>
 					<div class="col mb-5 mb-md-0 h-100">
 						<div
 							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 							<i class="bi bi-toggles2"></i>
 						</div>
-						<h2 class="h5">배치 장소</h2>
-						<p class="mb-0">Paragraph of text beneath the heading to
-							explain the heading. Here is just a bit more text.</p>
+						<h2 class="h5">습도</h2>
+						<p class="mb-0"><%=hdCode%><br>
+						주변 공기가 건조해지지 않도록 관리해주세요</p>
 					</div>
 					<div class="col h-100">
 						<div
@@ -775,14 +779,13 @@ div {
 							<i class="bi bi-toggles2"></i>
 						</div>
 						<h2 class="h5">난이도</h2>
-						<p class="mb-0">Paragraph of text beneath the heading to
-							explain the heading. Here is just a bit more text.</p>
+						<p class="mb-0"><%=managelevelCode%>가 키우면 좋아요</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</section>
+	</section> --%>
 	<!-- Testimonial section-->
 
 	<!-- Blog preview section-->
@@ -791,8 +794,8 @@ div {
 		<div class="row gx-5 justify-content-center">
 			<div class="col-lg-8 col-xl-6">
 				<div class="text-center">
-					<h2 class="fw-bolder">식물 자가 진단</h2>
-					<p class="lead fw-normal text-muted mb-5">혹시 식물이 아픈가요?</p>
+					<h2 class="fw-bolder">How To Care</h2>
+					<p class="lead fw-normal text-muted mb-5">자세히 알아보기</p>
 				</div>
 			</div>
 		</div>
@@ -800,13 +803,15 @@ div {
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
 					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+						src="../resources/assets/img/pexels-cottonbro-studio-9730466.jpg" />
 					<div class="card-body p-4">
 						<div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
-								class="card-title mb-3">줄기가 물렀어요.</h5></a>
-						<p class="card-text mb-0">Some quick example text to build on
-							the card title and make up the bulk of the card's content.</p>
+								class="card-title mb-3">물</h5></a>
+						<p class="card-text mb-0">봄 : <%=watercycleSprngCode%><br>
+										여름 : <%=watercycleSummerCode%><br>
+										가을 : <%=watercycleAutumnCode%><br>
+										겨울 : <%=watercycleWinterCode%></p>
 					</div>
 					<div class="card-footer p-4 pt-0 bg-transparent border-top-0">
 						<div class="d-flex align-items-end justify-content-between">
@@ -826,15 +831,12 @@ div {
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
 					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+						src="../resources/assets/img/pexels-koolshooters-6627066.jpg" />
 					<div class="card-body p-4">
 						<div class="badge bg-primary bg-gradient rounded-pill mb-2">Media</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
-								class="card-title mb-3">Another blog post title</h5></a>
-						<p class="card-text mb-0">This text is a bit longer to
-							illustrate the adaptive height of each card. Some quick example
-							text to build on the card title and make up the bulk of the
-							card's content.</p>
+								class="card-title mb-3">온도</h5></a>
+						<p class="card-text mb-0"><%=grwhTpCode%>의 온도에서 잘 자라요</p>
 					</div>
 					<div class="card-footer p-4 pt-0 bg-transparent border-top-0">
 						<div class="d-flex align-items-end justify-content-between">
@@ -854,15 +856,12 @@ div {
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
 					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+						src="../resources/assets/img/pexels-cottonbro-studio-4503261.jpg" />
 					<div class="card-body p-4">
 						<div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
-								class="card-title mb-3">The last blog post title is a
-								little bit longer than the others</h5></a>
-						<p class="card-text mb-0">Some more quick example text to
-							build on the card title and make up the bulk of the card's
-							content.</p>
+								class="card-title mb-3">난이도</h5></a>
+						<p class="card-text mb-0"><%=managelevelCode%>가 키우면 좋아요</p>
 					</div>
 					<div class="card-footer p-4 pt-0 bg-transparent border-top-0">
 						<div class="d-flex align-items-end justify-content-between">
@@ -880,6 +879,7 @@ div {
 				</div>
 			</div>
 		</div>
+		
 		<!-- Call to action-->
 		<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
 		<div

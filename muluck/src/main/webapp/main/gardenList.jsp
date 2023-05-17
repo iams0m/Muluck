@@ -286,6 +286,7 @@ String waterCycleSel = request.getParameter("waterCycleSel")==null?"":request.ge
 			</div>
 		</td>
 	</tr>
+</table>
 <%
 	//apiKey - 농사로 Open API에서 신청 후 승인되면 확인 가능
 	String apiKey="20230515ADPCQ9DTBZW6V1AT7WOYKA";
@@ -324,27 +325,9 @@ String waterCycleSel = request.getParameter("waterCycleSel")==null?"":request.ge
 	NodeList items = null;
 	NodeList codes = null;
 	NodeList codeNms = null;
-
-	if(operationNameMap.containsKey("lightList")){
-		doc=operationNameMap.get("lightList");
 		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>광도요구</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
 %>
-				<input type="checkbox" id="lightChk" name="lightChk" value="<%=code%>" <%
+				<%-- <input type="checkbox" id="lightChk" name="lightChk" value="<%=code%>" <%
 				if(request.getParameter("lightChkVal") != null){
 					String chkVar = request.getParameter("lightChkVal");
 					String[] chkArr = chkVar.split(",");
@@ -353,363 +336,11 @@ String waterCycleSel = request.getParameter("waterCycleSel")==null?"":request.ge
 							out.print("checked");
 						}
 					}
-				}
-				%> /><%=codeNm%>&nbsp;
+				} --%>
+				<%-- %> /><%=codeNm%>&nbsp; --%>
 <%
-			}
 			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	if(operationNameMap.containsKey("grwhstleList")){
-		doc=operationNameMap.get("grwhstleList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>생육형태</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
 %>
-				<input type="checkbox" id="grwhstleChk" name="grwhstleChk" value="<%=code%>" <%
-				if(request.getParameter("grwhstleChkVal") != null){
-					String chkVar = request.getParameter("grwhstleChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//잎색 검색 조건
-	if(operationNameMap.containsKey("lefcolrList")){
-		doc=operationNameMap.get("lefcolrList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>잎색</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="lefcolrChk" name="lefcolrChk" value="<%=code%>" <%
-				if(request.getParameter("lefcolrChkVal") != null){
-					String chkVar = request.getParameter("lefcolrChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//잎무늬 검색 조건
-	if(operationNameMap.containsKey("lefmrkList")){
-		doc=operationNameMap.get("lefmrkList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>잎 무늬</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="lefmrkChk" name="lefmrkChk" value="<%=code%>" <%
-				if(request.getParameter("lefmrkChkVal") != null){
-					String chkVar = request.getParameter("lefmrkChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//꽃 색 검색 조건
-	if(operationNameMap.containsKey("flclrList")){
-		doc=operationNameMap.get("flclrList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>꽃색</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="flclrChk" name="flclrChk" value="<%=code%>" <%
-				if(request.getParameter("flclrChkVal") != null){
-					String chkVar = request.getParameter("flclrChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//열매색 검색 조건
-	if(operationNameMap.containsKey("fmldecolrList")){
-		doc=operationNameMap.get("fmldecolrList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>열매색</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="fmldecolrChk" name="fmldecolrChk" value="<%=code%>" <%
-				if(request.getParameter("fmldecolrChkVal") != null){
-					String chkVar = request.getParameter("fmldecolrChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//꽃피는 계절 검색 조건
-	if(operationNameMap.containsKey("ignSeasonList")){
-		doc=operationNameMap.get("ignSeasonList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();	
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>꽃피는 계절</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="ignSeasonChk" name="ignSeasonChk" value="<%=code%>" <%
-				if(request.getParameter("ignSeasonChkVal") != null){
-					String chkVar = request.getParameter("ignSeasonChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//겨울 최저온도 검색 조건
-	if(operationNameMap.containsKey("winterLwetList")){
-		doc=operationNameMap.get("winterLwetList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();	
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>겨울 최저온도</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-%>
-				<input type="checkbox" id="winterLwetChk" name="winterLwetChk" value="<%=code%>" <%
-				if(request.getParameter("winterLwetChkVal") != null){
-					String chkVar = request.getParameter("winterLwetChkVal");
-					String[] chkArr = chkVar.split(",");
-					for(int j=0; j<chkArr.length; j++){
-						if(code.equals(chkArr[j])){
-							out.print("checked");
-						}
-					}
-				}
-				%> /><%=codeNm%>&nbsp;
-<%
-			}
-			
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</td></tr>");
-	}
-	//가격대 검색 조건
-	if(operationNameMap.containsKey("priceTypeList")){
-		doc=operationNameMap.get("priceTypeList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();	
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>가격대</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-				if(i == 0){
-%>
-				<input type="radio" id="priceType" name="priceType" value="big" <%= priceType.equals("big") ? "checked": "" %>/>대형&nbsp;
-				<input type="radio" id="priceType" name="priceType" value="medium" <%= priceType.equals("medium") ? "checked": "" %>/>중형&nbsp;
-				<input type="radio" id="priceType" name="priceType" value="3" <%= priceType.equals("3") ? "checked": "" %>/>소형&nbsp;
-				<select id="priceTypeSel" name="priceTypeSel">
-				<option value="">선택하세요.</option>
-<%
-				}
-%>
-				<option value="<%=code%>" <%=priceTypeSel.equals(code)?"selected":""%>><%=codeNm%></option>
-<%
-			}
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</select></td></tr>");
-	}
-	//물주기 검색 조건
-	if(operationNameMap.containsKey("waterCycleList")){
-		doc=operationNameMap.get("waterCycleList");
-		
-		items = doc.getElementsByTagName("item");
-		size = doc.getElementsByTagName("item").getLength();	
-		codes = doc.getElementsByTagName("code");
-		codeNms = doc.getElementsByTagName("codeNm");
-		
-		try{resultCode = doc.getElementsByTagName("resultCode").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultCode = "";}
-		try{resultMsg = doc.getElementsByTagName("resultMsg").item(0).getFirstChild().getNodeValue();}catch(Exception e){resultMsg = "";}
-		
-		out.print("<tr><th>물주기</th><td>");
-		if(resultCode.equals("00")){
-			for(int i=0; i<size; i++){
-				//코드
-				String code = codes.item(i).getFirstChild() == null ? "" : codes.item(i).getFirstChild().getNodeValue();
-				//코드명
-				String codeNm = codeNms.item(i).getFirstChild() == null ? "" : codeNms.item(i).getFirstChild().getNodeValue();
-				if(i == 0){
-%>
-				<select id="waterCycleSel" name="waterCycleSel">
-				<option value="">선택하세요.</option>
-<%
-				}
-%>
-				<option value="<%=code%>" <%=waterCycleSel.equals(code)?"selected":""%>><%=codeNm%></option>
-<%
-			}
-		}else{
-			out.print("조회한 정보가 없습니다.");
-		}
-		out.print("</select></td></tr>");
-	}
-%>
-	</table>
-</form>
-
 <%
 	//목록
 	if(operationName.length == operationNameMap.size()){
@@ -759,13 +390,10 @@ String waterCycleSel = request.getParameter("waterCycleSel")==null?"":request.ge
 
 		if(resultCode.equals("00")){ %>
 		<hr>
-		<table width="100%" border="1" cellSpacing="0" cellPadding="0">
 <%
 		if(size==0){
 %>
-			<tr>
-				<td colspan="2" align="center">조회한 정보가 없습니다.</td>
-			</tr>
+		조회한 정보가 없습니다.
 <% 			
 		}else{
 			for(int i=0; i<size; i++){
@@ -780,17 +408,28 @@ String waterCycleSel = request.getParameter("waterCycleSel")==null?"":request.ge
 				String rtnFileCours = rtnFileCourss.item(i).getFirstChild() == null ? "" : rtnFileCourss.item(i).getFirstChild().getNodeValue();
 				String[] rtnFileCoursArr = rtnFileCours.split("[|]");
 %>
-			<tr>
-			    <td width="15%"><img src="http://www.nongsaro.go.kr/<%=rtnFileCoursArr[0]%>/<%=rtnStreFileNmArr[0]%>" width="128" height="103"></img></td>
-			    <td width="85%">
-					<a href="javascript:fncDtl('<%=cntntsNo%>');"><%=cntntsSj%></a>
-			    </td>
-			</tr>
+				<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+					<div class="col mb-5">
+						<div class="card h-100">
+							<!-- Product image-->
+							<img class="card-img-top" src="http://www.nongsaro.go.kr/<%=rtnFileCoursArr[0]%>/<%=rtnStreFileNmArr[0]%>" alt="..."></img>
+							<!-- Product details-->
+							<div class="card-body p-4">
+								<div class="text-center">
+									<!-- Product name-->
+									<h5 class="fw-bolder"><a style = "text-decoration: none; text-decoration-color: black;" href="javascript:fncDtl('<%=cntntsNo%>');"><%=cntntsSj%></a></h5>
+									<!-- Product price-->
+									<!-- <span class="text-muted text-decoration-line-through">$20.00</span>
+									$18.00 -->
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
 <%		
 			}
 		}
 %>
-	</table>
 <%
 
 	//페이징 처리
