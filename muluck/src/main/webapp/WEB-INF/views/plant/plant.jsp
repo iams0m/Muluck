@@ -163,15 +163,6 @@ div {
 							<div class="text-center">
 								<!-- Product name-->
 								<h5 class="fw-bolder">무럭이</h5>
-								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-								</div>
 								<!-- Product price-->
 								<span class="text-muted text-decoration-line-through">$20.00</span>
 								$18.00
