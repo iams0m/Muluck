@@ -6,7 +6,7 @@ public class CardVO {
 	private Integer card_no;
 	private Integer card_id;
 	private String card_name;
-	private String card_type;
+	private String card_species;
 	private String card_birth;
 	private String card_mmti;
 	private String card_img;
@@ -36,12 +36,12 @@ public class CardVO {
 		this.card_name = card_name;
 	}
 
-	public String getCard_type() {
-		return card_type;
+	public String getcard_species() {
+		return card_species;
 	}
 
-	public void setCard_type(String card_type) {
-		this.card_type = card_type;
+	public void setcard_species(String card_species) {
+		this.card_species = card_species;
 	}
 
 	public String getCard_birth() {
@@ -78,8 +78,8 @@ public class CardVO {
 
 	@Override
 	public String toString() {
-		return "CardVO [card_no=" + card_no + ", card_id=" + card_id + ", card_name=" + card_name + ", card_type="
-				+ card_type + ", card_birth=" + card_birth + ", card_mmti=" + card_mmti + ", card_img=" + card_img
+		return "CardVO [card_no=" + card_no + ", card_id=" + card_id + ", card_name=" + card_name + ", card_species="
+				+ card_species + ", card_birth=" + card_birth + ", card_mmti=" + card_mmti + ", card_img=" + card_img
 				+ ", card_date=" + card_date + "]";
 	}
 

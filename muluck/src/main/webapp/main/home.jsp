@@ -89,12 +89,9 @@ div {
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="../card/card.jsp">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="../card/card_main.jsp">반려식물 등록증</a></li>
 							</ul></li>
 					</ul>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../plant/plant">식물 
-							도감</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
