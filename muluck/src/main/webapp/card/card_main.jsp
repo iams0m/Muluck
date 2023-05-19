@@ -90,11 +90,9 @@ div {
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
 								<li><a class="dropdown-item" href="../card/card.jsp">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../plant/plant">식물
-							도감</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
@@ -109,8 +107,8 @@ div {
 		</div>
 	</nav>
 		<form action="../card/card_detail.jsp" method="get">
-        반려식물 등록증
-        <button type="submit" class="btn btn-success">등록</button>
+        <h3 style="text-align: center;">반려식물 등록증 페이지</h3>
+        <button type="submit" class="btn" style="float: right; background-color:#145f37; border-color: none; color: #eaf2df;"><b>등록</b></button><br>
         </form>
 </body>
 </html>

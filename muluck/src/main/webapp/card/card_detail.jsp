@@ -25,6 +25,15 @@
 div {
 	text-align: center;
 }
+
+input[type='date']::before, input[type='date']:focus::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+input[type='date']:valid::before {
+	display: none;
+}
 </style>
 </head>
 <body>
@@ -91,6 +100,7 @@ div {
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
 								<li><a class="dropdown-item" href="card_main.jsp">반려식물
 										등록증</a></li>
+								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">
@@ -106,53 +116,70 @@ div {
 			</div>
 		</div>
 	</nav>
-	<div id="total">
-		<div id="center">
-			<form action="insert" id="form" method="post"
-				enctype="multipart/form-data">
-				<h3 style="text-align: center;">반려식물 등록증 페이지</h3>
-				<hr color="grey">
-				<div class="mb-3 row">
-					<label class="col-sm-2 col-form-label">반려식물 이름</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="card_name"
-							placeholder="반려식물 이름을 입력해주세요">
+
+		<section class="page-section about-heading">
+		<div class="container">
+			<div class="about-heading-content">
+				<div class="row">
+					<div class="col-xl-9 col-lg-10 mx-auto">
+						<div class="bg-faded rounded p-5" style="background-color: #eaf2df; border:3px solid;">
+							<h3 class="section-heading mb-4" style="text-align: center;">
+								<span class="section-heading-lower">반려식물 등록증 만들기</span>
+							</h3>
+							<form action="insert" id="form" method="post"
+								enctype="multipart/form-data">
+								<hr color="grey">
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">반려식물 이름</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" name="card_name"
+											placeholder="반려식물 이름을 입력해주세요">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">이미지</label>
+									<div class="col-sm-5">
+										<input class="form-control" type="file" name="file"
+											id="formFile">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">반려식물 종류</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" name="card_species"
+											placeholder="어떤 종인가요?">
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">반려일</label>
+									<div class="col-sm-5">
+										<input type="date" class="form-control" name="card_birth"
+											data-placeholder="날짜 선택" required aria-required="true"
+											value={startDateValue} className={styles.selectDay}
+											onChange={StartDateValueHandler}>
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">MMTI</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" name="card_mmti"
+											placeholder="반려식물 MMTI를 입력해주세요">
+									</div>
+								</div>
+								<label class="col-form-label">*MMTI : 무우럭에서
+									제공하는 반려식물 성향 유형이에요! 지금 바로 테스트해보세요</label>
+								<button type="submit" class="btn" style="background-color:#145f37; border-color: none; color: #eaf2df;"><b>MMTI
+									테스트</b></button><br>
+								<br>
+								<button type="submit" class="btn"
+									style="float: right; background-color:#145f37; border-color: none; color: #eaf2df;"><b>만들기</b></button>
+							</form>
+
+						</div>
 					</div>
 				</div>
-				<div class="mb-3 row">
-					<label class="col-sm-2 col-form-label">이미지</label>
-					<div class="col-sm-3">
-						<input class="form-control" type="file" name="card_img"
-							id="formFile">
-					</div>
-				</div>
-				<div class="mb-3 row">
-					<label class="col-sm-2 col-form-label">종</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="card_species"
-							placeholder="어떤 종인가요?">
-					</div>
-				</div>
-				<div class="mb-3 row">
-					<label class="col-sm-2 col-form-label">반려일</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="card_birth"
-							placeholder="yyyy-mm-dd">
-					</div>
-				</div>
-				<div class="mb-3 row">
-					<label class="col-sm-2 col-form-label">MMTI</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="card_mmti"
-							placeholder="반려식물 MMTI를 입력해주세요">
-					</div>
-				</div>
-					<label class="col-sm-5 col-form-label">*MMTI : 무우럭에서 제공하는 반려식물 성향 유형이에요! 지금 바로 테스트해보세요</label>
-				<button type="submit" class="btn btn-secondary">MMTI 테스트</button><br>
-				<button type="submit" class="btn btn-secondary"
-					style="float: right;">등록</button>
-			</form>
+			</div>
 		</div>
-	</div>
+	</section>
 </body>
 </html>

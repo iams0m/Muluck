@@ -16,15 +16,17 @@ public class CardController {
 	@Autowired
 	CardDAO dao;
 	
-	@RequestMapping("insert")
+	@RequestMapping("card/insert")
 	public void insert(
 					CardVO cardVO,
 					HttpServletRequest request, 
-					MultipartFile file, 
+					MultipartFile file,    
 					Model model) throws Exception {
 		String savedName = file.getOriginalFilename();
+		
 		String uploadPath 
-			= request.getSession().getServletContext().getRealPath("../resources/upload");
+			= request.getSession().getServletContext().getRealPath("resources/upload");
+		
 		File target = new File(uploadPath + "/" + savedName);
 		file.transferTo(target);
 		

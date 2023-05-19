@@ -90,6 +90,7 @@ div {
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
 								<li><a class="dropdown-item" href="../card/card_main.jsp">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">

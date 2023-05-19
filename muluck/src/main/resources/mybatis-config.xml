@@ -14,7 +14,6 @@
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. 테이블당 한개 사용 -->
    <!-- src/main/resources/mapper -->
-      <mapper resource="mapper/cardMapper.xml" />
-      
+      <mapper resource="mapper/cardMapper.xml" />   
    </mappers>
 </configuration>

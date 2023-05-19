@@ -1,5 +1,6 @@
 package com.multi.muluck.card;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class CardVO {
@@ -7,7 +8,7 @@ public class CardVO {
 	private Integer card_id;
 	private String card_name;
 	private String card_species;
-	private String card_birth;
+	private Date card_birth;
 	private String card_mmti;
 	private String card_img;
 	private Timestamp card_date;
@@ -44,11 +45,11 @@ public class CardVO {
 		this.card_species = card_species;
 	}
 
-	public String getCard_birth() {
+	public Date getCard_birth() {
 		return card_birth;
 	}
 
-	public void setCard_birth(String card_birth) {
+	public void setCard_birth(Date card_birth) {
 		this.card_birth = card_birth;
 	}
 
