@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.text.*"%>
+<%
+	Date date = new Date();
+SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
+String strdate = simpleDate.format(date);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,20 +25,72 @@
 	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/styles.css" type="text/css"
-	rel="stylesheet" />
+<link href="resources/css/styles.css" type="text/css" rel="stylesheet" />
 <style>
 div {
 	text-align: center;
 }
 
-input[type='date']::before, input[type='date']:focus::before {
-	content: attr(data-placeholder);
-	width: 100%;
+.grid-container {
+	display: grid;
+	grid-template-areas: 'a a a a a'
+						 'b . c c c' 
+						 'b . c c c'
+						 'd e e e .';
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+	height: 350px;
+	background-color: #ccc;
+	border: 3px solid;
+	border-radius: 44px;
 }
 
-input[type='date']:valid::before {
-	display: none;
+.a {
+	grid-area: a;
+}
+
+.b {
+	grid-area: b;
+}
+
+.c {
+	grid-area: c;
+}
+
+.d {
+	grid-area: d;
+}
+
+.e {
+	grid-area: e;
+}
+
+#outer-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 8px;
+	border: 3px solid;
+	border-radius: 44px;
+}
+
+#outer-grid>div {
+	background-color: #eaf2df;
+	border-radius: 44px;
+	font-size: 4vw;
+	padding: 8px;
+}
+
+#inner-grid {
+	display: grid;
+	grid-template-columns: 650px;
+
+}
+
+#inner-grid>div {
+	background: #eaf2df;
+	border: 4px solid;
+	border-radius: 44px;
+	padding: 8px;
 }
 </style>
 </head>
@@ -62,7 +120,7 @@ input[type='date']:valid::before {
 			<!-- <span class="site-heading-lower">무우럭</span>
                 <span class="site-heading-upper text-primary mb-3">muluck</span> -->
 			<div>
-				<img src="../resources/assets/img/무우럭.png" />
+				<img src="resources/assets/img/무우럭.png" />
 			</div>
 		</h1>
 	</header>
@@ -100,7 +158,6 @@ input[type='date']:valid::before {
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
 								<li><a class="dropdown-item" href="card_main.jsp">반려식물
 										등록증</a></li>
-								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">
@@ -116,64 +173,67 @@ input[type='date']:valid::before {
 			</div>
 		</div>
 	</nav>
-		<section class="page-section about-heading">
+
+	<div class="grid-container col-xl-4 col-lg-10 mx-auto">
+		<div class="grid-item a">
+			<h4>
+				<b>반려식물 등록증</b>
+			</h4>
+		</div>
+		<div class="grid-item b">
+			<h5>
+				이름<br><br> 종류<br><br> 반려일<br><br> MMTI<br>
+			</h5>
+		</div>
+		<div class="grid-item c">
+			<img src="resources/assets/img/무럭이.png" width=200 height=200>
+		</div>
+		<div class="grid-item d">
+			<img src="resources/assets/img/무럭무럭.png" width=70 height=70>
+		</div>
+		<div class="grid-item e">
+			<h4>
+				2023.05.20.<br>무우럭마을 무럭무럭
+			</h4>
+		</div>
+	</div>
+
+	<section class="page-section about-heading">
 		<div class="container">
 			<div class="about-heading-content">
 				<div class="row">
-					<div class="col-xl-9 col-lg-10 mx-auto">
-						<div class="bg-faded p-5" style="background-color: #eaf2df; border:3px solid; border-radius: 44px;">
-							<h3 class="section-heading mb-4" style="text-align: center;">
-								<span class="section-heading-lower">내 식물에 대해 알려주세요!</span>
-							</h3>
-							<form action="insert" id="form" method="post"
-								enctype="multipart/form-data">
-								<hr color="grey">
-								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">반려식물 이름</label>
-									<div class="col-sm-5">
-										<input type="text" class="form-control" name="card_name"
-											placeholder="반려식물 이름을 입력해주세요">
+					<div class="col-xl-7 col-lg-7 mx-auto">
+						<div id="outer-grid" class="bg-faded p-4">
+							<div id="inner-grid">
+								<h3 class="section-heading" style="text-align: center;">
+								<b>반려식물 등록증이 발급되었어요.</b>
+									<!-- <span class="section-heading-lower">반려식물 등록증이 발급되었어요.</span> -->
+								</h3>
+								<div class="grid-container">
+									<div class="grid-item a">
+										<h4>
+											<b>반려식물 등록증</b>
+										</h4>
+									</div>
+									<div class="grid-item b">
+										<h5>
+											이름<br><br> 종류<br><br> 반려일<br><br> MMTI<br><br>
+										</h5>
+									</div>
+									<div class="grid-item c">
+										<img src="resources/assets/img/무럭이.png" width=230 height=230>
+									</div>
+									<div class="grid-item d">
+									<br><img src="resources/assets/img/무럭무럭.png" width=70 height=70>
+									</div>
+									<div class="grid-item e">		
+											<br><h4>
+												2023.05.20.<br>무우럭마을 무럭무럭
+											</h4>
+										</div>
 									</div>
 								</div>
-								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">이미지</label>
-									<div class="col-sm-5">
-										<input class="form-control" type="file" name="file"
-											id="formFile">
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">반려식물 종류</label>
-									<div class="col-sm-5">
-										<input type="text" class="form-control" name="card_species"
-											placeholder="어떤 종인가요?">
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">반려일</label>
-									<div class="col-sm-5">
-										<input type="date" class="form-control" name="card_birth"
-											data-placeholder="날짜 선택" required aria-required="true"
-											value={startDateValue} className={styles.selectDay}
-											onChange={StartDateValueHandler}>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">MMTI</label>
-									<div class="col-sm-5">
-										<input type="text" class="form-control" name="card_mmti"
-											placeholder="반려식물 MMTI를 입력해주세요">
-									</div>
-								</div>
-								<label class="col-form-label">*MMTI : 무우럭에서
-									제공하는 반려식물 성향 유형이에요! 지금 바로 테스트해보세요</label>
-								<button type="submit" class="btn" style="background-color:#145f37; border-color: none; color: #eaf2df;"><b>MMTI
-									테스트</b></button><br>
-								<br>
-								<button type="submit" class="btn"
-									style="float: right; background-color:#145f37; border-color: none; color: #eaf2df;"><b>만들기</b></button>
-							</form>
-
+							</div>
 						</div>
 					</div>
 				</div>

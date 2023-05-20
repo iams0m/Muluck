@@ -107,7 +107,7 @@ div {
 		</div>
 	</nav>
 		<form action="../card/card_detail.jsp" method="get">
-        <h3 style="text-align: center;">반려식물 등록증 페이지</h3>
+        <h3 style="text-align: center;">반려식물 등록증을 만들어 보세요</h3><br>
         <button type="submit" class="btn" style="float: right; background-color:#145f37; border-color: none; color: #eaf2df;"><b>등록</b></button><br>
         </form>
 </body>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,java.text.*" %>
+<%@ page import="java.util.*,java.text.*"%>
 <%
 	Date date = new Date();
-	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
-	String strdate = simpleDate.format(date);
+SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
+String strdate = simpleDate.format(date);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +30,47 @@
 <style>
 div {
 	text-align: center;
+}
+
+.parent-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 600px;
+	height: 260px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-areas: 'a a a a a' 'b b c c c' 'b b c c c' '. . c c c'
+		'd e e e .';
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+	width: 650px;
+	height: 370px;
+	background-color: #eaf2df;
+	border: 4px solid;
+	border-radius: 44px;
+}
+
+.a {
+	grid-area: a;
+}
+
+.b {
+	grid-area: b;
+}
+
+.c {
+	grid-area: c;
+}
+
+.d {
+	grid-area: d;
+}
+
+.e {
+	grid-area: e;
 }
 </style>
 </head>
@@ -112,40 +153,61 @@ div {
 			</div>
 		</div>
 	</nav>
-	
+	<br>
+	<div style="float: center;">
+		<button type="submit" class="btn"
+			style="background-color: #145f37; border-color: none; color: #eaf2df;">
+			<b>자랑하기</b>
+		</button>
+		<button type="submit" class="btn" onclick="location='card_main.jsp'"
+			style="background-color: #145f37; border-color: none; color: #eaf2df;">
+			<b>전체 목록</b>
+		</button>
+	</div>
+	<br>
 	<section class="page-section about-heading">
 		<div class="container">
 			<div class="about-heading-content">
 				<div class="row">
-					<div class="col-xl-9 col-lg-10 mx-auto">
-						<div class="bg-faded rounded p-5"
-							style="background-color: #eaf2df; border: 3px solid; height: 600px;">
-							<h3 class="section-heading mb-4" style="text-align: center;">
-								<span class="section-heading-lower">반려식물 등록증이 발급되었습니다.</span>
+					<div class="parent-container mx-auto">
+						<div class="bg-faded p-4"
+							style="border: 3px solid; border-radius: 44px;">
+							<h3 class="section-heading" style="text-align: center;">
+								<b>반려식물 등록증이 발급되었어요.</b>
 							</h3>
-							<hr color="grey">
-							 <img
-								src="../resources/upload/${savedName}" width=300 height=300 style="float: right;"><br>
-							<div style="text-align: left;">
-							<h4><b>반려식물 등록증</b></h4>
-							이름 : ${cardVO.card_name}<br>
-							종류 : ${cardVO.card_species} <br>
-							반려일 : ${cardVO.card_birth}<br>
-							MMTI : ${cardVO.card_mmti}<br>
-							</div>
-							<div>
-							<h4 style="text-align: center;"><%=strdate%><br>무우럭마을 무럭무럭</h4>
-							<img src="../resources/assets/img/무럭무럭.png" width=100 height=100>
+							<div class="grid-container">
+								<div class="grid-item a">
+									<h4>
+										<b>반려식물 등록증</b>
+									</h4>
+								</div>
+								<div class="grid-item b">
+									<h5>
+										이름 : ${cardVO.card_name}<br> <br> 종류 :
+										${cardVO.card_species} <br> <br> 반려일 :
+										${cardVO.card_birth}<br> <br> MMTI :
+										${cardVO.card_mmti}<br> <br> <br>
+									</h5>
+								</div>
+								<div class="grid-item c">
+									<img src="../resources/upload/${savedName}" width=200
+										height=200>
+								</div>
+								<div class="grid-item d">
+									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
+										height=70>
+								</div>
+								<div class="grid-item e">
+									<br>
+									<h4 style="text-align: center;"><%=strdate%><br>무우럭마을
+										무럭무럭
+									</h4>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<br>
-			<button type="submit" class="btn"
-									style="float: center; background-color:#145f37; border-color: none; color: #eaf2df;"><b>자랑하기</b></button>
-			<button type="submit" class="btn" onclick="location='card_main.jsp'"
-									style="float: center; background-color:#145f37; border-color: none; color: #eaf2df;"><b>전체 목록</b></button>
 		</div>
 	</section>
 	<%-- <a href="card_one?card_id=${cardVO.card_no}">내 반려식물 등록증 목록</a> --%>
