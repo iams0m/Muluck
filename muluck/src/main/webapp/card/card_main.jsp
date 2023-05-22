@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*,java.text.*"%>
+<%
+	Date date = new Date();
+SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
+String strdate = simpleDate.format(date);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +96,8 @@ div {
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="../card/card.jsp">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="../card/card.jsp">반려식물
+										등록증</a></li>
 								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
@@ -106,9 +114,78 @@ div {
 			</div>
 		</div>
 	</nav>
-		<form action="../card/card_detail.jsp" method="get">
-        <h3 style="text-align: center;">반려식물 등록증을 만들어 보세요</h3><br>
-        <button type="submit" class="btn" style="float: right; background-color:#145f37; border-color: none; color: #eaf2df;"><b>등록</b></button><br>
-        </form>
+	<form action="../card/card_detail.jsp" method="get">
+		<h3 class="section-heading" style="text-align: center;">
+			<b>반려식물 등록증을 만들어 보세요</b>
+		</h3>
+		<button type="submit" class="btn"
+			style="float: right; background-color: #145f37; border-color: none; color: #eaf2df;">
+			<b>등록</b>
+		</button>
+		<br>
+	</form>
+	<a href="list">모든 게시글 가져오기</a>
+	<c:forEach items="${list}" var="bag">
+		<div style="float: center;">
+			<button type="submit" class="btn"
+				style="background-color: #145f37; border-color: none; color: #eaf2df;">
+				<b>자랑하기</b>
+			</button>
+			<button type="submit" class="btn" onclick="clip(); return false;"
+				style="background-color: #145f37; border-color: none; color: #eaf2df;">
+				<b>주소 복사하기</b>
+			</button>
+			<button type="submit" class="btn" onclick="location='card_main.jsp'"
+				style="background-color: #145f37; border-color: none; color: #eaf2df;">
+				<b>전체 목록</b>
+			</button>
+		</div>
+		<br>
+		<section class="page-section about-heading">
+			<div class="container">
+				<div class="about-heading-content">
+					<div class="row">
+						<div class="parent-container mx-auto">
+							<div class="bg-faded p-4"
+								style="border: 3px solid; border-radius: 44px;">
+								<h3 class="section-heading" style="text-align: center;">
+									<b>반려식물 등록증이 발급되었어요.</b>
+								</h3>
+								<div class="grid-container">
+									<div class="grid-item a">
+										<h4>
+											<b>반려식물 등록증</b>
+										</h4>
+									</div>
+									<div class="grid-item b">
+										<h5>
+											이름 : ${cardVO.card_name}<br> <br> 종류 :
+											${cardVO.card_species} <br> <br> 반려일 :
+											${cardVO.card_birth}<br> <br> MMTI :
+											${cardVO.card_mmti}<br> <br> <br>
+										</h5>
+									</div>
+									<div class="grid-item c">
+										<img src="../resources/upload/${savedName}" width=200
+											height=200>
+									</div>
+									<div class="grid-item d">
+										<br> <img src="../resources/assets/img/무럭무럭.png" width=70
+											height=70>
+									</div>
+									<div class="grid-item e">
+										<br>
+										<h4 style="text-align: center;"><%=strdate%><br>무우럭마을
+											무럭무럭
+										</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</c:forEach>
 </body>
 </html>
