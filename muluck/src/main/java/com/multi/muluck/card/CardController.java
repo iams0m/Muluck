@@ -1,6 +1,7 @@
 package com.multi.muluck.card;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,4 +41,17 @@ public class CardController {
 		//자동으로 모델의 속성으로 등록시켜줌.
 		//model.addAttribute("cardVO", cardVO);
 	}
+	
+	@RequestMapping("card/list")
+	public void list(Model model) {
+		List<CardVO> list = dao.list();
+		model.addAttribute("list", list);
+	}
+	
+	@RequestMapping("card/one")
+	public void one(Integer card_no, Model model) {
+		CardVO bag = dao.one(card_no);
+		model.addAttribute("bag", bag);
+	}
+	
 }
