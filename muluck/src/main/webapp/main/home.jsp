@@ -21,11 +21,6 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
-<style>
-div {
-	text-align: center;
-}
-</style>
 </head>
 <body>
 	<!-- Navigation-->
@@ -53,7 +48,7 @@ div {
 			<!-- <span class="site-heading-lower">무우럭</span>
                 <span class="site-heading-upper text-primary mb-3">muluck</span> -->
 			<div>
-				<img src="../resources/assets/img/무우럭.png" />
+				<img src="../resources/assets/img/무우럭.png" style="margin-left: auto; margin-right: auto; display: block;"/>
 			</div>
 		</h1>
 	</header>
