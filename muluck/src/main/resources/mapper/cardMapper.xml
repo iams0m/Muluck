@@ -7,20 +7,20 @@
 		insert into card(card_name, card_species, card_birth, card_mmti, card_img) values (#{card_name}, #{card_species}, #{card_birth}, #{card_mmti}, #{card_img})
 	</insert>
 	
-	<delete id="del" parameterType="Integer">
-		delete from card where card_id = #{card_id}
+	<delete id="del">
+		delete from card where card_no = #{card_no}
 	</delete>
 	
-	<update id="up"  parameterType="cardVO">
-		update card set card_img = #{card_img} where card_id = #{card_id}
+	<update id="up" parameterType="cardVO">
+		update card set card_img = #{card_img}, card_mmti = #{card_mmti} where card_no = #{card_no}
 	</update>
 	
-	<select id="one" parameterType="Integer" resultType="cardVO">
-		select card_no, card_name, card_species, card_birth, card_mmti, card_date from card where card_no = #{card_no}
+	<select id="one" resultType="cardVO">
+		select card_no, card_name, card_species, card_birth, card_mmti, card_img, card_date from card where card_no = #{card_no}
 	</select>
 	
 	<select id="all" parameterType="cardVO" resultType="cardVO">
-		select card_no, card_name, card_species, card_birth, card_mmti, card_date from card
+		select card_no, card_name, card_species, card_birth, card_mmti, card_img, card_date from card
 	</select>
 	
 </mapper>
