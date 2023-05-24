@@ -21,8 +21,18 @@ public class CardDAO {
 		return list;
 	}
 	
-	public CardVO one(Integer card_no) {
+	public CardVO one(int card_no) {
 		return my.selectOne("card.one", card_no);
+	}
+	
+	public int update(CardVO bag) {
+		int result = my.update("card.up", bag);
+		return result;	
+	}
+	
+	public int delete(int card_no) {
+		int result = my.delete("card.del", card_no);
+		return result;
 	}
 	
 }
