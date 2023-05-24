@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+#logo {
+}
+
+hr {
+	margin-left : auto;
+	margin-right : auto;
+}
+
+button {
+	border: none;
+	color: #F1F1E1;
+	background-color: #335D3B;
+	border-radius: 5px;
+}
+
+.button1 {
+	width: 60px;
+  	height: 40px;
+}
+
+.button2 {
+	background-color: #F1F1E1;
+}
+
+input {
+	width: 700px;
+  	height: 40px;
+  	font-size: 15px;
+  	border: 0;
+  	border-radius: 15px;
+  	outline: none;
+  	padding-left: 10px;
+  	background-color: rgb(233, 233, 233);
+}
+
+#img {
+	border: none;
+	background: transparent;
+}
+
+#reply {
+	width: 200px;
+	height: 30px;
+	margin-top: 50px;
+}
+
+#category_list {
+	width: 250px;
+	height: 700px;
+	margin-top: 50px;
+	float: left;
+	/* background-color: blue; */
+}
+
+.category_list {
+	margin-top: 30px;
+}
+
+.category {
+	color: black;
+	font-weight: bold;
+}
+
+/* 글쓰기 버튼(우측 상단) */
+#insert_button {
+	width: 250px;
+	height: 700px;
+	margin-top: 80px;
+	float: right;
+	/* background-color: red; */
+}
+
+#community_center {
+}
+
+/* 검색 zone(중앙 상단) */
+#bbs_one {
+	margin-top: 80px;
+}
+
+.bbs_one {
+	margin-top: 50px;
+}
+
+#bbs_list {
+	margin-top: 50px;
+}
+
+.bbs_insert {
+	margin-top: 50px;
+}
+
+#up_del_button {
+	margin-top: 50px;
+}
+
+.bbs_update {
+	margin-top: 50px;
+}
+
+.bbs_delete {
+	margin-top: 50px;
+}
+
+.bbs_ok {
+	margin-top: 150px;
+}
+
+#result {
+	margin-top: 50px;
+}
+
+#heart_book_button {
+	margin-top: 50px;
+}
+
+#bbs_reply {
+	margin-top: 50px;
+}
+
+#reply_list {
+	margin-top: 50px;
+}
