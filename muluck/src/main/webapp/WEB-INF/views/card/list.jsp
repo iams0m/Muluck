@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,java.text.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	Date date = new Date();
 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
@@ -35,10 +36,11 @@ div {
 	text-align: center;
 }
 
-button {
+.btn {
 	background-color: #145f37;
 	border-color: none;
 	color: #eaf2df;
+	font-weight: bold;
 }
 
 .parent-container {
@@ -145,15 +147,8 @@ button {
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
 					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 커뮤니티 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#">자랑게시판</a></li>
-								<li><a class="dropdown-item" href="#">질문게시판</a></li>
-								<li><a class="dropdown-item" href="#">오픈채팅방</a></li>
-							</ul></li>
+						<li class="nav-item px-lg-4"><a
+							class="nav-link text-uppercase" href="../community/community.jsp">커뮤니티</a></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
@@ -165,44 +160,24 @@ button {
 										등록증</a></li>
 							</ul></li>
 					</ul>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 상점 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">나눔</a></li>
-								<li><a class="dropdown-item" href="#">거래</a></li>
-							</ul></li>
-					</ul>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase" href="../member/member.jsp">거래/나눔</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<br>
 	<div style="float: center;">
-		<button type="submit" class="btn"
-			style="background-color: #145f37; border-color: none; color: #eaf2df;">
-			<b>자랑하기</b>
-		</button>
-		<button type="submit" class="btn" onclick="location='list'"
-			style="background-color: #145f37; border-color: none; color: #eaf2df;">
-			<b>전체 목록</b>
-		</button>
+		<button type="submit" class="btn">자랑하기</button>
+		<button type="submit" class="btn" onclick="location='list'">전체
+			목록</button>
 	</div>
 	<form action="../card/card_detail.jsp" method="get">
 		<h3 class="section-heading" style="text-align: center;">
-			<b>반려식물 등록증을 만들어 보세요</b>
+			<br> <b>반려식물 등록증을 만들어 보세요</b>
 		</h3>
 		<div style="float: right;">
-			<button type="submit" class="btn">
-				<b>등록</b>
-			</button>
-			<button type="submit" class="btn">
-				<b>수정</b>
-			</button>
-			<button type="submit" class="btn">
-				<b>삭제</b>
-			</button>
+			<button type="submit" class="btn">등록</button>
 		</div>
 		<br>
 	</form>
@@ -215,7 +190,12 @@ button {
 						<div class="parent-container mx-auto">
 							<div class="bg-faded p-4"
 								style="border: 3px solid; border-radius: 44px;">
-								<b style="float: left;"><a href="one?no=${bag.card_no}">NO
+								<%-- <form action="one" method="get">
+								<b style="float: left;"><a
+									href="one?no=${bag.card_no}">NO :
+										${bag.card_no}</a></b>
+								</form> --%>
+								<b style="float: left;"><a href="one?card_no=${bag.card_no}">NO
 										: ${bag.card_no}</a></b>
 								<div class="grid-container">
 									<div class="grid-item a">
@@ -232,7 +212,7 @@ button {
 										</h5>
 									</div>
 									<div class="grid-item c">
-										<img src="../resources/upload/${savedName}" width=200
+										<img src="../resources/upload/${bag.card_img}" width=200
 											height=200>
 									</div>
 									<!-- <div class="grid-item d">
@@ -241,9 +221,11 @@ button {
 								</div> -->
 									<div class="grid-item e">
 										<br>
-										<h4 style="text-align: center;">${bag.card_date}<br>무우럭마을
-											무럭무럭
+										<h4 style="text-align: center;">
+											<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
+											<br>무우럭마을 무럭무럭
 										</h4>
+
 									</div>
 								</div>
 							</div>
@@ -253,6 +235,5 @@ button {
 			</div>
 		</section>
 	</c:forEach>
-	<%-- <a href="card_one?card_id=${cardVO.card_no}">내 반려식물 등록증 목록</a> --%>
 </body>
 </html>

@@ -14,6 +14,7 @@ String strdate = simpleDate.format(date);
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!-- 팝업창 -->
 <title>무우럭</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
@@ -73,6 +74,23 @@ div {
 	grid-area: e;
 }
 </style>
+<script type="text/javascript">
+
+function clip(){
+	var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
+	var textarea = document.createElement("textarea");
+	// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
+	
+	document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
+	url = window.document.location.href; // url에 현재 주소값을 넣어줌
+	textarea.value = url; // textarea 값에 url을 넣어줌
+	textarea.select(); // textarea 설정
+	document.execCommand("copy"); // 복사
+	document.body.removeChild(textarea); //textarea 요소를 없애줌
+	alert("주소가 복사되었습니다.") // 알림창
+}
+
+</script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -119,17 +137,8 @@ div {
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 커뮤니티 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#">자랑게시판</a></li>
-								<li><a class="dropdown-item" href="#">질문게시판</a></li>
-								<li><a class="dropdown-item" href="#">오픈채팅방</a></li>
-							</ul></li>
-					</ul>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase" href="../community/community.jsp">커뮤니티</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
@@ -159,7 +168,11 @@ div {
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>자랑하기</b>
 		</button>
-		<button type="submit" class="btn" onclick="location='card_main.jsp'"
+		<button type="submit" class="btn" onclick="clip(); return false;"
+			style="background-color: #145f37; border-color: none; color: #eaf2df;">
+			<b>주소 복사하기</b>
+		</button>
+		<button type="submit" class="btn" onclick="location='list'"
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>전체 목록</b>
 		</button>

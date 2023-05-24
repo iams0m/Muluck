@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,java.text.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page import="com.multi.muluck.card.CardDAO"%>
+<%@ page import="com.multi.muluck.card.CardVO"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,57 +177,63 @@ div {
 			</div>
 		</div>
 	</nav>
-	<br>
-	<div style="float: center;">
-		<button type="submit" class="btn">자랑하기</button>
-		<button type="submit" class="btn" onclick="clip(); return false;">주소 복사하기</button>
-		<button type="submit" class="btn" onclick="location='list'">전체 목록</button>
-	</div>
-	<br>
-	<div style="float: right;">
-		<a href="update?card_no=${bag.card_no}" role="button" class="btn">수정</a>
-		<a href="card_update?card_no=${bag.card_no}" role="button" class="btn">수정2</a>
-		<a onclick="return confirm('정말 등록증을 삭제하실건가요? :(')"
-			href="delete?card_no=${bag.card_no}" role="button" class="btn">삭제</a>
-	</div>
-	<br>
 	<section class="page-section about-heading">
 		<div class="container">
 			<div class="about-heading-content">
 				<div class="row">
-					<div class="parent-container mx-auto">
-						<div class="bg-faded p-4"
-							style="border: 3px solid; border-radius: 44px;">
-							<b style="float: left;">NO : ${bag.card_no}</b>
-							<div class="grid-container">
-								<div class="grid-item a">
-									<h4>
-										<b>반려식물 등록증</b>
-									</h4>
+					<div class="col-xl-9 col-lg-10 mx-auto">
+						<div class="bg-faded p-5"
+							style="background-color: #eaf2df; border: 3px solid; border-radius: 44px;">
+							<h3 class="section-heading mb-4" style="text-align: center;">
+								<span class="section-heading-lower">반려식물 등록증 수정 화면입니다</span>
+							</h3>
+							<form name="update" method="POST"
+								action="${path}/card/update?card_no=${bag.card_no}">
+								<hr color="grey">
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label" id="card_name">반려식물 이름</label>
+									<div class="col-sm-5">
+										<label for="card_name"><input type="text" name="card_name" id="card_name" value="${bag.card_name}"></label> 
+									</div>
 								</div>
-								<div class="grid-item b">
-									<h5>
-										이름 : ${bag.card_name}<br> <br> 종류 :
-										${bag.card_species} <br> <br> 반려일 :
-										${bag.card_birth}<br> <br> MMTI : ${bag.card_mmti}<br>
-										<br> <br>
-									</h5>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label" id="card_img">이미지</label>
+									<div class="col-sm-5">
+									<label for="card_img"><input type="text" name="card_img" id="card_img" value="${bag.card_img}"></label> 
+									</div>
 								</div>
-								<div class="grid-item c">
-									<img src="../resources/upload/${bag.card_img}" width=200
-										height=200>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label" id="card_species">반려식물 종류</label>
+									<div class="col-sm-5">
+										<label for="card_species"><input type="text" name="card_species" id="card_species" value="${bag.card_species}"></label>
+									</div>
 								</div>
-								<!-- <div class="grid-item d">
-									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
-										height=70>
-								</div> -->
-								<div class="grid-item e">
-									<br>
-									<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
-									<br>무우럭마을 무럭무럭
-									</h4>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">반려일</label>
+									<div class="col-sm-5">
+										<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
+									</div>
 								</div>
-							</div>
+								<div class="mb-3 row">
+									<label class="col-sm-2 col-form-label">MMTI</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" name="card_mmti"
+											placeholder="반려식물 MMTI를 입력해주세요">
+									</div>
+								</div>
+								<label class="col-form-label">*MMTI : 무우럭에서 제공하는 반려식물 성향
+									유형이에요! 지금 바로 테스트해보세요</label>
+								<button type="submit" class="btn"
+									style="background-color: #145f37; border-color: none; color: #eaf2df;">
+									<b>MMTI 테스트</b>
+								</button>
+								<br> <br>
+								<button type="submit" class="btn"
+									style="float: right; background-color: #145f37; border-color: none; color: #eaf2df;">
+									<b>수정</b>
+								</button>
+							</form>
+
 						</div>
 					</div>
 				</div>
