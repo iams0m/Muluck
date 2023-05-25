@@ -167,11 +167,6 @@ div {
 		</div>
 	</nav>
 	<br>
-	<div style="float: center;">
-		<button type="submit" class="btn">자랑하기</button>
-		<button type="submit" class="btn" onclick="location='list'">전체
-			목록</button>
-	</div>
 	<form action="../card/card_detail.jsp" method="get">
 		<h3 class="section-heading" style="text-align: center;">
 			<br> <b>반려식물 등록증을 만들어 보세요</b>
@@ -195,8 +190,7 @@ div {
 									href="one?no=${bag.card_no}">NO :
 										${bag.card_no}</a></b>
 								</form> --%>
-								<b style="float: left;"><a href="one?card_no=${bag.card_no}">NO
-										: ${bag.card_no}</a></b>
+								<b style="float: left;"><a href="one?card_no=${bag.card_no}" style="color: black;">NO : <fmt:formatDate value="${bag.card_birth}" pattern="yyyyMMdd" /> - ${bag.card_no}</a></b>
 								<div class="grid-container">
 									<div class="grid-item a">
 										<h4>

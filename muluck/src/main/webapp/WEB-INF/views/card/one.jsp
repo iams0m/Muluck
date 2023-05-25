@@ -140,17 +140,8 @@ div {
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 커뮤니티 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#">자랑게시판</a></li>
-								<li><a class="dropdown-item" href="#">질문게시판</a></li>
-								<li><a class="dropdown-item" href="#">오픈채팅방</a></li>
-							</ul></li>
-					</ul>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase" href="../main/community.jsp">커뮤니티</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
@@ -182,8 +173,8 @@ div {
 	</div>
 	<br>
 	<div style="float: right;">
-		<a href="update?card_no=${bag.card_no}" role="button" class="btn">수정</a>
-		<a href="card_update?card_no=${bag.card_no}" role="button" class="btn">수정2</a>
+
+		<a role="button" class="btn" href="one2?card_no=${bag.card_no}">수정</a>
 		<a onclick="return confirm('정말 등록증을 삭제하실건가요? :(')"
 			href="delete?card_no=${bag.card_no}" role="button" class="btn">삭제</a>
 	</div>
@@ -195,7 +186,7 @@ div {
 					<div class="parent-container mx-auto">
 						<div class="bg-faded p-4"
 							style="border: 3px solid; border-radius: 44px;">
-							<b style="float: left;">NO : ${bag.card_no}</b>
+							<b style="float: left;">NO : <fmt:formatDate value="${bag.card_birth}" pattern="yyyyMMdd" /> - ${bag.card_no}</b>
 							<div class="grid-container">
 								<div class="grid-item a">
 									<h4>
