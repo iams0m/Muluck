@@ -11,11 +11,15 @@
 		delete from card where card_no = #{card_no}
 	</delete>
 	
-	<update id="up" parameterType="cardVO">
+	<update id="update" parameterType="cardVO">
 		update card set card_img = #{card_img}, card_mmti = #{card_mmti} where card_no = #{card_no}
 	</update>
 	
 	<select id="one" resultType="cardVO">
+		select card_no, card_name, card_species, card_birth, card_mmti, card_img, card_date from card where card_no = #{card_no}
+	</select>
+	
+	<select id="one2" resultType="cardVO">
 		select card_no, card_name, card_species, card_birth, card_mmti, card_img, card_date from card where card_no = #{card_no}
 	</select>
 	
