@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.text.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page import="com.multi.muluck.card.CardDAO"%>
+<%@ page import="com.multi.muluck.card.CardVO"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- 팝업창 -->
 <title>무우럭</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
@@ -26,15 +33,70 @@ div {
 	text-align: center;
 }
 
-input[type='date']::before, input[type='date']:focus::before {
-	content: attr(data-placeholder);
-	width: 100%;
+.btn {
+	background-color: #145f37;
+	border-color: none;
+	color: #eaf2df;
+	font-weight: bold;
 }
 
-input[type='date']:valid::before {
-	display: none;
+.parent-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 600px;
+	height: 260px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-areas: 'a a a a a' 'b b c c c' 'b b c c c' '. . c c c'
+		'd e e e .';
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+	width: 650px;
+	height: 370px;
+	background-color: #eaf2df;
+	border: 4px solid;
+	border-radius: 44px;
+	align-items: flex-start;
+}
+
+.a {
+	grid-area: a;
+}
+
+.b {
+	grid-area: b;
+}
+
+.c {
+	grid-area: c;
+}
+
+.d {
+	grid-area: d;
+}
+
+.e {
+	grid-area: e;
 }
 </style>
+<script type="text/javascript">
+	function clip() {
+		var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
+		var textarea = document.createElement("textarea");
+		// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
+
+		document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
+		url = window.document.location.href; // url에 현재 주소값을 넣어줌
+		textarea.value = url; // textarea 값에 url을 넣어줌
+		textarea.select(); // textarea 설정
+		document.execCommand("copy"); // 복사
+		document.body.removeChild(textarea); //textarea 요소를 없애줌
+		alert("주소가 복사되었습니다.") // 알림창
+	}
+</script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -81,8 +143,17 @@ input[type='date']:valid::before {
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/community.jsp">커뮤니티</a></li>
+					<ul class="navbar-nav px-lg-4">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> 커뮤니티 </a>
+							<ul class="dropdown-menu dropdown-menu-dark">
+								<li><a class="dropdown-item" href="#">자유게시판</a></li>
+								<li><a class="dropdown-item" href="#">자랑게시판</a></li>
+								<li><a class="dropdown-item" href="#">질문게시판</a></li>
+								<li><a class="dropdown-item" href="#">오픈채팅방</a></li>
+							</ul></li>
+					</ul>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
@@ -91,7 +162,6 @@ input[type='date']:valid::before {
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
 								<li><a class="dropdown-item" href="card_main.jsp">반려식물
 										등록증</a></li>
-								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">
@@ -115,63 +185,40 @@ input[type='date']:valid::before {
 						<div class="bg-faded p-5"
 							style="background-color: #eaf2df; border: 3px solid; border-radius: 44px;">
 							<h3 class="section-heading mb-4" style="text-align: center;">
-								<span class="section-heading-lower">내 식물에 대해 알려주세요!</span>
+								<span class="section-heading-lower">반려식물 등록증 수정 화면입니다</span>
 							</h3>
-							<form action="insert" id="form" method="post"
-								enctype="multipart/form-data">
+							<form name="update" method="POST"
+								action="${path}/card/update?card_no=${bag.card_no}">
 								<hr color="grey">
 								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">반려식물 이름</label>
+									<label class="col-sm-2 col-form-label" id="card_name">반려식물 이름</label>
 									<div class="col-sm-5">
-										<input type="text" class="form-control" name="card_name"
-											placeholder="반려식물 이름을 입력해주세요">
+										<label for="card_name"><input type="text" name="card_name" id="card_name" value="${bag.card_name}"></label> 
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">이미지</label>
+									<label class="col-sm-2 col-form-label" id="card_img">이미지</label>
 									<div class="col-sm-5">
-										<input class="form-control" type="file" name="file"
-											id="formFile">
+									<label for="card_img"><input type="text" name="card_img" id="card_img" value="${bag.card_img}"></label> 
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">반려식물 종류</label>
+									<label class="col-sm-2 col-form-label" id="card_species">반려식물 종류</label>
 									<div class="col-sm-5">
-										<input type="text" class="form-control" name="card_species"
-											placeholder="어떤 종인가요?">
+										<label for="card_species"><input type="text" name="card_species" id="card_species" value="${bag.card_species}"></label>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label class="col-sm-2 col-form-label">반려일</label>
 									<div class="col-sm-5">
-										<input type="date" class="form-control" name="card_birth"
-											data-placeholder="날짜 선택" required aria-required="true"
-											value={startDateValue} className={styles.selectDay}
-											onChange={StartDateValueHandler}>
+										<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label class="col-sm-2 col-form-label">MMTI</label>
 									<div class="col-sm-5">
-										<select class="form-control" name="card_mmti">
-											<option value="" hidden>MMTI를 선택해주세요</option> 
-											<option value="ISTJ">ISTJ</option>
-											<option value="ISTP">ISTP</option>
-											<option value="INFJ">INFJ</option>
-											<option value="INTJ">INTJ</option>
-											<option value="ISFJ">ISFJ</option>
-											<option value="ISFP">ISFP</option>
-											<option value="INFP">INFP</option>
-											<option value="INTP">INTP</option>
-											<option value="ESTJ">ESTJ</option>
-											<option value="ESFP">ESFP</option>
-											<option value="ENFP">ENFP</option>
-											<option value="ENTP">ENTP</option>
-											<option value="ESFJ">ESFJ</option>
-											<option value="ESTP">ESTP</option>
-											<option value="ENFJ">ENFJ</option>
-											<option value="ENTJ">ENTJ</option>
-										</select>
+										<input type="text" class="form-control" name="card_mmti"
+											placeholder="반려식물 MMTI를 입력해주세요">
 									</div>
 								</div>
 								<label class="col-form-label">*MMTI : 무우럭에서 제공하는 반려식물 성향
@@ -183,7 +230,7 @@ input[type='date']:valid::before {
 								<br> <br>
 								<button type="submit" class="btn"
 									style="float: right; background-color: #145f37; border-color: none; color: #eaf2df;">
-									<b>만들기</b>
+									<b>수정</b>
 								</button>
 							</form>
 
