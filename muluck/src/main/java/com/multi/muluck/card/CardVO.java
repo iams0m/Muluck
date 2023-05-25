@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 
 public class CardVO {
 	private Integer card_no;
-	private Integer card_id;
 	private String card_name;
 	private String card_species;
 	private Date card_birth;
@@ -19,14 +18,6 @@ public class CardVO {
 
 	public void setCard_no(Integer card_no) {
 		this.card_no = card_no;
-	}
-
-	public Integer getCard_id() {
-		return card_id;
-	}
-
-	public void setCard_id(Integer card_id) {
-		this.card_id = card_id;
 	}
 
 	public String getCard_name() {
@@ -79,7 +70,7 @@ public class CardVO {
 
 	@Override
 	public String toString() {
-		return "CardVO [card_no=" + card_no + ", card_id=" + card_id + ", card_name=" + card_name + ", card_species="
+		return "CardVO [card_no=" + card_no + ", card_name=" + card_name + ", card_species="
 				+ card_species + ", card_birth=" + card_birth + ", card_mmti=" + card_mmti + ", card_img=" + card_img
 				+ ", card_date=" + card_date + "]";
 	}

@@ -25,8 +25,13 @@ public class CardDAO {
 		return my.selectOne("card.one", card_no);
 	}
 	
+	//수정 전, 수정 페이지 불러오기
+	public CardVO one2(int card_no) {
+		return my.selectOne("card.one2", card_no);
+	}
+	
 	public int update(CardVO bag) {
-		int result = my.update("card.up", bag);
+		int result = my.update("card.update", bag);
 		return result;	
 	}
 	
