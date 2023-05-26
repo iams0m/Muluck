@@ -24,11 +24,14 @@ public class CardController {
 	@Autowired
 	CardDAO dao;
 
-	// 반려식물 등록증 등록 시, 파일 업로드
+	// 반려식물 등록증 등록 및 파일 업로드
 	@RequestMapping("card/insert")
 	public void insert(CardVO cardVO, HttpServletRequest request, MultipartFile file, Model model) throws Exception {
-		String savedName = file.getOriginalFilename();
 
+		System.out.println("target : " + cardVO);
+		System.out.println("file : " + file);
+
+		String savedName = file.getOriginalFilename();
 		String uploadPath = request.getSession().getServletContext().getRealPath("resources/upload");
 
 		File target = new File(uploadPath + "/" + savedName);
@@ -36,9 +39,9 @@ public class CardController {
 		file.transferTo(target);
 
 		model.addAttribute("savedName", savedName);
-		System.out.println("img넣기 전>> " + cardVO);
+		System.out.println("img넣기 전 >> " + cardVO);
 		cardVO.setCard_img(savedName);
-		System.out.println("img넣은 후>> " + cardVO);
+		System.out.println("img넣은 후 >> " + cardVO);
 
 		dao.insert(cardVO);
 	}
@@ -57,7 +60,7 @@ public class CardController {
 		System.out.println(card_no + "번 정보입니다.");
 		CardVO bag = dao.one(card_no);
 		model.addAttribute("bag", bag);
-		
+
 	}
 
 	// 반려식물 등록증 수정
@@ -68,15 +71,15 @@ public class CardController {
 		System.out.println("update : " + bag);
 		dao.update(bag);
 	}
-	
+
 	@RequestMapping("card/one2")
 	public void one2(int card_no, Model model) {
 		System.out.println(card_no + "번을 수정합니다.");
 		CardVO bag = dao.one2(card_no);
 		model.addAttribute("bag", bag);
-		
+
 	}
-	
+
 	// 반려식물 등록증 삭제
 	@RequestMapping("card/delete")
 	public String delete(int card_no) {
