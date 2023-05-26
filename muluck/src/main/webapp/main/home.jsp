@@ -76,7 +76,7 @@
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="../diary/cardview.jsp">식물 일지</a></li>
 								<li><a class="dropdown-item" href="../card/list">반려식물 등록증</a></li>
-								<li><a class="dropdown-item" href="#">MMTI 테스트</a></li>
+								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<li class="nav-item px-lg-4"><a
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</nav>
-        <section class="page-section clearfix">
+        <!-- <section class="page-section clearfix">
             <div class="container">
                 <div class="intro">
                     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../resources/assets/img/lakeisha-bennett-WzP3YnV9T-U-unsplash.jpg" alt="..." />
@@ -104,12 +104,12 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
          <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase"><b>안녕하세요<br>무우럭을 소개합니다.</b></h2>
+                    <h2 class="section-heading text-uppercase">(메인페이지 작업중입니다!)<br><b>안녕하세요<br>무우럭을 소개합니다.</b></h2>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">

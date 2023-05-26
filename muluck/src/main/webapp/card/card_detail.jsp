@@ -21,6 +21,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <style>
 div {
 	text-align: center;
@@ -176,12 +177,12 @@ input[type='date']:valid::before {
 								</div>
 								<label class="col-form-label">*MMTI : 무우럭에서 제공하는 반려식물 성향
 									유형이에요! 지금 바로 테스트해보세요</label>
-								<button type="submit" class="btn"
+								<button type="button" class="btn" onclick="location.href='../mmti/mmti_main.jsp' "
 									style="background-color: #145f37; border-color: none; color: #eaf2df;">
 									<b>MMTI 테스트</b>
 								</button>
 								<br> <br>
-								<button type="submit" class="btn"
+								<button type="submit" class="btn" 
 									style="float: right; background-color: #145f37; border-color: none; color: #eaf2df;">
 									<b>만들기</b>
 								</button>
