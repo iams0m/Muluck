@@ -223,6 +223,5 @@ function clip(){
 			</div>
 		</div>
 	</section>
-	<%-- <a href="card_one?card_id=${cardVO.card_no}">내 반려식물 등록증 목록</a> --%>
 </body>
 </html>

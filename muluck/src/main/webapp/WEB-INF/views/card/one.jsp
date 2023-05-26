@@ -209,9 +209,13 @@ div {
 									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
 										height=70>
 								</div> -->
+								<div class="grid-item d">
+									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
+										height=70>
+								</div>
 								<div class="grid-item e">
 									<br>
-									<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
+									<h4><fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
 									<br>무우럭마을 무럭무럭
 									</h4>
 								</div>

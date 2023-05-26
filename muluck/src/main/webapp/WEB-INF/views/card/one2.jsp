@@ -94,6 +94,19 @@ div {
 		alert("주소가 복사되었습니다.") // 알림창
 	}
 
+	function handle_change() {
+		var fileInput = document.getElementById('formFile');
+		var file = fileInput.files[0];
+		var fileName = file.name;
+		console.log('fileName : ', fileName)
+		
+		var reader = new FileReader();
+		  reader.onload = function(e) {
+		    var imgElement = document.getElementById('previewImage');
+		    imgElement.src = e.target.result;
+		  };
+		  reader.readAsDataURL(file);
+	}
 </script>
 </head>
 <body>
@@ -196,9 +209,13 @@ div {
 									<label class="col-sm-2 col-form-label" id="card_img">이미지</label>
 									<div class="col-sm-5">
 										<input class="form-control" type="file" name="file"
-											id="formFile" value="${bag.card_img}">
-										<input type="text" class="form-control" name="card_img"
-											id="card_img" value="${bag.card_img}">
+											id="formFile" value="${bag.card_img}"
+											onchange="handle_change()"> 
+										<img id="previewImage" src="../resources/upload/${bag.card_img}" alt="Preview Image"/ width=200
+											height=200>
+										<input type="text"
+											class="form-control" name="card_img" id="card_img"
+											value="${bag.card_img}">
 									</div>
 								</div>
 

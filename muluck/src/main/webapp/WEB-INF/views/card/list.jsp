@@ -5,8 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	Date date = new Date();
-SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
-String strdate = simpleDate.format(date);
+	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy.MM.dd.");
+	String strdate = simpleDate.format(date);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,7 +190,10 @@ div {
 									href="one?no=${bag.card_no}">NO :
 										${bag.card_no}</a></b>
 								</form> --%>
-								<b style="float: left;"><a href="one?card_no=${bag.card_no}" style="color: black;">NO : <fmt:formatDate value="${bag.card_birth}" pattern="yyyyMMdd" /> - ${bag.card_no}</a></b>
+								<b style="float: left;"><a href="one?card_no=${bag.card_no}"
+									style="color: black;">NO : <fmt:formatDate
+											value="${bag.card_birth}" pattern="yyyyMMdd" /> - ${bag.card_no}
+								</a></b>
 								<div class="grid-container">
 									<div class="grid-item a">
 										<h4>
@@ -213,6 +216,10 @@ div {
 									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
 										height=70>
 								</div> -->
+								<div class="grid-item d">
+									<br> <img src="../resources/assets/img/무럭무럭.png" width=70
+										height=70>
+								</div>
 									<div class="grid-item e">
 										<br>
 										<h4 style="text-align: center;">
