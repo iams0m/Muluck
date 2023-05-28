@@ -129,7 +129,7 @@ input[type='date']:valid::before {
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label">이미지</label>
+									<label class="col-sm-2 col-form-label">사진</label>
 									<div class="col-sm-5">
 										<input class="form-control" type="file" name="file"
 											id="formFile">

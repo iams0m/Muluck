@@ -227,7 +227,7 @@ div {
 								</div>
 								<div class="grid-item e">
 									<br>
-									<h4><fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
+									<h4><fmt:formatDate value="${cardVO.card_date}" pattern="yyyy-MM-dd" />
 									<br>무우럭마을 무럭무럭
 									</h4>
 								</div>

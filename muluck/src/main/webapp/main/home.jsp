@@ -21,6 +21,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -85,26 +86,6 @@
 			</div>
 		</div>
 	</nav>
-        <!-- <section class="page-section clearfix">
-            <div class="container">
-                <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../resources/assets/img/lakeisha-bennett-WzP3YnV9T-U-unsplash.jpg" alt="..." />
-                    <div class="intro-text left-0 bg-faded p-5 rounded">
-                        <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper"></span>
-                            <span class="section-heading-lower">무우럭.</span>
-                            <span class="section-heading-lower"> 
-                            누구나 식물을</span>
-                            <span class="section-heading-lower"> 
-                            쉽게 기를 수 있는</span>
-                            <span class="section-heading-lower"> 
-                            가장 좋은 방법</span>
-                        </h2>
-                        <p class="mb-3"></p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
          <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">

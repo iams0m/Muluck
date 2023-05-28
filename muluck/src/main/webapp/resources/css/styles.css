@@ -2664,7 +2664,10 @@ textarea.form-control-lg {
 
 .btn{
 	background-color: rgb(20, 95, 55);
+	border: none;
+	color: #eaf2df;
 }
+
 
 .btn-check {
   position: absolute;

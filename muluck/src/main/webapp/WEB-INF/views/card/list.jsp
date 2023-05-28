@@ -99,6 +99,7 @@ div {
 		document.body.removeChild(textarea); //textarea 요소를 없애줌
 		alert("주소가 복사되었습니다.") // 알림창
 	}
+
 </script>
 </head>
 <body>

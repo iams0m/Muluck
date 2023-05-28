@@ -174,7 +174,7 @@ div {
 	<br>
 	<div style="float: right;">
 
-		<a role="button" class="btn" href="one2?card_no=${bag.card_no}">수정</a>
+		<a role="button" class="btn" href="card_update?card_no=${bag.card_no}">수정</a>
 		<a onclick="return confirm('정말 등록증을 삭제하실건가요? :(')"
 			href="delete?card_no=${bag.card_no}" role="button" class="btn">삭제</a>
 	</div>
