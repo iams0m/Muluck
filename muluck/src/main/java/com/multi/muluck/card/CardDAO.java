@@ -28,8 +28,8 @@ public class CardDAO {
 	}
 	
 	// 수정 전, 수정 페이지 불러오기
-	public CardVO one2(int card_no) {
-		return my.selectOne("card.one2", card_no);
+	public CardVO card_update(int card_no) {
+		return my.selectOne("card.card_update", card_no);
 	}
 	
 	// 반려식물 등록증 이미지, MMTI 변경

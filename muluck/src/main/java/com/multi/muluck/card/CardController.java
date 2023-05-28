@@ -107,10 +107,10 @@ public class CardController {
 		
 	}
 
-	@RequestMapping("card/one2")
-	public void one2(int card_no, Model model) {
+	@RequestMapping("card/card_update")
+	public void card_update(int card_no, Model model) {
 		System.out.println(card_no + "번을 수정합니다.");
-		CardVO bag = dao.one2(card_no);
+		CardVO bag = dao.card_update(card_no);
 		model.addAttribute("bag", bag);
 
 	}
