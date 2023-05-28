@@ -19,7 +19,8 @@
 	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/mmti.css" type="text/css" rel="stylesheet" />
+<link href="../resources/css/mmti.css" type="text/css"
+	rel="stylesheet" />
 </head>
 <body>
 	<!-- Navigation-->
@@ -95,13 +96,36 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">
-					<b>MMTI 테스트는 준비중이에요 !<br>곧 만나요 :)
+					<b>MMTI 테스트는 준비중이에요 !<br>곧 만나요 :)<br>샘플 테스트
 					</b>
 				</h2>
-				<button type="button" onclick="location.href='mmti_test.jsp';" class="btn"
-									style="background-color: #145f37; border-color: none; color: #eaf2df;">
-									<b>테스트 하러가기</b>
-								</button>
+				<div id="test">
+            <div id="main">
+                <div class="title-wrap">
+                    <h2 class="title">
+                        <!-- 타이틀 -->
+                        샘플 테스트
+                    </h2>
+                </div>
+
+                <div class="question-wrap">
+                    <h3 class="question">
+                        <!-- 질문 -->
+                    </h3>
+                </div>
+                <div class="answer-wrap">
+                    <div class="answer">
+                        <!-- 선택지 -->
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="controller-wrap">
+                        <button class='prev-btn'>이전</button>
+                        <button class='next-btn'>다음</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 			</div>
 		</div>
 	</section>

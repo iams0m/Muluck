@@ -86,23 +86,6 @@
   box-sizing: border-box;
 }
 
-article {
-    margin: 1vmin auto;
-    margin-top: 10%;
-    display: flex;
-    justify-content: center;
-    -webkit-justify-content:center;
-    flex-direction: column;
-    background-color: rgb(245, 245, 245);
-    border-radius: 4vmin;
-    padding: 7vmin 6vmin;
-    text-align: center;
-    width:75vmin; 
-    font-family: 'MaplestoryOTFBold';
-    box-sizing: border-box;
-    border:0.5vmin solid #444;
-    
-}
 
 body {
   background-color: #f2f1df;
@@ -11239,17 +11222,17 @@ p {
 }
 .section-heading .section-heading-upper {
   display: block;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 .section-heading .section-heading-lower {
   display: block;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 .bg-faded {
-  background-color: #eaf2df;
+  background-color: #f6e1c5;
 }
 
 .btn-xl {

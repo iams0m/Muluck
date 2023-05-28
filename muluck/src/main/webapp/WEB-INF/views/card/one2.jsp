@@ -25,6 +25,51 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	function clip() {
+		var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
+		var textarea = document.createElement("textarea");
+		// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
+
+		document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
+		url = window.document.location.href; // url에 현재 주소값을 넣어줌
+		textarea.value = url; // textarea 값에 url을 넣어줌
+		textarea.select(); // textarea 설정
+		document.execCommand("copy"); // 복사
+		document.body.removeChild(textarea); //textarea 요소를 없애줌
+		alert("주소가 복사되었습니다.") // 알림창
+	}
+
+	function handle_change() {
+		var fileInput = document.getElementById('formFile');
+		var file = fileInput.files[0];
+		var fileName = file.name;
+		console.log('fileName : ', fileName)
+		
+		var reader = new FileReader();
+		  reader.onload = function(e) {
+		    var imgElement = document.getElementById('previewImage');
+		    imgElement.src = e.target.result;
+		  };
+		  reader.readAsDataURL(file);
+	}
+	
+	// 선택된 이미지로 show_img가 바뀌게 하기
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				$('#show_img').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
 <style>
 div {
 	text-align: center;
@@ -79,35 +124,6 @@ div {
 	grid-area: e;
 }
 </style>
-<script type="text/javascript">
-	function clip() {
-		var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
-		var textarea = document.createElement("textarea");
-		// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
-
-		document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
-		url = window.document.location.href; // url에 현재 주소값을 넣어줌
-		textarea.value = url; // textarea 값에 url을 넣어줌
-		textarea.select(); // textarea 설정
-		document.execCommand("copy"); // 복사
-		document.body.removeChild(textarea); //textarea 요소를 없애줌
-		alert("주소가 복사되었습니다.") // 알림창
-	}
-
-	function handle_change() {
-		var fileInput = document.getElementById('formFile');
-		var file = fileInput.files[0];
-		var fileName = file.name;
-		console.log('fileName : ', fileName)
-		
-		var reader = new FileReader();
-		  reader.onload = function(e) {
-		    var imgElement = document.getElementById('previewImage');
-		    imgElement.src = e.target.result;
-		  };
-		  reader.readAsDataURL(file);
-	}
-</script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -216,6 +232,18 @@ div {
 										<input type="text"
 											class="form-control" name="card_img" id="card_img"
 											value="${bag.card_img}">
+						<input type="hidden" name="card_img" id="card_img" />
+						<!-- 이미지 넣기 -->
+						<div style="margin-bottom: 10px; margin-top: 20px;">
+							<img id="show_img" width=200 height=200 alt="프로필 사진" style="border-radius: 50px;" src="../resources/upload/${bag.card_img}">
+						</div>
+						<div style="margin-bottom: 10px;">
+							<label for="file">
+								<div style="width: 90px; height: auto; background: white; border: 2px solid rgb(77, 77, 77)"> 사진 변경</div>
+							</label>
+					        <button id="del_img" type="button" style="width: 90px; height: auto; background: white; border: 2px solid rgb(77, 77, 77)" onclick="deleteImage()"> 사진 삭제</button>
+							<input type="file" id="file" name="file" style="display: none;" onchange="readURL(this)"><br>
+						</div>
 									</div>
 								</div>
 
