@@ -33,18 +33,19 @@ public class CardDAO {
 	}
 	
 	// 반려식물 등록증 이미지, MMTI 변경
-//	public int update(CardVO bag) {
-//		int result = my.update("card.update", bag);
-//		return result;	
-//	}
 	
 	public CardVO update(CardVO bag) {
 		int result = my.update("card.update", bag);
 		CardVO info = null;
 		if (result != 0) {
-			info = my.selectOne("card.one2", bag.getCard_no());
+			info = my.selectOne("card.one", bag.getCard_no());
 		}
 		return info;
+		
+//		public int update(CardVO bag) {
+//		int result = my.update("card.update", bag);
+//		return result;	
+//	}
 	}
 	
 	// 반려식물 등록증 삭제
