@@ -8,6 +8,7 @@
    <typeAliases>
       <!-- <typeAlias type="com.multi.muluck.main.mainVO" alias="mainVO"></typeAlias> -->
       <typeAlias type="com.multi.muluck.card.CardVO" alias="cardVO"></typeAlias>
+      <!-- <typeAlias type="com.multi.muluck.card.PageVO" alias="pageVO"></typeAlias> -->
       <!-- <typeAlias type="com.multi.muluck.member.MemberVO" alias="memberVO"></typeAlias>
       <typeAlias type="com.multi.muluck.business.BusinessVO" alias="businessVO"></typeAlias> -->
    </typeAliases>
