@@ -30,6 +30,8 @@
 	crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+
+	// 주소 복사
 	function clip() {
 		var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
 		var textarea = document.createElement("textarea");
@@ -44,7 +46,8 @@
 		alert("주소가 복사되었습니다.") // 알림창
 	}
 
-	function handle_change() {
+	// 사진 수정
+	/* function handle_change() {
 		var fileInput = document.getElementById('formFile');
 		var file = fileInput.files[0];
 		var fileName = file.name;
@@ -56,19 +59,30 @@
 		    imgElement.src = e.target.result;
 		  };
 		  reader.readAsDataURL(file);
-	}
+	} */
 	
-	// 선택된 이미지로 show_img가 바뀌게 하기
+	// 선택된 사진로 show_img가 바뀌게 하기
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 
 			reader.onload = function(e) {
+				// 파일 내용을 이용하여 원하는 동작 수행
 				$('#show_img').attr('src', e.target.result);
 			}
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+	
+	//사진 삭제
+  	function deleteImage() {
+ 		$('#show_img').attr('src', '../resources/upload/무럭무럭.png');
+		$('#file').val('');
+		$('#card_img').val("무럭무럭.png");
+    }
+    
+    
+
 </script>
 <style>
 div {
@@ -206,7 +220,7 @@ div {
 							<h3 class="section-heading mb-4" style="text-align: center;">
 								<span class="section-heading-lower">반려식물 등록증 수정 화면입니다</span>
 							</h3>
-							<form action="update?card_no=${bag.card_no}" method="POST">
+							<form action="update?card_no=${bag.card_no}" method="POST" enctype="multipart/form-data">
 								<b style="float: left;">NO : <fmt:formatDate
 										value="${bag.card_birth}" pattern="yyyyMMdd" /> -
 									${bag.card_no}
@@ -222,26 +236,23 @@ div {
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label class="col-sm-2 col-form-label" id="card_img">이미지</label>
+									<label class="col-sm-2 col-form-label" id="card_img">사진</label>
 									<div class="col-sm-5">
-										<input class="form-control" type="file" name="file"
+										<%-- <input class="form-control" type="file" name="file"
 											id="formFile" value="${bag.card_img}"
-											onchange="handle_change()"> 
-										<img id="previewImage" src="../resources/upload/${bag.card_img}" alt="Preview Image"/ width=200
-											height=200>
-										<input type="text"
-											class="form-control" name="card_img" id="card_img"
-											value="${bag.card_img}">
+											onchange="handle_change()">  --%>
+										<%-- <img id="previewImage" src="../resources/upload/${bag.card_img}" alt="Preview Image"/ width=200
+											height=200> --%>									
 						<input type="hidden" name="card_img" id="card_img" />
-						<!-- 이미지 넣기 -->
+						<!-- 사진 넣기 -->
 						<div style="margin-bottom: 10px; margin-top: 20px;">
 							<img id="show_img" width=200 height=200 alt="프로필 사진" style="border-radius: 50px;" src="../resources/upload/${bag.card_img}">
 						</div>
 						<div style="margin-bottom: 10px;">
 							<label for="file">
-								<div style="width: 90px; height: auto; background: white; border: 2px solid rgb(77, 77, 77)"> 사진 변경</div>
+								<div class="btn" style="width: 90px; height: 30px;">변경하기</div>
 							</label>
-					        <button id="del_img" type="button" style="width: 90px; height: auto; background: white; border: 2px solid rgb(77, 77, 77)" onclick="deleteImage()"> 사진 삭제</button>
+					        <button id="del_img" type="button" class="btn" style="width: 90px; height: 30px;" onclick="deleteImage()">삭제하기</button>
 							<input type="file" id="file" name="file" style="display: none;" onchange="readURL(this)"><br>
 						</div>
 									</div>
