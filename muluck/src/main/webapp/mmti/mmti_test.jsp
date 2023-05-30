@@ -27,20 +27,6 @@
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
 		<div class="container px-4 px-lg-5">
 			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ms-auto py-4 py-lg-0">
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="../main/test">마이페이지</a></li>
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="index.jsp">로그아웃</a></li>
-				</ul>
-			</div>
 		</div>
 	</nav>
 	<header>
@@ -53,43 +39,6 @@
 			</div>
 		</h1>
 	</header>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand text-uppercase fw-bold d-lg-none"
-				href="index.jsp">Start Bootstrap</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/community.jsp">커뮤니티</a></li>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="../diary/cardview.jsp">식물
-										일지</a></li>
-								<li><a class="dropdown-item" href="../card/list">반려식물
-										등록증</a></li>
-								<li><a class="dropdown-item" href="../mmti/main.jsp">MMTI
-										테스트</a></li>
-							</ul></li>
-					</ul>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase"
-						href="../business/business_main.jsp">거래/나눔</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 
 	<!-- Services-->
 	<section class="page-section" id="services">
