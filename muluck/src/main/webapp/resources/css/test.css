@@ -76,7 +76,7 @@ body {
 .sub_title {
 	font-size: 20px;
 	font-weight: bold;
-	color: #7F47DD;
+	color: #145f37;
 }
 
 .intro {
@@ -114,8 +114,8 @@ body {
 	font-family: "NEXON Lv1 Gothic OTF";
 	font-size: 20px;
 	font-weight: bold;
-	background-color: #fff;
-	color: #7F47DD;
+	background-color: #145f37;
+	color: #fff;
 	cursor: pointer;
 	margin-bottom: 20px;
 }

@@ -3,78 +3,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>MMTI 테스트</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나의 반려식물 유형 찾기</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
-<!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet" />
-<link
-	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
-	rel="stylesheet" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/mmti.css" type="text/css"
-	rel="stylesheet" />
+<link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
+<link rel="stylesheet" href="../resources/css/test.css" type="text/css">
 </head>
 <body>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
-		</div>
-	</nav>
-	<header>
-		<h1 class="site-heading text-center text-faded d-none d-lg-block">
-			<!-- <span class="site-heading-lower">무우럭</span>
-                <span class="site-heading-upper text-primary mb-3">muluck</span> -->
-			<div>
-				<img src="../resources/assets/img/무우럭.png"
-					style="margin-left: auto; margin-right: auto; display: block;" />
+	<section id="main_contents">
+		<div class="wrapper">
+			<div class="title">
+				<h3 class="main_title">반려식물 MMTI</h3>
+				<h3 class="sub_title">Muluck-Muluck Type Indicator<br><br>식물을 키우는 곳의 환경 조건과<br>가드닝 스타일을 분석하여,<br> 나의 반려식물 MBTI를 알려드려요.</h3>
 			</div>
-		</h1>
-	</header>
-
-	<!-- Services-->
-	<section class="page-section" id="services">
-		<div class="container">
-			<div class="text-center">
-				<h2 class="section-heading text-uppercase">
-					<b>MMTI 테스트는 준비중이에요 !<br>곧 만나요 :)<br>샘플 테스트
-					</b>
-				</h2>
-				<div id="test">
-            <div id="main">
-                <div class="title-wrap">
-                    <h2 class="title">
-                        <!-- 타이틀 -->
-                        샘플 테스트
-                    </h2>
-                </div>
-
-                <div class="question-wrap">
-                    <h3 class="question">
-                        <!-- 질문 -->
-                    </h3>
-                </div>
-                <div class="answer-wrap">
-                    <div class="answer">
-                        <!-- 선택지 -->
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="controller-wrap">
-                        <button class='prev-btn'>이전</button>
-                        <button class='next-btn'>다음</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+			<div class="intro">
+				<h1>내 식물 유형은?!</h1>
+				<div class="type">
+					<ul class="type_list">
+						<!-- 유형 1 -->
+						<li>PHDA</li>
+						<!-- 유형 2 -->
+						<li>PHDU</li>
+						<!-- 유형 3 -->
+						<li>PHLA</li>
+						<!-- 유형 4 -->
+						<li>PHLU</li>
+						<!-- 유형 5 -->
+						<li>PDDA</li>
+						<!-- 유형 6 -->
+						<li>PDDU</li>
+						<!-- 유형 7 -->
+						<li>PDLA</li>
+						<!-- 유형 8 -->
+						<li>PDLU</li>
+						<!-- 유형 9 -->
+						<li>AHDU</li>
+						<!-- 유형 10 -->
+						<li>AHDA</li>
+						<!-- 유형 11 -->
+						<li>AHLU</li>
+						<!-- 유형 12 -->
+						<li>AHLA</li>
+						<!-- 유형 13 -->
+						<li>ADDA</li>
+						<!-- 유형 14 -->
+						<li>ADDU</li>
+						<!-- 유형 15 -->
+						<li>ADLA</li>
+						<!-- 유형 16 -->
+						<li>ADLU</li>
+					</ul>
+				</div>
+			</div>
+			<div class="button">
+				<a href="mmti_question.jsp">
+					<button class="start" type="button">시작하기</button>
+				</a>
+			</div>
+			<div class="muluck">
+				<a href="#"> <img src="../resources/assets/img/무럭무럭.png"
+					alt="muluck">
+				</a>
 			</div>
 		</div>
 	</section>

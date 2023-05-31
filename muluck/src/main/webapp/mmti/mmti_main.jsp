@@ -19,7 +19,7 @@
 	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/mmti.css" type="text/css" rel="stylesheet" />
+<link href="../resources/css/mmti1.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<!-- Navigation-->
@@ -99,7 +99,7 @@
 					</b>
 				</h2>
 				<h3>식물을 키우는 곳의 환경 조건과 가드닝 스타일을 분석하여, 나의 반려식물 MBTI를 알려드려요.</h3>
-				<button type="button" onclick="window.open('mmti_test2.jsp', )" class="btn"
+				<button type="button" onclick="window.open('mmti_test.jsp', )" class="btn"
 									style="background-color: #145f37; border-color: none; color: #eaf2df;">
 									<b>테스트 하러가기</b>
 								</button>

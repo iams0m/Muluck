@@ -66,6 +66,12 @@ body {
 	cursor: pointer;
 }
 
+.space {
+  width: 4px;
+  height: auto;
+  display: inline-block;
+}
+
 .btn_wrap {
 	display: flex;
 	justify-content: center;
@@ -83,12 +89,56 @@ button, submit_btn {
 	border-radius: 10px;
 	font-family: "NEXON Lv1 Gothic OTF";
 	font-size: 20px;
-	background-color: #7F47DD;
+	background-color: #145f37;
 	color: #fff;
 	cursor: pointer;
 }
 
 button:hover, .submit_btn:hover {
-	color: #7F47DD;
+	color: #145f37;
 	background-color: #fff;
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal p {
+  margin-bottom: 20px;
+}
+
+.modal button {
+  background-color: #145f37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #145f37;
 }
