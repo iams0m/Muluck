@@ -142,3 +142,15 @@ button:hover, .submit_btn:hover {
 .modal button:hover {
   background-color: #145f37;
 }
+
+.status{
+	height: 50px;
+	width: 80%;
+	background-color: #145f37;
+	border-radius: 20px;
+}
+
+.statusBar{
+	height: 100%;
+	background-color: #fff;
+}

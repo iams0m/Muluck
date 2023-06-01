@@ -12,7 +12,7 @@
 <meta name="author" content="" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- 팝업창 -->
-<title>무우럭</title>
+<title>반려식물 등록증</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Google fonts-->
@@ -28,6 +28,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
+<!-- Bootstrap core JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 <script type="text/javascript">
 
@@ -192,8 +195,9 @@ div {
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="card_main.jsp">반려식물
+								<li><a class="dropdown-item" href="list">반려식물
 										등록증</a></li>
+								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">

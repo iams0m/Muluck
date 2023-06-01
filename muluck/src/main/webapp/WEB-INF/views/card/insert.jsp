@@ -15,7 +15,7 @@ String strdate = simpleDate.format(date);
 <meta name="description" content="" />
 <meta name="author" content="" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!-- 팝업창 -->
-<title>무우럭</title>
+<title>반려식물 등록증</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Google fonts-->
@@ -28,6 +28,10 @@ String strdate = simpleDate.format(date);
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
+	<!-- Bootstrap core JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	
 <style>
 div {
 	text-align: center;

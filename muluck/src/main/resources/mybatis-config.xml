@@ -6,17 +6,13 @@
 <!-- SQL문 정의할 때 VO표현을 간단하게 하고 싶은 경우. 
      별명을 지어서 사용 -->
    <typeAliases>
-      <!-- <typeAlias type="com.multi.muluck.main.mainVO" alias="mainVO"></typeAlias> -->
       <typeAlias type="com.multi.muluck.card.CardVO" alias="cardVO"></typeAlias>
-      <!-- <typeAlias type="com.multi.muluck.card.PageVO" alias="pageVO"></typeAlias> -->
-      <!-- <typeAlias type="com.multi.muluck.member.MemberVO" alias="memberVO"></typeAlias>
-      <typeAlias type="com.multi.muluck.business.BusinessVO" alias="businessVO"></typeAlias> -->
+      <!-- <typeAlias type="com.multi.muluck.mmti.MmtiVO" alias="mmtiVO"></typeAlias> -->
    </typeAliases>
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. 테이블당 한개 사용 -->
    <!-- src/main/resources/mapper -->
       <mapper resource="mapper/cardMapper.xml" /> 
-      <!-- <mapper resource="mapper/memberMapper.xml" />  
-      <mapper resource="mapper/businessMapper.xml" />   -->
+      <!-- <mapper resource="mapper/mmtiMapper.xml" />  -->
    </mappers>
 </configuration>

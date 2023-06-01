@@ -10,7 +10,7 @@
 <meta property="og:image" content="">
 <meta property="og:url" content="">
 <meta property="og:description" content="나의 반려식물에게 맞는 성격 유형은 무엇일까?">
-<title>나의 반려식물 유형 찾기</title>
+<title>나의 반려식물 MMTI 찾기</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
@@ -114,7 +114,7 @@
 					<h1>PHDA</h1>
 				</div>
 				<div class="result_img">
-					<img src="../resources/assets/img/풀멍.png" alt="frontend">
+					<img src="../resources/assets/img/mmti.png" alt="frontend">
 				</div>
 			</div>
 			<div class="result_explains">
@@ -127,7 +127,7 @@
 						<li><b>H</b>/D : <b>Humid(습한)</b> / Dry(건조한)</li>
 						<h4>내 반려식물은 공기가 촉촉한 곳을 좋아해요.</h4>
 						<li><b>D</b>/L : <b>Dim(빛이 잘 들지 않는 곳)</b> / Light(빛이 잘 드는 곳)</li>
-						<h4>내 반려식물은 빛이 잘 드는 곳을 좋아해요.</h4>
+						<h4>내 반려식물은 빛이 잘 들지 않는 곳을 좋아해요.</h4>
 						<li><b>A</b>/U : <b>Adaptable(적응력이 뛰어난)</b> / Unadaptable(적응을 어려워하는)</li>
 						<h4>내 반려식물은 주변 환경에 잘 맞춰줘요. 적응력이 뛰어난 친구에요!</h4>
 					</ul>
@@ -152,21 +152,13 @@
 							<button type="button">테스트 다시 하기</button>
 					</a>
 					</li>
-				</ul>
-			</div>
-			<div class="buttons">
-				<ul>
 					<li>
 						<h3>무우럭이 궁금하다면?</h3> <a href="../main/home.jsp">
 							<button type="button">무우럭 서비스 이용해보기</button>
 					</a>
 					</li>
+					
 				</ul>
-			</div>
-			<div class="muluck">
-				<a href="#"> <img src="../resources/assets/img/무럭무럭.png"
-					alt="muluck">
-				</a>
 			</div>
 		</div>
 	</section>

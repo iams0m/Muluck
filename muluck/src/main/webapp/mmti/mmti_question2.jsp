@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
 <link rel="stylesheet" href="../resources/css/form.css" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="../resources/js/qna.js"></script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function() {
 		var nextBtns = document.querySelectorAll(".next_btn");
@@ -139,6 +140,25 @@
 		});
 	});
 	
+	
+	function next() {
+		   $("#title").html(q[num]["title"]); 
+		   $("#type").val(q[num]["type"]);
+		   $("#A").html(q[num]["A"]); 
+		   $("#B").html(q[num]["B"]);
+		   num++; 
+	}
+	
+	$("#A").click(function () {
+	    var type = $("#type").val();
+	    var preValue = $("#" + type).val();
+	    $("#" + type).val(parseInt(preValue) + 1);
+	    next();
+	});
+	
+	$("#B").click(function () {
+	    next();
+	});
 </script>
 </head>
 <body>
@@ -154,12 +174,12 @@
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_1" type="radio" name="answer_1"> <label
-								for="one_1">대답1</label>
+							<input id="A" type="radio" name="answer_1"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_1" type="radio" name="answer_1"> <label
-								for="two_1">대답2</label>
+							<input id="B" type="radio" name="answer_1"> <label
+								for="B">대답2</label>
 						</div>
 						<input type="hidden" id="PA" value="0">
 						<input type="hidden" id="HD" value="0">
@@ -178,15 +198,16 @@
 					<div class="question_container">
 						<h3 class="number">2/12</h3>
 						<h3 class="question">질문2</h3>
+						<input id="type" type="hidden" value="PA">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_2" type="radio" name="answer_2"> <label
-								for="one_2">대답1</label>
+							<input id="A" type="radio" name="answer_2"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_2" type="radio" name="answer_2"> <label
-								for="two_2">대답2</label>
+							<input id="B" type="radio" name="answer_2"> <label
+								for="B">대답2</label>
 						</div>
 
 					</div>
@@ -202,15 +223,16 @@
 					<div class="question_container">
 						<h3 class="number">3/12</h3>
 						<h3 class="question">질문3</h3>
+						<input id="type" type="hidden" value="PA">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_3" type="radio" name="answer_3"> <label
-								for="one_3">대답1</label>
+							<input id="A" type="radio" name="answer_3"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_3" type="radio" name="answer_3"> <label
-								for="two_3">대답2</label>
+							<input id="B" type="radio" name="answer_3"> <label
+								for="B">대답2</label>
 						</div>
 
 					</div>
@@ -226,15 +248,16 @@
 					<div class="question_container">
 						<h3 class="number">4/12</h3>
 						<h3 class="question">질문4</h3>
+						<input id="type" type="hidden" value="HD">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_4" type="radio" name="answer_4"> <label
-								for="one_4">대답1</label>
+							<input id="A" type="radio" name="answer_4"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_4" type="radio" name="answer_4"> <label
-								for="two_4">대답2</label>
+							<input id="B" type="radio" name="answer_4"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -249,15 +272,16 @@
 					<div class="question_container">
 						<h3 class="number">5/12</h3>
 						<h3 class="question">질문5</h3>
+						<input id="type" type="hidden" value="HD">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_5" type="radio" name="answer_5"> <label
-								for="one_5">대답1</label>
+							<input id="A" type="radio" name="answer_5"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_5" type="radio" name="answer_5"> <label
-								for="two_5">대답2</label>
+							<input id="B" type="radio" name="answer_5"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -272,15 +296,16 @@
 					<div class="question_container">
 						<h3 class="number">6/12</h3>
 						<h3 class="question">질문6</h3>
+						<input id="type" type="hidden" value="HD">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_6" type="radio" name="answer_6"> <label
-								for="one_3">대답1</label>
+							<input id="A" type="radio" name="answer_6"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_6" type="radio" name="answer_6"> <label
-								for="two_6">대답2</label>
+							<input id="B" type="radio" name="answer_6"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -295,15 +320,16 @@
 					<div class="question_container">
 						<h3 class="number">7/12</h3>
 						<h3 class="question">질문7</h3>
+						<input id="type" type="hidden" value="DL">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_7" type="radio" name="answer_7"> <label
-								for="one_7">대답1</label>
+							<input id="A" type="radio" name="answer_7"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_7" type="radio" name="answer_7"> <label
-								for="two_7">대답2</label>
+							<input id="B" type="radio" name="answer_7"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -318,15 +344,16 @@
 					<div class="question_container">
 						<h3 class="number">8/12</h3>
 						<h3 class="question">질문8</h3>
+						<input id="type" type="hidden" value="DL">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_8" type="radio" name="answer_8"> <label
-								for="one_8">대답1</label>
+							<input id="A" type="radio" name="answer_8"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_8" type="radio" name="answer_8"> <label
-								for="two_8">대답2</label>
+							<input id="B" type="radio" name="answer_8"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -341,15 +368,16 @@
 					<div class="question_container">
 						<h3 class="number">9/12</h3>
 						<h3 class="question">질문9</h3>
+						<input id="type" type="hidden" value="DL">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_9" type="radio" name="answer_9"> <label
-								for="one_9">대답1</label>
+							<input id="A" type="radio" name="answer_9"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_9" type="radio" name="answer_9"> <label
-								for="two_9">대답2</label>
+							<input id="B" type="radio" name="answer_9"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -363,15 +391,16 @@
 					<div class="question_container">
 						<h3 class="number">10/12</h3>
 						<h3 class="question">질문10</h3>
+						<input id="type" type="hidden" value="AU">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_10" type="radio" name="answer_10"> <label
-								for="one_10">대답1</label>
+							<input id="A" type="radio" name="answer_10"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_10" type="radio" name="answer_10"> <label
-								for="two_10">대답2</label>
+							<input id="B" type="radio" name="answer_10"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -386,15 +415,16 @@
 					<div class="question_container">
 						<h3 class="number">11/12</h3>
 						<h3 class="question">질문11</h3>
+						<input id="type" type="hidden" value="AU">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_11" type="radio" name="answer_11"> <label
-								for="one_11">대답1</label>
+							<input id="A" type="radio" name="answer_11"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_11" type="radio" name="answer_11"> <label
-								for="two_11">대답2</label>
+							<input id="B" type="radio" name="answer_11"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -409,15 +439,16 @@
 					<div class="question_container">
 						<h3 class="number">12/12</h3>
 						<h3 class="question">질문12</h3>
+						<input id="type" type="hidden" value="AU">
 					</div>
 					<div class="answer">
 						<div>
-							<input id="one_12" type="radio" name="answer_12"> <label
-								for="one_12">대답1</label>
+							<input id="A" type="radio" name="answer_12"> <label
+								for="A">대답1</label>
 						</div>
 						<div>
-							<input id="two_12" type="radio" name="answer_12"> <label
-								for="two_12">대답2</label>
+							<input id="B" type="radio" name="answer_12"> <label
+								for="B">대답2</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">

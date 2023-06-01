@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나의 반려식물 유형 찾기</title>
+<title>나의 반려식물 MMTI 찾기</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
@@ -15,8 +15,11 @@
 	<section id="main_contents">
 		<div class="wrapper">
 			<div class="title">
+				<a href="#"> <img src="../resources/assets/img/무럭무럭.png"
+					alt="muluck">
+				</a>
 				<h3 class="main_title">반려식물 MMTI</h3>
-				<h3 class="sub_title">Muluck-Muluck Type Indicator<br><br>식물을 키우는 곳의 환경 조건과<br>가드닝 스타일을 분석하여,<br> 나의 반려식물 MBTI를 알려드려요.</h3>
+				<h3 class="sub_title">Muluck-Muluck Type Indicator<br><br>식물을 키우는 곳의 환경 조건과<br>가드닝 스타일을 분석하여,<br> 내 반려식물의 MBTI를 알려드려요.</h3>
 			</div>
 			<div class="intro">
 				<h1>내 식물 유형은?!</h1>
@@ -60,11 +63,6 @@
 			<div class="button">
 				<a href="mmti_question.jsp">
 					<button class="start" type="button">시작하기</button>
-				</a>
-			</div>
-			<div class="muluck">
-				<a href="#"> <img src="../resources/assets/img/무럭무럭.png"
-					alt="muluck">
 				</a>
 			</div>
 		</div>

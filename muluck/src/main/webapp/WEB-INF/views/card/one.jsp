@@ -12,7 +12,7 @@
 <meta name="author" content="" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- 팝업창 -->
-<title>무우럭</title>
+<title>반려식물 등록증</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Google fonts-->
@@ -25,6 +25,12 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" type="text/css"
 	rel="stylesheet" />
+<!-- Bootstrap core JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 <style>
 div {
 	text-align: center;
@@ -78,22 +84,116 @@ div {
 .e {
 	grid-area: e;
 }
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 400px;
+}
+
+.modal-content h2 {
+	margin-top: 0;
+}
+
+.modal-content p {
+	margin-bottom: 20px;
+}
+
+.modal-content button {
+	background-color: #145f37;
+	border: none;
+	color: #eaf2df;
+	padding: 10px 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.modal-content button:hover {
+	background-color: #0c4025;
+}
 </style>
 <script type="text/javascript">
-	function clip() {
-		var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
-		var textarea = document.createElement("textarea");
-		// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
+	function showModal(title, message) {
+		var modal = document.createElement("div");
+		modal.classList.add("modal");
 
-		document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
-		url = window.document.location.href; // url에 현재 주소값을 넣어줌
-		textarea.value = url; // textarea 값에 url을 넣어줌
-		textarea.select(); // textarea 설정
-		document.execCommand("copy"); // 복사
-		document.body.removeChild(textarea); //textarea 요소를 없애줌
-		alert("주소가 복사되었습니다.") // 알림창
+		var modalContent = document.createElement("div");
+		modalContent.classList.add("modal-content");
+
+		var modalTitle = document.createElement("h2");
+		modalTitle.textContent = title;
+
+		var modalMessage = document.createElement("p");
+		modalMessage.textContent = message;
+
+		var closeButton = document.createElement("button");
+		closeButton.textContent = "닫기";
+		closeButton.addEventListener("click", function() {
+			closeModal();
+		});
+
+		// 요소들을 모달에 추가
+		modalContent.appendChild(modalTitle);
+		modalContent.appendChild(modalMessage);
+		modalContent.appendChild(closeButton);
+		modal.appendChild(modalContent);
+
+		// 모달을 페이지에 추가
+		document.body.appendChild(modal);
+
+		// 모달을 표시
+		modal.style.display = "block";
+	}
+
+	var copyButton = document.querySelector(".copy_btn");
+	copyButton.addEventListener("click", function() {
+		copyUrl();
+	});
+
+	function copyUrl() {
+		let tmp = document.createElement('input');
+		let url = window.location.href;
+
+		document.body.appendChild(tmp);
+		tmp.value = url;
+		tmp.select();
+		document.execCommand("copy");
+		document.body.removeChild(tmp);
+
+		showModal("알림", "URL이 복사되었습니다.");
+	}
+
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "none";
+	}
+
+	// 닫기 버튼에 대한 처리
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		if (modal) {
+			modal.style.display = "none";
+			document.body.removeChild(modal);
+		}
 	}
 </script>
+
+
 </head>
 <body>
 	<!-- Navigation-->
@@ -148,8 +248,10 @@ div {
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="card_main.jsp">반려식물
+								<li><a class="dropdown-item" href="list">반려식물
 										등록증</a></li>
+								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI
+										테스트</a></li>
 							</ul></li>
 					</ul>
 					<ul class="navbar-nav px-lg-4">
@@ -168,8 +270,10 @@ div {
 	<br>
 	<div style="float: center;">
 		<button type="submit" class="btn">자랑하기</button>
-		<button type="submit" class="btn" onclick="clip(); return false;">주소 복사하기</button>
-		<button type="submit" class="btn" onclick="location='list'">전체 목록</button>
+		<button type="submit" class="copy_btn btn"
+			onclick="javascript:copyUrl()">주소 복사하기</button>
+		<button type="submit" class="btn" onclick="location='list'">전체
+			목록</button>
 	</div>
 	<br>
 	<div style="float: right;">
@@ -186,7 +290,10 @@ div {
 					<div class="parent-container mx-auto">
 						<div class="bg-faded p-4"
 							style="border: 3px solid; border-radius: 44px;">
-							<b style="float: left;">NO : <fmt:formatDate value="${bag.card_birth}" pattern="yyyyMMdd" /> - ${bag.card_no}</b>
+							<b style="float: left;">NO : <fmt:formatDate
+									value="${bag.card_birth}" pattern="yyyyMMdd" /> -
+								${bag.card_no}
+							</b>
 							<div class="grid-container">
 								<div class="grid-item a">
 									<h4>
@@ -215,8 +322,9 @@ div {
 								</div>
 								<div class="grid-item e">
 									<br>
-									<h4><fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
-									<br>무우럭마을 무럭무럭
+									<h4>
+										<fmt:formatDate value="${bag.card_date}" pattern="yyyy-MM-dd" />
+										<br>무우럭마을 무럭무럭
 									</h4>
 								</div>
 							</div>
@@ -226,5 +334,12 @@ div {
 			</div>
 		</div>
 	</section>
+	<div class="modal">
+		<div class="modal-content">
+			<h2>모달 제목</h2>
+			<p>모달 내용</p>
+			<button id="modal-close-btn">닫기</button>
+		</div>
+	</div>
 </body>
 </html>
