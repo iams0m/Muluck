@@ -31,8 +31,113 @@
 <!-- Bootstrap core JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	function showModal(title, message) {
+		var modal = document.createElement("div");
+		modal.classList.add("modal");
 
+		var modalContent = document.createElement("div");
+		modalContent.classList.add("modal-content");
+
+		var modalTitle = document.createElement("h2");
+		modalTitle.textContent = title;
+
+		var modalMessage = document.createElement("p");
+		modalMessage.textContent = message;
+
+		var closeButton = document.createElement("button");
+		closeButton.textContent = "닫기";
+		closeButton.addEventListener("click", function() {
+			closeModal();
+		});
+
+		// 요소들을 모달에 추가
+		modalContent.appendChild(modalTitle);
+		modalContent.appendChild(modalMessage);
+		modalContent.appendChild(closeButton);
+		modal.appendChild(modalContent);
+
+		// 모달을 페이지에 추가
+		document.body.appendChild(modal);
+
+		// 모달을 표시
+		modal.style.display = "block";
+	}
+
+	var copyButton = document.querySelector(".copy_btn");
+	copyButton.addEventListener("click", function() {
+		copyUrl();
+	});
+
+	function copyUrl() {
+		let tmp = document.createElement('input');
+		let url = window.location.href;
+
+		document.body.appendChild(tmp);
+		tmp.value = url;
+		tmp.select();
+		document.execCommand("copy");
+		document.body.removeChild(tmp);
+
+		showModal("알림", "URL이 복사되었습니다.");
+	}
+
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "none";
+	}
+
+	// 닫기 버튼에 대한 처리
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		if (modal) {
+			modal.style.display = "none";
+			document.body.removeChild(modal);
+		}
+	}
+</script>
 <style>
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 400px;
+}
+
+.modal-content h2 {
+	margin-top: 0;
+}
+
+.modal-content p {
+	margin-bottom: 20px;
+}
+
+.modal-content button {
+	background-color: #145f37;
+	border: none;
+	color: #eaf2df;
+	padding: 10px 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.modal-content button:hover {
+	background-color: #0c4025;
+}
 div {
 	text-align: center;
 }
@@ -188,10 +293,8 @@ div {
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>자랑하기</b>
 		</button>
-		<button type="submit" class="btn" onclick="clip(); return false;"
-			style="background-color: #145f37; border-color: none; color: #eaf2df;">
-			<b>주소 복사하기</b>
-		</button>
+		<button type="submit" class="copy_btn btn"
+			onclick="javascript:copyUrl()">주소 복사하기</button>
 		<button type="submit" class="btn" onclick="location='list'"
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>전체 목록</b>
@@ -244,5 +347,12 @@ div {
 		</div>
 	</section>
 	<%-- <a href="card_one?card_id=${cardVO.card_no}">내 반려식물 등록증 목록</a> --%>
+		<div class="modal">
+		<div class="modal-content">
+			<h2>모달 제목</h2>
+			<p>모달 내용</p>
+			<button id="modal-close-btn">닫기</button>
+		</div>
+	</div>
 </body>
 </html>

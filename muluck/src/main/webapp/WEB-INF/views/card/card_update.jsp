@@ -282,22 +282,22 @@ div {
 									<div class="col-sm-5">
 										<select class="form-control" name="card_mmti">
 											<option value="" hidden>${bag.card_mmti}</option>
-											<option value="ISTJ">ISTJ</option>
-											<option value="ISTP">ISTP</option>
-											<option value="INFJ">INFJ</option>
-											<option value="INTJ">INTJ</option>
-											<option value="ISFJ">ISFJ</option>
-											<option value="ISFP">ISFP</option>
-											<option value="INFP">INFP</option>
-											<option value="INTP">INTP</option>
-											<option value="ESTJ">ESTJ</option>
-											<option value="ESFP">ESFP</option>
-											<option value="ENFP">ENFP</option>
-											<option value="ENTP">ENTP</option>
-											<option value="ESFJ">ESFJ</option>
-											<option value="ESTP">ESTP</option>
-											<option value="ENFJ">ENFJ</option>
-											<option value="ENTJ">ENTJ</option>
+											<option value="PHDA">PHDA</option>
+											<option value="PHDU">PHDU</option>
+											<option value="PHLA">PHLA</option>
+											<option value="PHLU">PHLU</option>
+											<option value="PDDA">PDDA</option>
+											<option value="PDDU">PDDU</option>
+											<option value="PDLA">PDLA</option>
+											<option value="PDLU">PDLU</option>
+											<option value="AHDA">AHDA</option>
+											<option value="AHDU">AHDU</option>
+											<option value="AHLA">AHLA</option>
+											<option value="AHLU">AHLU</option>
+											<option value="ADDA">ADDA</option>
+											<option value="ADDU">ADDU</option>
+											<option value="ADLA">ADLA</option>
+											<option value="ADLU">ADLU</option>
 										</select>
 									</div>
 								</div>

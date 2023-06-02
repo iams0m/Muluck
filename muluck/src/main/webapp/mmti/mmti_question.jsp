@@ -149,17 +149,17 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">1/12</h3>
-						<h3 class="question">질문1</h3>
+						<h3 class="question">식물에 얼마나 자주 관심을 주나요?</h3>
 						<input id="type" type="hidden" value="PA">
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_1" type="radio" name="answer_1"> <label
-								for="one_1">대답1</label>
+								for="one_1">자주 들여다보는 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_1" type="radio" name="answer_1"> <label
-								for="two_1">대답2</label>
+								for="two_1">생각날 때마다 한번씩 들여다 보는 편이에요.</label>
 						</div>
 						<input type="hidden" id="PA" value="0">
 						<input type="hidden" id="HD" value="0">
@@ -177,16 +177,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">2/12</h3>
-						<h3 class="question">질문2</h3>
+						<h3 class="question">식물에게 좋다는 영양제나 비료는 꼭 챙겨주는 편인가요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_2" type="radio" name="answer_2"> <label
-								for="one_2">대답1</label>
+								for="one_2">네! 내 식물에게 좋다는 영양소는 종종 챙겨주는 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_2" type="radio" name="answer_2"> <label
-								for="two_2">대답2</label>
+								for="two_2">제 식물은 물만 먹어도 쑥쑥 잘 자라요.</label>
 						</div>
 
 					</div>
@@ -201,16 +201,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">3/12</h3>
-						<h3 class="question">질문3</h3>
+						<h3 class="question">식물을 키우면서 자라는 모습에 행복을 느끼거나 마음이 치유되는 것 같다고 느낀 적이 있나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_3" type="radio" name="answer_3"> <label
-								for="one_3">대답1</label>
+								for="one_3">물론이죠 :) 식물을 기르는 건 저만의 소소한 힐링이에요.</label>
 						</div>
 						<div>
 							<input id="two_3" type="radio" name="answer_3"> <label
-								for="two_3">대답2</label>
+								for="two_3">식물에 신경을 많이 못써줘서 그런 느낌을 받은 적은 드문 것 같아요. </label>
 						</div>
 
 					</div>
@@ -225,16 +225,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">4/12</h3>
-						<h3 class="question">질문4</h3>
+						<h3 class="question">평소 식물을 위해 창문을 얼마나 자주 열고 계시나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_4" type="radio" name="answer_4"> <label
-								for="one_4">대답1</label>
+								for="one_4">주기적으로 환기해요.</label>
 						</div>
 						<div>
 							<input id="two_4" type="radio" name="answer_4"> <label
-								for="two_4">대답2</label>
+								for="two_4">생각날 때마다 한 번씩 환기해요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -248,16 +248,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">5/12</h3>
-						<h3 class="question">질문5</h3>
+						<h3 class="question">오늘은 반려식물이 나들이를 가는 날입니다.  어디로 가볼까요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_5" type="radio" name="answer_5"> <label
-								for="one_5">대답1</label>
+								for="one_5">바람이 솔랑솔랑 부는 야외로 갈래!</label>
 						</div>
 						<div>
 							<input id="two_5" type="radio" name="answer_5"> <label
-								for="two_5">대답2</label>
+								for="two_5">습한 무게가 느껴지는 온실로 갈래!</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -271,16 +271,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">6/12</h3>
-						<h3 class="question">질문6</h3>
+						<h3 class="question">내 반려식물의 흙 상태는 어떤가요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_6" type="radio" name="answer_6"> <label
-								for="one_3">대답1</label>
+								for="one_3">흙이 촉촉하게 젖어 있는 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_6" type="radio" name="answer_6"> <label
-								for="two_6">대답2</label>
+								for="two_6">흙이 말라 있는 편이에요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -294,16 +294,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">7/12</h3>
-						<h3 class="question">질문7</h3>
+						<h3 class="question">반려식물은 어디에 있나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_7" type="radio" name="answer_7"> <label
-								for="one_7">대답1</label>
+								for="one_7">거실, 테라스, 베란다, 실외 또는 창과 가까운 실내에 있어요.</label>
 						</div>
 						<div>
 							<input id="two_7" type="radio" name="answer_7"> <label
-								for="two_7">대답2</label>
+								for="two_7">창과 거리가 있는 실내에 있어요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -317,16 +317,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">8/12</h3>
-						<h3 class="question">질문8</h3>
+						<h3 class="question">반려식물이 위치한 장소는 빛이 얼마나 드나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_8" type="radio" name="answer_8"> <label
-								for="one_8">대답1</label>
+								for="one_8">빛이 잘 들어오는 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_8" type="radio" name="answer_8"> <label
-								for="two_8">대답2</label>
+								for="two_8">빛이 잘 들지 않아요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -340,16 +340,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">9/12</h3>
-						<h3 class="question">질문9</h3>
+						<h3 class="question">반려식물이 위치한 장소의 창문은 어떤 모양인가요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_9" type="radio" name="answer_9"> <label
-								for="one_9">대답1</label>
+								for="one_9">통유리나 키와 비슷한 정도의 창문이 있어요.</label>
 						</div>
 						<div>
 							<input id="two_9" type="radio" name="answer_9"> <label
-								for="two_9">대답2</label>
+								for="two_9">환기가 겨우 가능한 조그마난 창문이 있어요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -362,16 +362,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">10/12</h3>
-						<h3 class="question">질문10</h3>
+						<h3 class="question">내 반려식물에게 물을 주는 패턴이 있나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_10" type="radio" name="answer_10"> <label
-								for="one_10">대답1</label>
+								for="one_10">네 ! 내 반려식물만의 루틴으로 물을 제공해줘요. 이 식물은 루틴에 따라 움직여야 건강해요.</label>
 						</div>
 						<div>
 							<input id="two_10" type="radio" name="answer_10"> <label
-								for="two_10">대답2</label>
+								for="two_10">아니요 ! 딱히 정해져있지 않아요. 그래도 무럭무럭 잘 자라요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -385,16 +385,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">11/12</h3>
-						<h3 class="question">질문11</h3>
+						<h3 class="question">나의 반려식물은 병해충에 얼마나 강한가요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_11" type="radio" name="answer_11"> <label
-								for="one_11">대답1</label>
+								for="one_11">병해충에 강한 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_11" type="radio" name="answer_11"> <label
-								for="two_11">대답2</label>
+								for="two_11">병해충에 취약한 편이에요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -408,16 +408,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">12/12</h3>
-						<h3 class="question">질문12</h3>
+						<h3 class="question">반려식물은 병원에 얼마나 자주 방문하나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_12" type="radio" name="answer_12"> <label
-								for="one_12">대답1</label>
+								for="one_12">내 반려식물은 건강한 편이라 간단한 자가 치료로 충분해요!</label>
 						</div>
 						<div>
 							<input id="two_12" type="radio" name="answer_12"> <label
-								for="two_12">대답2</label>
+								for="two_12">자주 아파서 병원 선생님이 내 식물을 알아봐요 :(</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">

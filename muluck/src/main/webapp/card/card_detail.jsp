@@ -23,8 +23,9 @@
 	rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- Bootstrap core JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../resources/js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <style>
 div {
 	text-align: center;
@@ -44,7 +45,7 @@ input[type='date']:valid::before {
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/home.jsp">Muluck</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -53,10 +54,12 @@ input[type='date']:valid::before {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto py-4 py-lg-0">
+					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" 
+					id="#userNickname">${member_nickname} 님 환영합니다.</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="../main/test">마이페이지</a></li>
+						href="${pageContext.request.contextPath}/member/mypage">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="index.jsp">로그아웃</a></li>
+						href="${pageContext.request.contextPath}/member/logout">로그아웃</a></li>
 				</ul>
 			</div>
 		</div>
@@ -66,7 +69,8 @@ input[type='date']:valid::before {
 			<!-- <span class="site-heading-lower">무우럭</span>
                 <span class="site-heading-upper text-primary mb-3">muluck</span> -->
 			<div>
-				<img src="../resources/assets/img/무우럭.png" />
+				<a href="${pageContext.request.contextPath}/main/home.jsp">
+				<img src="${pageContext.request.contextPath}/resources/assets/img/무우럭.png" style="margin-left: auto; margin-right: auto; display: block;"/></a>
 			</div>
 		</h1>
 	</header>
@@ -84,29 +88,22 @@ input[type='date']:valid::before {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/main/home.jsp">홈</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/community.jsp">커뮤니티</a></li>
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/community/community.jsp">커뮤니티</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">식물 일지</a></li>
-								<li><a class="dropdown-item" href="list">반려식물
-										등록증</a></li>
-								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI 테스트</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/calendar.jsp">캘린더</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/cardview.jsp">식물 일지</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/card/list">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/mmti/mmti_main.jsp">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 상점 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">나눔</a></li>
-								<li><a class="dropdown-item" href="#">거래</a></li>
-							</ul></li>
-					</ul>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/business/business_main.jsp">거래/나눔</a></li>
 				</ul>
 			</div>
 		</div>
@@ -159,22 +156,22 @@ input[type='date']:valid::before {
 									<div class="col-sm-5">
 										<select class="form-control" name="card_mmti">
 											<option value="" hidden>MMTI를 선택해주세요</option> 
-											<option value="ISTJ">ISTJ</option>
-											<option value="ISTP">ISTP</option>
-											<option value="INFJ">INFJ</option>
-											<option value="INTJ">INTJ</option>
-											<option value="ISFJ">ISFJ</option>
-											<option value="ISFP">ISFP</option>
-											<option value="INFP">INFP</option>
-											<option value="INTP">INTP</option>
-											<option value="ESTJ">ESTJ</option>
-											<option value="ESFP">ESFP</option>
-											<option value="ENFP">ENFP</option>
-											<option value="ENTP">ENTP</option>
-											<option value="ESFJ">ESFJ</option>
-											<option value="ESTP">ESTP</option>
-											<option value="ENFJ">ENFJ</option>
-											<option value="ENTJ">ENTJ</option>
+											<option value="PHDA">PHDA</option>
+											<option value="PHDU">PHDU</option>
+											<option value="PHLA">PHLA</option>
+											<option value="PHLU">PHLU</option>
+											<option value="PDDA">PDDA</option>
+											<option value="PDDU">PDDU</option>
+											<option value="PDLA">PDLA</option>
+											<option value="PDLU">PDLU</option>
+											<option value="AHDA">AHDA</option>
+											<option value="AHDU">AHDU</option>
+											<option value="AHLA">AHLA</option>
+											<option value="AHLU">AHLU</option>
+											<option value="ADDA">ADDA</option>
+											<option value="ADDU">ADDU</option>
+											<option value="ADLA">ADLA</option>
+											<option value="ADLU">ADLU</option>
 										</select>
 									</div>
 								</div>
