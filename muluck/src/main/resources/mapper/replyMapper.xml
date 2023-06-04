@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+
+	<!-- 댓글 작성 -->
+	<insert id="create" parameterType="replyVO">
+		insert into reply values
+		(null, #{reply_content}, #{bbs_no}, #{member_no})
+	</insert>
+
+    <!-- 댓글 목록 -->
+	<select id="all" resultType="replyVO" parameterType="int">
+		select *
+		from reply
+		where bbs_no = #{bbs_no}
+	</select>
+	
+	<!-- 댓글 수정 -->
+	<!-- <update id="update" parameterType="replyVO">
+		update reply set content = #{reply_content} where no = #{reply_no}
+	</update> -->
+	
+	<!-- 댓글 삭제 -->
+	<delete id="delete" parameterType="replyVO">
+		delete 
+		from reply 
+		where bbs_no = #{bbs_no} and member_no = #{member_no}
+	</delete>
+	
+	
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
