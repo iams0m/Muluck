@@ -99,10 +99,10 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">
-					<b>MMTI 테스트는 준비중이에요 !<br>곧 만나요 :)<br>
+					<b>식물을 키우는 곳의 환경 조건과 가드닝 스타일을 분석하여,<br>나의 반려식물 MMTI를 알려드려요.<br>
 					</b>
 				</h2>
-				<h3>식물을 키우는 곳의 환경 조건과 가드닝 스타일을 분석하여, 나의 반려식물 MBTI를 알려드려요.</h3>
+				<h3></h3>
 				<button type="button" onclick="window.open('mmti_test.jsp', )" class="btn"
 									style="background-color: #145f37; border-color: none; color: #eaf2df;">
 									<b>테스트 하러가기</b>

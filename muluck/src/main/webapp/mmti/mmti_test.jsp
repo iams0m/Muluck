@@ -19,7 +19,7 @@
 					alt="muluck">
 				</a>
 				<h3 class="main_title">반려식물 MMTI</h3>
-				<h3 class="sub_title">Muluck-Muluck Type Indicator<br><br>식물을 키우는 곳의 환경 조건과<br>가드닝 스타일을 분석하여,<br> 내 반려식물의 MBTI를 알려드려요.<br><br>
+				<h3 class="sub_title">Muluck-Muluck Type Indicator<br><br>식물을 키우는 곳의 환경 조건과<br>가드닝 스타일을 분석하여,<br> 내 반려식물의 MMTI를 알려드려요.<br><br>
 				정확한 MMTI 테스트 진행을 위해<br>식물이 가장 좋아하는 환경을 생각하며<br>테스트를 진행해주세요!</h3>
 			</div>
 			<div class="intro">

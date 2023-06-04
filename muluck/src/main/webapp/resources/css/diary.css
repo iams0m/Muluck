@@ -7722,9 +7722,9 @@ textarea.form-control-lg {
   padding: 1.5rem !important;
 }
 
-.p-5 {
+/* .p-5 {
   padding: 3rem !important;
-}
+} */
 
 .px-0 {
   padding-right: 0 !important;
@@ -10840,8 +10840,8 @@ body {
 }
 
 .site-heading {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
   line-height: 1;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10872,13 +10872,13 @@ body {
 }
 .section-heading .section-heading-lower {
   display: block;
-  font-size: 3rem;
+  font-size: 20px;
   font-weight: 100;
 }
 
-.bg-faded {
+/* .bg-faded {
   background-color: #f6e1c5;
-}
+} */
 
 .btn-xl {
   font-weight: 700;
@@ -10890,18 +10890,18 @@ body {
 }
 
 #mainNav {
-  background-color: #eaf2df;
+  background-color: #145f37;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
-  color: #e6a756;
+  color: #f2f1df;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: #145f37;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
 }
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #e6a756;
+  color: #f2f1df;
 }
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
@@ -10911,7 +10911,7 @@ body {
     color: rgba(255, 255, 255, 0.4);
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #e6a756;
+    color: #f2f1df;
   }
 }
 
@@ -11052,6 +11052,17 @@ body {
 	margin-left: 50%;
 }
 
+.diary_nickname {
+  width: 150px;
+  height: 32px;
+  font-size: 10px;
+  border: 0;
+  border-radius: 15px;
+  padding-left: 10px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
 .diary_title {
   width: 300px;
   height: 32px;
@@ -11091,6 +11102,7 @@ body {
 
 .viewcard_nickname {
 	font-size: 20px; 
+	text-decoration: none;
 }
 
 .viewcard_date {
@@ -11120,4 +11132,17 @@ body {
 	border: 1px solid gray;
 	border-radius: 15px;
 	margin-left: 55%;
+}
+
+#mainNav2 .navbar-brand {
+    color: #145f37;
+    font-weight: 800;
+  }
+
+#mainNav2 .navbar-nav > li.nav-item > a.nav-link {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+  color: #145f37;
 }

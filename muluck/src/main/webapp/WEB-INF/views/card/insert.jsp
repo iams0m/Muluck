@@ -77,23 +77,78 @@ div {
 .e {
 	grid-area: e;
 }
+
+.btn {
+	background-color: #145f37;
+	border-color: none;
+	color: #eaf2df;
+	font-weight: bold;
+}
 </style>
 <script type="text/javascript">
+	function showModal(title, message) {
+		var modal = document.createElement("div");
+		modal.classList.add("modal");
 
-function clip(){
-	var url = ''; // <a>태그에서 호출한 함수인 clip 생성 
-	var textarea = document.createElement("textarea");
-	// url 변수 생성 후, textarea라는 변수에 textarea 요소 생성
-	
-	document.body.appendChild(textarea); // <body> 바로 위에 textarea 추가(임시 공간이므로 위치는 상관 없음)
-	url = window.document.location.href; // url에 현재 주소값을 넣어줌
-	textarea.value = url; // textarea 값에 url을 넣어줌
-	textarea.select(); // textarea 설정
-	document.execCommand("copy"); // 복사
-	document.body.removeChild(textarea); //textarea 요소를 없애줌
-	alert("주소가 복사되었습니다.") // 알림창
-}
+		var modalContent = document.createElement("div");
+		modalContent.classList.add("modal-content");
 
+		var modalTitle = document.createElement("h2");
+		modalTitle.textContent = title;
+
+		var modalMessage = document.createElement("p");
+		modalMessage.textContent = message;
+
+		var closeButton = document.createElement("button");
+		closeButton.textContent = "닫기";
+		closeButton.addEventListener("click", function() {
+			closeModal();
+		});
+
+		// 요소들을 모달에 추가
+		modalContent.appendChild(modalTitle);
+		modalContent.appendChild(modalMessage);
+		modalContent.appendChild(closeButton);
+		modal.appendChild(modalContent);
+
+		// 모달을 페이지에 추가
+		document.body.appendChild(modal);
+
+		// 모달을 표시
+		modal.style.display = "block";
+	}
+
+	var copyButton = document.querySelector(".copy_btn");
+	copyButton.addEventListener("click", function() {
+		copyUrl();
+	});
+
+	function copyUrl() {
+		let tmp = document.createElement('input');
+		let url = window.location.href;
+
+		document.body.appendChild(tmp);
+		tmp.value = url;
+		tmp.select();
+		document.execCommand("copy");
+		document.body.removeChild(tmp);
+
+		showModal("알림", "URL이 복사되었습니다.");
+	}
+
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "none";
+	}
+
+	// 닫기 버튼에 대한 처리
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		if (modal) {
+			modal.style.display = "none";
+			document.body.removeChild(modal);
+		}
+	}
 </script>
 </head>
 <body>
@@ -172,10 +227,8 @@ function clip(){
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>자랑하기</b>
 		</button>
-		<button type="submit" class="btn" onclick="clip(); return false;"
-			style="background-color: #145f37; border-color: none; color: #eaf2df;">
-			<b>주소 복사하기</b>
-		</button>
+		<button type="submit" class="copy_btn btn"
+			onclick="javascript:copyUrl()">주소 복사하기</button>
 		<button type="submit" class="btn" onclick="location='list'"
 			style="background-color: #145f37; border-color: none; color: #eaf2df;">
 			<b>전체 목록</b>
@@ -227,5 +280,12 @@ function clip(){
 			</div>
 		</div>
 	</section>
+	<div class="modal">
+		<div class="modal-content">
+			<h2>모달 제목</h2>
+			<p>모달 내용</p>
+			<button id="modal-close-btn">닫기</button>
+		</div>
+	</div>
 </body>
 </html>

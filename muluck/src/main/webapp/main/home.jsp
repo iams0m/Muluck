@@ -19,15 +19,14 @@
 	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/styles.css" type="text/css"
-	rel="stylesheet" />
+<link href="../resources/css/styles.css" type="text/css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 </head>
 <body>
-	<!-- Navigation-->
+<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/home.jsp">Muluck</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -36,10 +35,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto py-4 py-lg-0">
+					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" 
+					id="#userNickname">${member_nickname} 님 환영합니다.</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="../main/test">마이페이지</a></li>
+						href="${pageContext.request.contextPath}/member/mypage">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="index.jsp">로그아웃</a></li>
+						href="${pageContext.request.contextPath}/member/logout">로그아웃</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,7 +50,8 @@
 			<!-- <span class="site-heading-lower">무우럭</span>
                 <span class="site-heading-upper text-primary mb-3">muluck</span> -->
 			<div>
-				<img src="../resources/assets/img/무우럭.png" style="margin-left: auto; margin-right: auto; display: block;"/>
+				<a href="${pageContext.request.contextPath}/main/home.jsp">
+				<img src="${pageContext.request.contextPath}/resources/assets/img/무우럭.png" style="margin-left: auto; margin-right: auto; display: block;"/></a>
 			</div>
 		</h1>
 	</header>
@@ -67,21 +69,22 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/main/home.jsp">홈</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/community.jsp">커뮤니티</a></li>
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/community/community.jsp">커뮤니티</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="../diary/cardview.jsp">식물 일지</a></li>
-								<li><a class="dropdown-item" href="../card/list">반려식물 등록증</a></li>
-								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI 테스트</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/calendar.jsp">캘린더</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/cardview.jsp">식물 일지</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/card/list">반려식물 등록증</a></li>
+								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/mmti/mmti_main.jsp">MMTI 테스트</a></li>
 							</ul></li>
 					</ul>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../business/business_main.jsp">거래/나눔</a></li>
+						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/business/business_main.jsp">거래/나눔</a></li>
 				</ul>
 			</div>
 		</div>

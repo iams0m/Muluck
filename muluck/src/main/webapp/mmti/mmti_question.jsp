@@ -138,7 +138,7 @@
 			});
 		});
 	});
-	
+	}
 </script>
 </head>
 <body>
@@ -149,22 +149,21 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">1/12</h3>
-						<h3 class="question">식물에 얼마나 자주 관심을 주나요?</h3>
+						<h3 class="question">오늘은 반려식물이 나들이를 가는 날입니다. 어디로 가볼까요?</h3>
 						<input id="type" type="hidden" value="PA">
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_1" type="radio" name="answer_1"> <label
-								for="one_1">자주 들여다보는 편이에요.</label>
+								for="one_1">바람이 솔랑솔랑 부는 야외로 갈래!</label>
 						</div>
 						<div>
 							<input id="two_1" type="radio" name="answer_1"> <label
-								for="two_1">생각날 때마다 한번씩 들여다 보는 편이에요.</label>
+								for="two_1">습한 무게가 느껴지는 온실로 갈래!</label>
 						</div>
-						<input type="hidden" id="PA" value="0">
-						<input type="hidden" id="HD" value="0">
-						<input type="hidden" id="DL" value="0">
-						<input type="hidden" id="AU" value="0">
+						<input type="hidden" id="PA" value="0"> <input
+							type="hidden" id="HD" value="0"> <input type="hidden"
+							id="DL" value="0"> <input type="hidden" id="AU" value="0">
 					</div>
 					<div class="btn_wrap btn_sort">
 						<button class="mmti_main">돌아가기</button>
@@ -201,7 +200,8 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">3/12</h3>
-						<h3 class="question">식물을 키우면서 자라는 모습에 행복을 느끼거나 마음이 치유되는 것 같다고 느낀 적이 있나요?</h3>
+						<h3 class="question">식물을 키우면서 자라는 모습에 행복을 느끼거나 마음이 치유되는 것 같다고
+							느낀 적이 있나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
@@ -248,16 +248,16 @@
 				<div class="test">
 					<div class="question_container">
 						<h3 class="number">5/12</h3>
-						<h3 class="question">오늘은 반려식물이 나들이를 가는 날입니다.  어디로 가볼까요?</h3>
+						<h3 class="question">식물에 얼마나 자주 관심을 주나요?</h3>
 					</div>
 					<div class="answer">
 						<div>
 							<input id="one_5" type="radio" name="answer_5"> <label
-								for="one_5">바람이 솔랑솔랑 부는 야외로 갈래!</label>
+								for="one_5">자주 들여다보는 편이에요.</label>
 						</div>
 						<div>
 							<input id="two_5" type="radio" name="answer_5"> <label
-								for="two_5">습한 무게가 느껴지는 온실로 갈래!</label>
+								for="two_5">생각날 때마다 한번씩 들여다 보는 편이에요.</label>
 						</div>
 					</div>
 					<div class="btn_wrap btn_sort">
@@ -367,7 +367,8 @@
 					<div class="answer">
 						<div>
 							<input id="one_10" type="radio" name="answer_10"> <label
-								for="one_10">네 ! 내 반려식물만의 루틴으로 물을 제공해줘요. 이 식물은 루틴에 따라 움직여야 건강해요.</label>
+								for="one_10">네 ! 내 반려식물만의 루틴으로 물을 제공해줘요. 이 식물은 루틴에 따라
+								움직여야 건강해요.</label>
 						</div>
 						<div>
 							<input id="two_10" type="radio" name="answer_10"> <label

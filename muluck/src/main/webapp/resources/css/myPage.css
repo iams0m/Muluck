@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+div {
+	text-align: center;
+}
+
+#my_menu {
+	float: left;
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#menu_title{
+	margin-top: 60px;
+}
+
+.menu_list {
+	margin-bottom: 40px;
+}
+
+.menu {
+	color: black;
+	font-weight: bold;
+}
+
+#my_profile, #my_revise, #my_drop {
+	box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	border: 2px solid black;
+}
+
+#my_screen {
+	margin-top: 20px;
+	margin-left: 20px; /* Adjust the value as per your preference */
+}
+
