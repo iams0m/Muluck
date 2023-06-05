@@ -31,11 +31,29 @@
   - 하루 하루 자라는 나의 식물 일지를 작성하고, 사진이나 이모티콘으로 감정을 표현할 수 있습니다. <br>
   - 감정 이모티콘을 선택하여 내 식물의 오늘 하루가 어땠는지 나타낼 수 있습니다.
   
- </details>
+</details>
  
- <details>
+<details>
   
   <summary> 📆 캘린더 </summary>
 
   
- </details>
+</details>
+ 
+<details>
+  
+  <summary> 🪪 반려식물 등록증 </summary>
+
+  
+</details>
+ 
+<details>
+  
+  <summary> 📖 MMTI 테스트 </summary>
+
+  
+</details>
+
+<br />
+
+### 🔧 트러블 슈팅
