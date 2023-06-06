@@ -9,7 +9,6 @@
 <title>나의 반려식물 MMTI 찾기</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
-<link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
 <link rel="stylesheet" href="../resources/css/form.css" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -115,7 +114,7 @@
 
 	document.addEventListener("DOMContentLoaded", function() {
 		// 버튼 클릭 이벤트 처리
-		var nextBtns = document.querySelectorAll(".mmti_main");
+		var nextBtns = document.querySelectorAll(".mmti_test");
 		nextBtns.forEach(function(btn) {
 			btn.addEventListener("click", function(e) {
 				e.preventDefault();
@@ -138,7 +137,6 @@
 			});
 		});
 	});
-	}
 </script>
 </head>
 <body>
@@ -166,7 +164,7 @@
 							id="DL" value="0"> <input type="hidden" id="AU" value="0">
 					</div>
 					<div class="btn_wrap btn_sort">
-						<button class="mmti_main">돌아가기</button>
+						<button class="mmti_test">돌아가기</button>
 						<div class="space"></div>
 						<button class="next_btn">다 음</button>
 					</div>

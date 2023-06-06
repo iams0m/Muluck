@@ -177,7 +177,7 @@ input[type='date']:valid::before {
 								</div>
 								<label class="col-form-label">*MMTI : 무우럭에서 제공하는 반려식물 성향
 									유형이에요! 지금 바로 테스트해보세요</label>
-								<button type="button" class="btn" onclick="location.href='../mmti/mmti_main.jsp' "
+								<button type="button" class="btn" onclick="window.open('../mmti/mmti_test.jsp', )"
 									style="background-color: #145f37; border-color: none; color: #eaf2df;">
 									<b>MMTI 테스트</b>
 								</button>

@@ -22,7 +22,7 @@
 	integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
 	crossorigin="anonymous"></script>
 <script>
-	Kakao.init('8ba0b036423e915b47bcc14ac63c4aad'); // 사용하려는 앱의 JavaScript 키 입력
+	Kakao.init('fae1cb71aee8a9b6922099421578a59f'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="../resources/js/result.js"></script>
@@ -32,7 +32,7 @@
 			objectType : 'feed',
 			content : {
 				title : 'MMTI 테스트',
-				description : '#무우럭 #MMTI #테스트',
+				description : '테스트를 통해 당신에게 딱 맞는 식물을 추천해 드릴게요!',
 				imageUrl : 'https://ifh.cc/g/RwYM28.png',
 				link : {
 					// [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
@@ -51,13 +51,7 @@
 					mobileWebUrl : 'https://developers.kakao.com',
 					webUrl : 'https://developers.kakao.com',
 				},
-			}, {
-				title : '앱으로 보기',
-				link : {
-					mobileWebUrl : 'https://developers.kakao.com',
-					webUrl : 'https://developers.kakao.com',
-				},
-			}, ],
+			}],
 		});
 	}
 	
