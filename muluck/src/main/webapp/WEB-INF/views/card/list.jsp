@@ -88,6 +88,11 @@ div {
 .e {
 	grid-area: e;
 }
+
+body{
+	font-family: 'KOTRAHOPE';
+	font-size: 1rem;
+}
 </style>
 <script type="text/javascript">
 	function clip() {

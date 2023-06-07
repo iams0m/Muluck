@@ -30,7 +30,23 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#save").click(function() {
+			html2canvas($("#screenshot").get(0)).then(function(canvas) {
+				var screenshotUrl = canvas.toDataURL(); // 스크린샷 이미지의 데이터 URL
 
+				// 이미지 다운로드 링크 생성
+				var link = document.createElement("a");
+				link.href = screenshotUrl;
+				link.download = "screenshot.png";
+				link.click();
+			});
+		});
+	});
+</script>
 <style>
 div {
 	text-align: center;
@@ -165,18 +181,37 @@ div {
 		copyUrl();
 	});
 
-	function copyUrl() {
-		let tmp = document.createElement('input');
-		let url = window.location.href;
+	function showCustomScreen() {
+	    // 커스텀 화면을 표시하는 코드 작성
+	    document.querySelector(".update_btn").style.display = "none";
+	  }
 
-		document.body.appendChild(tmp);
-		tmp.value = url;
-		tmp.select();
-		document.execCommand("copy");
-		document.body.removeChild(tmp);
+	  function copyUrl() {
+	    let tmp = document.createElement('input');
+	    let url = window.location.href;
 
-		showModal("알림", "URL이 복사되었습니다.");
-	}
+	    document.body.appendChild(tmp);
+	    tmp.value = url;
+	    tmp.select();
+	    document.execCommand("copy");
+	    document.body.removeChild(tmp);
+
+	    showModal("알림", "URL이 복사되었습니다.");
+
+	    // 복사한 URL로 이동했을 때 커스텀 화면을 표시하고 수정 버튼을 숨깁니다.
+	    if (window.location.hash === "#custom") {
+	      // 현재 URL에 파라미터를 추가하여 수정 버튼이 사라지도록 변경합니다.
+	      window.location.href = window.location.href + "&noEdit=true";
+	    }
+	  }
+
+	  // 페이지가 로드되었을 때 URL에 "noEdit" 파라미터가 있으면 수정 버튼을 숨깁니다.
+	  window.addEventListener("load", function() {
+	    const urlParams = new URLSearchParams(window.location.search);
+	    if (urlParams.get("noEdit") === "true") {
+	      showCustomScreen();
+	    }
+	  });
 
 	function closeModal() {
 		var modal = document.querySelector(".modal");
@@ -191,15 +226,72 @@ div {
 			document.body.removeChild(modal);
 		}
 	}
+
+	// 삭제 모달 창
+	function showDeleteModal(cardNo) {
+		var modal = document.createElement("div");
+		modal.classList.add("modal");
+
+		var modalContent = document.createElement("div");
+		modalContent.classList.add("modal-content");
+
+		var modalTitle = document.createElement("h2");
+		modalTitle.textContent = "알림";
+
+		var modalMessage = document.createElement("p");
+		modalMessage.textContent = "정말 등록증을 삭제하시겠습니까?";
+
+		var confirmButton = document.createElement("button");
+		confirmButton.textContent = "확인";
+		confirmButton.addEventListener("click", function() {
+			deleteCard(cardNo); // cardNo 값을 전달하여 deleteCard 함수 호출
+		});
+
+		var closeButton = document.createElement("button");
+		closeButton.textContent = "닫기";
+		closeButton.addEventListener("click", function() {
+			closeModal();
+		});
+
+		// 요소들을 모달에 추가
+		modalContent.appendChild(modalTitle);
+		modalContent.appendChild(modalMessage);
+		modalContent.appendChild(confirmButton);
+		modalContent.appendChild(closeButton);
+		modal.appendChild(modalContent);
+
+		// 모달을 페이지에 추가
+		document.body.appendChild(modal);
+
+		// 모달을 표시
+		modal.style.display = "block";
+	}
+
+	function deleteCard(cardNo) {
+		// cardNo 값을 사용하여 등록증 삭제 작업을 수행하는 코드를 추가하세요.
+		console.log("등록증이 삭제되었습니다.", cardNo);
+
+		// 페이지 이동
+		window.location.href = "delete?card_no=" + cardNo;
+
+		closeModal();
+	}
+
+	function closeModal() {
+		var modal = document.querySelector(".modal");
+		if (modal) {
+			modal.style.display = "none";
+			document.body.removeChild(modal);
+		}
+	}
 </script>
-
-
 </head>
 <body>
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/home.jsp">Muluck</a>
+			<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/main/home.jsp">Muluck</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -208,8 +300,8 @@ div {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto py-4 py-lg-0">
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" 
-					id="#userNickname">${member_nickname} 님 환영합니다.</a></li>
+					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+						id="#userNickname">${member_nickname} 님 환영합니다.</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
 						href="${pageContext.request.contextPath}/member/mypage">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
@@ -223,8 +315,9 @@ div {
 			<!-- <span class="site-heading-lower">무우럭</span>
                 <span class="site-heading-upper text-primary mb-3">muluck</span> -->
 			<div>
-				<a href="${pageContext.request.contextPath}/main/home.jsp">
-				<img src="${pageContext.request.contextPath}/resources/assets/img/무우럭.png" style="margin-left: auto; margin-right: auto; display: block;"/></a>
+				<a href="${pageContext.request.contextPath}/main/home.jsp"> <img
+					src="${pageContext.request.contextPath}/resources/assets/img/무우럭.png"
+					style="margin-left: auto; margin-right: auto; display: block;" /></a>
 			</div>
 		</h1>
 	</header>
@@ -242,30 +335,40 @@ div {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/main/home.jsp">홈</a></li>
+						class="nav-link text-uppercase"
+						href="${pageContext.request.contextPath}/main/home.jsp">홈</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/community/community.jsp">커뮤니티</a></li>
+						class="nav-link text-uppercase"
+						href="${pageContext.request.contextPath}/community/community.jsp">커뮤니티</a></li>
 					<ul class="navbar-nav px-lg-4">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/calendar.jsp">캘린더</a></li>
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/diary/cardview.jsp">식물 일지</a></li>
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/card/list">반려식물 등록증</a></li>
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/mmti/mmti_main.jsp">MMTI 테스트</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/diary/calendar.jsp">캘린더</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/diary/cardview.jsp">식물
+										일지</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/card/list">반려식물
+										등록증</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/mmti/mmti_main.jsp">MMTI
+										테스트</a></li>
 							</ul></li>
 					</ul>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="${pageContext.request.contextPath}/business/business_main.jsp">거래/나눔</a></li>
+						class="nav-link text-uppercase"
+						href="${pageContext.request.contextPath}/business/business_main.jsp">거래/나눔</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<br>
 	<div style="float: center;">
-		<button type="submit" class="btn">자랑하기</button>
-		<button type="submit" class="copy_btn btn"
+		<button type="button" class="btn" id="save">스크린샷</button>
+		<button type="submit" class="btn" id="copy_btn"
 			onclick="javascript:copyUrl()">주소 복사하기</button>
 		<button type="submit" class="btn" onclick="location='list'">전체
 			목록</button>
@@ -273,9 +376,12 @@ div {
 	<br>
 	<div style="float: right;">
 
-		<a role="button" class="btn" href="card_update?card_no=${bag.card_no}">수정</a>
-		<a onclick="return confirm('정말 등록증을 삭제하실건가요? :(')"
-			href="delete?card_no=${bag.card_no}" role="button" class="btn">삭제</a>
+		<a role="button" class="btn update_btn" href="card_update?card_no=${bag.card_no}">수정</a>
+		<%-- <a onclick="return confirm('정말 등록증을 삭제하실건가요? :(')"
+			href="delete?card_no=${bag.card_no}" role="button" class="btn">삭제</a> --%>
+		<%-- <a onclick="showDeleteModal('${bag.card_no}')" href="#" role="button" class="btn">삭제</a> --%>
+		<a onclick="showDeleteModal('${bag.card_no}')" href="#" role="button"
+			class="btn">삭제</a>
 	</div>
 	<br>
 	<section class="page-section about-heading">
@@ -283,7 +389,7 @@ div {
 			<div class="about-heading-content">
 				<div class="row">
 					<div class="parent-container mx-auto">
-						<div class="bg-faded p-4"
+						<div class="bg-faded p-4" id='screenshot'
 							style="border: 3px solid; border-radius: 44px;">
 							<b style="float: left;">NO : <fmt:formatDate
 									value="${bag.card_birth}" pattern="yyyyMMdd" /> -
@@ -334,6 +440,13 @@ div {
 			<h2>모달 제목</h2>
 			<p>모달 내용</p>
 			<button id="modal-close-btn">닫기</button>
+		</div>
+	</div>
+	<div id="deleteModal" class="modal">
+		<div class="modal-content">
+			<h2 id="deleteModalTitle">모달 제목</h2>
+			<p id="deleteModalMessage">모달 내용</p>
+			<button id="deleteModalCloseBtn">닫기</button>
 		</div>
 	</div>
 </body>
