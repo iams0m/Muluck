@@ -1,28 +1,19 @@
 @charset "UTF-8";
-@font-face {
-	font-family: 'GmarketSansBold';
-	src:
-	url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 
 @font-face {
-	font-family: 'NEXON Lv1 Gothic OTF';
-	src:
-	url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-
 body {
 	background-color: #f2f1df;
 	color: #000;
-	font-family: "NEXON Lv1 Gothic OTF";
+	font-family: 'KOTRAHOPE';
 }
 
 button {
-	font-family: "NEXON Lv1 Gothic OTF";
+	font-family: 'KOTRAHOPE';
 	font-size: 20px;
 	width: 400px;
 	height: 50px;
@@ -59,7 +50,7 @@ button:hover {
 
 .result h1 {
 	font-size: 50px;
-	font-family: "GmarketSansBold";
+	font-family: 'KOTRAHOPE';
 }
 
 .result h3 {
@@ -83,7 +74,7 @@ button:hover {
 }
 
 .result_explains .title {
-	font-family: "GmarketSansBold";
+	font-family: 'KOTRAHOPE';
 	font-size: 20px;
 	text-align: center;
 	border-top: 3px solid #145f37;
