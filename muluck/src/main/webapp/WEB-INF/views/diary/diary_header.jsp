@@ -6,14 +6,14 @@
 <script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 
 <!-- Core theme JS-->
-<script src="../js/scripts.js"></script>
+<script src="../resources/js/scripts.js"></script>
 
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
 
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../resources/css/diary.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/diary.css" rel="stylesheet" />
 <!-- <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico" />  -->
 
 <!-- Bootstrap core JS-->
@@ -35,8 +35,19 @@ function readURL(input) {
 	}
 </script>
 
+<!-- 식물 기분 선택 시 선택한 이미지 표시 -->
 <script type="text/javascript">
+$(function() {
+    $('.dropdown').click(function() {
+        var content = $(this).html(); // 클릭한 요소의 내용을 가져옴
+        console.log('content', content)
+         $('#feel').html(content); // id가 "feel"인 div에 내용을 설정
+    });
+});
+</script>
 
+<!-- 날씨API -->
+<script type="text/javascript">
 const API_KEY = "05c35d87be20e2ddfa2406a89541ed0e";
 
 function onGeoOk(position) {
@@ -63,7 +74,7 @@ function onGeoOk(position) {
         console.log('weather_max', weather_max)
         console.log('weather_min', weather_min)
         
-        const weather_string = weather_des + " " + weather_name+ " " + weather_max + " / " + weather_min;
+        const weather_string = weather_name + " " + weather_des + " " + weather_max + " / " + weather_min;
         
         console.log('weather_min', weather_string)
         
@@ -78,3 +89,5 @@ function onGeoError(){
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
 </script>
+
+
