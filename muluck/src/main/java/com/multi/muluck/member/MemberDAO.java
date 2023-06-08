@@ -1,9 +1,14 @@
 package com.multi.muluck.member;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+
+@Repository
 @Component
 public class MemberDAO { 
 	
@@ -130,5 +135,138 @@ public class MemberDAO {
 		int result = my.selectOne("member.telCheck", member_tel);
 		return result;
 	}
+	
+	// 카카오 회원가입 로그인
+	public MemberVO createK(MemberVO vo) {
+		System.out.println(vo);
+        int result = my.insert("member.createK", vo);
+        MemberVO result2 = null;
+        if(result != 0) {
+			result2 = my.selectOne("member.kakaoLogin", vo.getMember_email());
+		}
+        
+        return result2;
+	}
+		
+	//카카오 로그인
+	public MemberVO kakaoEmailCheck(String member_email) {
+		MemberVO result = my.selectOne("member.kakaoLogin", member_email);
+		
+		return result;
+	}
+	
+	//게시글 갯수
+	public int count_post(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_post = my.selectOne("member.count_post", no);
+		//System.out.println("게시글 갯수: " + count_post);
+		return count_post;
+	}
+	
+	//내가쓴 댓글 갯수
+	public int count_reply(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_reply = my.selectOne("member.count_reply", no);
+		//System.out.println("내가쓴 댓글수: " + count_reply);
+		return count_reply;
+	}
+	
+	//북마크 갯수
+	public int count_bookmark(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_bookmark = my.selectOne("member.count_bookmark", no);
+		//System.out.println("북마크 수: " + count_bookmark);
+		return count_bookmark;
+	}
+	
+	//받은 좋아요 갯수
+	public int count_get_heart(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_get_heart = my.selectOne("member.count_get_heart", no);
+		//System.out.println("받은 좋아요 갯수: " + count_get_heart);
+		return count_get_heart;
+	}
+	
+	//게시글 list불러오기
+	public List<MemberPostVO> postList(String member_no) {
+		int no = Integer.parseInt(member_no);
+		List<MemberPostVO> postList = my.selectList("member.postList", no);
+		return postList;
+	}
+	
+	//게시글 삭제
+	public void del_bbs(String bbs_no) {
+		int bbs_No = Integer.parseInt(bbs_no);
+		my.delete("member.del_bbs", bbs_No);
+	}
+	
+	//댓글 list불러오기
+	public List<MemberReplyVO> replyList(String member_no) {
+		int no = Integer.parseInt(member_no);
+		List<MemberReplyVO> replyList = my.selectList("member.replyList", no);
+		return replyList;
+	}
+	
+	//댓글 삭제
+	public void del_reply(String reply_no) {
+		int reply_No = Integer.parseInt(reply_no);
+		my.delete("member.del_reply", reply_No);
+	}
+	
+	//북마크 list불러오기
+	public List<MemberBookmarkVO> bookmarkList(String member_no) {
+		int no = Integer.parseInt(member_no);
+		List<MemberBookmarkVO> bookmarkList = my.selectList("member.bookmarkList", no);
+		return bookmarkList;
+	}
+	
+	//북마크 삭제
+	public void del_bookmark(String bookmark_no) {
+		int bookmark_No = Integer.parseInt(bookmark_no);
+		my.delete("member.del_bookmark", bookmark_No);
+	}
+
+	//follower 수 (나를 팔로우 한 사람)
+	public int count_follower(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_follower = my.selectOne("member.count_follower", no);
+		//System.out.println("follower 수: " + count_follower);
+		return count_follower;
+	}
+	
+	//following 수 (내가 팔로우 한 사람)
+	public int count_following(String member_no) {
+		int no = Integer.parseInt(member_no);
+		int count_following = my.selectOne("member.count_following", no);
+		//System.out.println("following 수: " + count_following);
+		return count_following;
+	}
+	
+	//follower 목록 가져오기
+	public List<MemberFollowVO> followerList(String member_no) {
+		int no = Integer.parseInt(member_no);
+		List<MemberFollowVO> followerList = my.selectList("member.followerList", no);
+		return followerList;
+	}
+	
+	//following 목록 가져오기
+	public List<MemberFollowVO> followingList(String member_no) {
+		int no = Integer.parseInt(member_no);
+		List<MemberFollowVO> followingList = my.selectList("member.followingList", no);
+		return followingList;
+	}
+	
+	// follower 삭제
+	public void del_follower(String follow_no) {
+		int follow_No = Integer.parseInt(follow_no);
+		my.delete("member.del_follower", follow_No);
+	}
+	
+	// following 삭제
+	public void del_following(String follow_no) {
+		int follow_No = Integer.parseInt(follow_no);
+		my.delete("member.del_following", follow_No);
+	}
+	
 	
 }

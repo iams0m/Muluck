@@ -103,4 +103,121 @@
 		select COUNT(*) from member where member_tel = #{member_tel}
 	</select>
 	
+	<!-- 카카오 회원가입 -->
+	<insert id="createK" parameterType="memberVO">
+		insert into member(member_no, member_id, member_pw, member_email, member_name, member_tel, member_nickname, member_img , member_gender, member_birthyear, member_manager)
+			values(null, #{member_id}, null, #{member_email}, default, default, #{member_nickname}, #{member_img}, #{member_gender}, null, null)
+	</insert>
+	
+	<!-- 카카오 로그인 -->
+	<select id="kakaoLogin" parameterType="String" resultType="memberVO">
+		select * from member where member_email=#{member_email}
+	</select>
+	
+	<!-- 게시글 갯수 -->
+	<select id="count_post" parameterType="int" resultType="int">
+		select COUNT(*) from bbs where member_no = #{no}
+	</select>
+	
+	<!-- 내가쓴 댓글 갯수 -->
+	<select id="count_reply" parameterType="int" resultType="int">
+		select COUNT(*) from reply where member_no = #{no}
+	</select>
+	
+	<!-- 북마크 갯수 -->
+	<select id="count_bookmark" parameterType="int" resultType="int">
+		select COUNT(*) from bookmark where member_no = #{no}
+	</select>
+	
+	<!-- 받은 좋아요 수 -->
+	<select id="count_get_heart" parameterType="int" resultType="int">
+		SELECT COUNT(*) AS heart_count FROM heart WHERE bbs_no IN (
+		  SELECT bbs_no FROM bbs WHERE member_no = #{no}
+		)
+	</select>
+	
+	<!-- 게시글 리스트 -->
+	<select id="postList" parameterType="int" resultType="memberPostVO">
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY bbs_no) AS post_no,
+			bbs.bbs_no,
+			bbs.bbs_title,
+			(SELECT COUNT(*) FROM heart WHERE heart.bbs_no = bbs.bbs_no) AS heart_count,
+			(SELECT COUNT(*) FROM reply WHERE reply.bbs_no = bbs.bbs_no) AS reply_count
+		FROM bbs WHERE bbs.member_no = #{no}
+	</select>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="del_bbs"  parameterType="int">
+		delete from bbs where bbs_no = #{bbs_No}
+	</delete>
+	
+	<!-- 댓글 리스트 -->
+	<select id="replyList" parameterType="int" resultType="memberReplyVO">
+		SELECT ROW_NUMBER() OVER () AS my_no, b.bbs_title, r.reply_content, r.reply_no, r.bbs_no
+			FROM reply r
+			JOIN bbs b ON r.bbs_no = b.bbs_no
+			WHERE r.member_no = #{no}
+	</select>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="del_reply"  parameterType="int">
+		delete from reply where reply_no = #{reply_No}
+	</delete>
+	
+	<!-- 북마크 리스트 -->
+	<select id="bookmarkList" parameterType="int" resultType="memberBookmarkVO">
+		SELECT ROW_NUMBER() OVER (ORDER BY bbs.bbs_no) AS my_bookmark, bookmark.bookmark_no, bbs.bbs_title, community.community_category
+		FROM bookmark
+		JOIN bbs ON bookmark.bbs_no = bbs.bbs_no
+		JOIN community ON bbs.community_no = community.community_no
+		WHERE bookmark.member_no = #{no}
+	</select>
+	
+	<!-- 북마크 삭제 -->
+	<delete id="del_bookmark"  parameterType="int">
+		delete from bookmark where bookmark_no = #{bookmark_No}
+	</delete>
+	
+	<!-- follower 수 (나를 팔로우 한 사람) -->
+	<select id="count_follower" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM follow WHERE following_user = #{no}
+	</select>
+	
+	<!-- following 수 (내가 팔로우 한 사람) -->
+	<select id="count_following" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM follow WHERE follower_user = #{no}
+	</select>
+	
+	<!-- follower 목록 -->
+	<select id="followerList" parameterType="int" resultType="memberFollowVO">
+		SELECT f.follow_no, f.following_user, f.follower_user, m.member_img, m.member_nickname, m.member_id
+		FROM follow f
+		JOIN member m ON f.follower_user = m.member_no
+		WHERE f.following_user = #{no}
+	</select>
+	
+	<!-- following 목록 -->
+	<select id="followingList" parameterType="int" resultType="memberFollowVO">
+		SELECT f.follow_no, f.following_user, f.follower_user, m.member_img, m.member_nickname, m.member_id
+		FROM follow f
+		JOIN member m ON f.following_user = m.member_no
+		WHERE f.follower_user = #{no}
+	</select>
+	
+	<!-- follower 삭제 -->
+	<delete id="del_follower"  parameterType="int">
+		delete from follow where follow_no = #{follow_No}
+	</delete>
+	
+	<!-- following 삭제 -->
+	<delete id="del_following"  parameterType="int">
+		delete from follow where follow_no = #{follow_No}
+	</delete>
+	
+	
+	
+	
+	
+	
 </mapper>

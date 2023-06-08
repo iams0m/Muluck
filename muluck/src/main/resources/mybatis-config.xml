@@ -3,31 +3,36 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!-- SQL문 정의할 때 VO표현을 간단하게 하고 싶은 경우. 
-     별명을 지어서 사용 -->
-   <typeAliases>
-      	<typeAlias type="com.multi.muluck.community.CommunityVO" alias="communityVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.community.BbsVO" alias="bbsVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.community.ReplyVO" alias="replyVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.community.HeartVO" alias="heartVO"></typeAlias>
-	 	<typeAlias type="com.multi.muluck.community.BookmarkVO" alias="bookmarkVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.community.FollowVO" alias="followVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.member.MemberVO" alias="memberVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.card.CardVO" alias="cardVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.diary.calendarVO" alias="calendarVO"></typeAlias>
-	  	<typeAlias type="com.multi.muluck.diary.diaryVO" alias="diaryVO"></typeAlias>
-      <!-- <typeAlias type="com.multi.muluck.mmti.MmtiVO" alias="mmtiVO"></typeAlias> -->
-   </typeAliases>
-   <mappers>
-   <!-- SQL문 정의하는 파일들의 목록을 지정. 테이블당 한개 사용 -->
-   <!-- src/main/resources/mapper -->
-      	<mapper resource="mapper/bbsMapper.xml" />
-		<mapper resource="mapper/replyMapper.xml" />
+
+	<!-- SQL문 정의할 때 VO표현을 간단하게 하고 싶은 경우 별명을 지어서 사용 -->
+	<typeAliases>
+		<typeAlias type="com.multi.muluck.community.CommunityVO" alias="communityVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.community.BbsVO" alias="bbsVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.community.ReplyVO" alias="replyVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.community.HeartVO" alias="heartVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.community.BookmarkVO" alias="bookmarkVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.community.FollowVO" alias="followVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.member.MemberVO" alias="memberVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.member.MemberPostVO" alias="memberPostVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.member.MemberReplyVO" alias="memberReplyVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.member.MemberBookmarkVO" alias="memberBookmarkVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.member.MemberFollowVO" alias="memberFollowVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.card.CardVO" alias="cardVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.diary.calendarVO" alias="calendarVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.diary.diaryVO" alias="diaryVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.business.BusinessVO" alias="businessVO"></typeAlias>
+		<typeAlias type="com.multi.muluck.business.PageVO" alias="pageVO"></typeAlias>
+		<!-- <typeAlias type="com.multi.muluck.mmti.MmtiVO" alias="mmtiVO"></typeAlias> -->
+	</typeAliases>
+	<mappers>
+		<!-- SQL문 정의하는 파일들의 목록을 지정 -->
+		<mapper resource="mapper/bbsMapper.xml" />
 		<mapper resource="mapper/followMapper.xml" />
 		<mapper resource="mapper/memberMapper.xml" />
 		<mapper resource="mapper/cardMapper.xml" />
 		<mapper resource="mapper/calendarMapper.xml" />
-		<mapper resource="mapper/diaryMapper.xml" /> 
-      <!-- <mapper resource="mapper/mmtiMapper.xml" />  -->
-   </mappers>
+		<mapper resource="mapper/diaryMapper.xml" />
+		<mapper resource="mapper/businessMapper.xml" />
+		<!-- <mapper resource="mapper/mmtiMapper.xml" />  -->
+	</mappers>
 </configuration>

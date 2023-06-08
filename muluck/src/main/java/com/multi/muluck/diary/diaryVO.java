@@ -4,57 +4,57 @@ import java.util.*;
 
 public class diaryVO {
 
-	private int d_no;
-	private String d_img;
-	private String d_nickname;
-	private String d_title;
-	private String d_contents;
-	private String d_mood;
-	private Date d_date;
+	private int diary_no;
+	private String diary_img;
+	private String diary_nickname;
+	private String diary_title;
+	private String diary_contents;
+	private String diary_mood;
+	private Date diary_date;
 	private int member_no;
 	private int card_no;
 	
-	public int getD_no() {
-		return d_no;
+	public int getDiary_no() {
+		return diary_no;
 	}
-	public void setD_no(int d_no) {
-		this.d_no = d_no;
+	public void setDiary_no(int diary_no) {
+		this.diary_no = diary_no;
 	}
-	public String getD_img() {
-		return d_img;
+	public String getDiary_img() {
+		return diary_img;
 	}
-	public void setD_img(String d_img) {
-		this.d_img = d_img;
+	public void setDiary_img(String diary_img) {
+		this.diary_img = diary_img;
 	}
-	public String getD_nickname() {
-		return d_nickname;
+	public String getDiary_nickname() {
+		return diary_nickname;
 	}
-	public void setD_nickname(String d_nickname) {
-		this.d_nickname = d_nickname;
+	public void setDiary_nickname(String diary_nickname) {
+		this.diary_nickname = diary_nickname;
 	}
-	public String getD_title() {
-		return d_title;
+	public String getDiary_title() {
+		return diary_title;
 	}
-	public void setD_title(String d_title) {
-		this.d_title = d_title;
+	public void setDiary_title(String diary_title) {
+		this.diary_title = diary_title;
 	}
-	public String getD_contents() {
-		return d_contents;
+	public String getDiary_contents() {
+		return diary_contents;
 	}
-	public void setD_contents(String d_contents) {
-		this.d_contents = d_contents;
+	public void setDiary_contents(String diary_contents) {
+		this.diary_contents = diary_contents;
 	}
-	public String getD_mood() {
-		return d_mood;
+	public String getDiary_mood() {
+		return diary_mood;
 	}
-	public void setD_mood(String d_mood) {
-		this.d_mood = d_mood;
+	public void setDiary_mood(String diary_mood) {
+		this.diary_mood = diary_mood;
 	}
-	public Date getD_date() {
-		return d_date;
+	public Date getDiary_date() {
+		return diary_date;
 	}
-	public void setD_date(Date d_date) {
-		this.d_date = d_date;
+	public void setDiary_date(Date diary_date) {
+		this.diary_date = diary_date;
 	}
 	public int getMember_no() {
 		return member_no;
@@ -71,9 +71,10 @@ public class diaryVO {
 	
 	@Override
 	public String toString() {
-		return "diaryVO [d_no=" + d_no + ", d_img=" + d_img + ", d_nickname=" + d_nickname + ", d_title=" + d_title
-				+ ", d_contents=" + d_contents + ", d_mood=" + d_mood + ", d_date=" + d_date + ", member_no="
-				+ member_no + ", card_no=" + card_no + "]";
+		return "diaryVO [diary_no=" + diary_no + ", diary_img=" + diary_img + ", diary_nickname=" + diary_nickname
+				+ ", diary_title=" + diary_title + ", diary_contents=" + diary_contents + ", diary_mood=" + diary_mood
+				+ ", diary_date=" + diary_date + ", member_no=" + member_no + ", card_no=" + card_no + "]";
 	}
+	
 	
 }

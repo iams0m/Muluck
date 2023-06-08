@@ -1,11 +1,16 @@
 package com.multi.muluck.diary;
 
+import java.io.File;
+import java.text.Normalizer;
 import java.util.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller //스프링에서 제어하는 역할로 등록
 public class diaryController {
@@ -51,11 +56,25 @@ public class diaryController {
 	 */
 	
 	//식물일기 등록 시 cardview로 이동할 수 있도록 하는 controller
-	
 	@RequestMapping("diary/insert")
-	public String insert(diaryVO bag, Model model) {
+	public String insert(diaryVO bag, Model model, HttpServletRequest request, MultipartFile file, String dropdown) throws Exception {
 		System.out.println("cardview insert 요청됨.");
 		System.out.println(bag);
+		bag.setDiary_mood(dropdown);
+		System.out.println(dropdown);
+		
+		if (file != null && !file.isEmpty()) {
+			/* String savedName = file.getOriginalFilename(); */
+			String savedName = Normalizer.normalize(file.getOriginalFilename(), Normalizer.Form.NFC);
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/upload/diary");
+			File target = new File(uploadPath + "/" + savedName);
+			file.transferTo(target);
+		
+			model.addAttribute("savedName", savedName);
+			bag.setDiary_img(savedName);
+		} else {
+			model.addAttribute("errorMessage", "Please select a file to upload.");
+		}
 		
 		dao.insert(bag);
 		//DAO에게 insert 요청
@@ -67,34 +86,38 @@ public class diaryController {
 		return "redirect:cardview.jsp";
 	}
 		
-		@RequestMapping("diary/insert2")
-		public String insert2(diaryVO bag, Model model) {
-			System.out.println("cardview insert 요청됨.");
-			System.out.println(bag);
-			
-			dao.insert(bag);
-			//DAO에게 insert 요청
+	//첫 식물일기 등록 시 cardview로 이동할 수 있도록 하는 controller
+	@RequestMapping("diary/insert2")
+	public String insert2(diaryVO bag, Model model, HttpServletRequest request, MultipartFile file, String dropdown) throws Exception {
+		System.out.println("cardview insert2 요청됨.");
+		System.out.println(bag);
+		bag.setDiary_mood(dropdown);
+		System.out.println(dropdown);
 		
-		 List<diaryVO> list = dao.list();
-		 System.out.println("controller list : "+list);
-		 model.addAttribute("list", list);
-		 
-		 return "redirect:cardview.jsp";
+		if (file != null && !file.isEmpty()) {
+			/* String savedName = file.getOriginalFilename(); */
+			String savedName = Normalizer.normalize(file.getOriginalFilename(), Normalizer.Form.NFC);
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/upload/diary");
+			File target = new File(uploadPath + "/" + savedName);
+			file.transferTo(target);
+		
+			model.addAttribute("savedName", savedName);
+			bag.setDiary_img(savedName);
+		} else {
+			model.addAttribute("errorMessage", "Please select a file to upload.");
 		}
-
-		 /*
-	 * @RequestMapping("update") public void update(kidsVO bag) {
-	 * System.out.println("update 요청됨."); System.out.println(bag); dao.update(bag);
-	 * }
-	 * 
-	 * @RequestMapping("delete") public void delete(String id) {
-	 * System.out.println("delete 요청됨."); System.out.println(id); dao.delete(id); }
-	 * 
-	 * @RequestMapping("one") public void one(String id, Model model) {
-	 * System.out.println(id); kidsVO bag = dao.one(id); model.addAttribute("bag",
-	 * bag); }
-	 */ 
+		
+		dao.insert2(bag);
+		//DAO에게 insert 요청
 	
+	 List<diaryVO> list = dao.list();
+	 System.out.println("controller list : "+list);
+	 System.out.println("file=" + file);
+	 model.addAttribute("list", list);
+	 
+	 return "redirect:cardview.jsp";
+	}
+
 	// cardview의 리스트를 보여주는 controller
 	 @RequestMapping("diary/cardview_list") 
 	 public void list(Model model) { //Model은 컨트롤러의 list를 views/list.jsp까지만 전달할 수 있는 객체
@@ -113,6 +136,4 @@ public class diaryController {
 		 System.out.println("controller list : "+list);
 		 model.addAttribute("list", list); 
 	 }
-	 
-	 
 }

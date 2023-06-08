@@ -15,21 +15,6 @@
 		where follower_user = #{follower_user} and following_user = #{following_user}
 	</delete>
 	
-	<!-- <update id="update"  parameterType="followVO">
-		update follow set content = #{follow_management} where no = #{follow_no}
-	</update>
-
-	<select id="one" parameterType="int" resultType="followVO">
-		select * from
-		follow
-		where no = #{follow_no}
-	</select>
-
-	<select id="all" resultType="followVO">
-		select * from
-		follow
-	</select> -->
-
 </mapper>
 
 
