@@ -199,22 +199,22 @@ input[type='date']:valid::before {
 									<div class="col-sm-5">
 										<select class="form-control" name="card_mmti">
 											<option value="" hidden>MMTI를 선택해주세요</option>
-											<option value="PHDA">PHDA</option>
-											<option value="PHDU">PHDU</option>
-											<option value="PHLA">PHLA</option>
-											<option value="PHLU">PHLU</option>
-											<option value="PDDA">PDDA</option>
-											<option value="PDDU">PDDU</option>
-											<option value="PDLA">PDLA</option>
-											<option value="PDLU">PDLU</option>
-											<option value="AHDA">AHDA</option>
-											<option value="AHDU">AHDU</option>
-											<option value="AHLA">AHLA</option>
-											<option value="AHLU">AHLU</option>
-											<option value="ADDA">ADDA</option>
-											<option value="ADDU">ADDU</option>
-											<option value="ADLA">ADLA</option>
-											<option value="ADLU">ADLU</option>
+											<option value="PHDA">PHUI</option>
+											<option value="PHDU">PHUS</option>
+											<option value="PHLA">PHLI</option>
+											<option value="PHLU">PHLS</option>
+											<option value="PDDA">PDUI</option>
+											<option value="PDDU">PDUS</option>
+											<option value="PDLA">PDLI</option>
+											<option value="PDLU">PDLS</option>
+											<option value="AHDA">AHUI</option>
+											<option value="AHDU">AHUS</option>
+											<option value="AHLA">AHLI</option>
+											<option value="AHLU">AHLS</option>
+											<option value="ADDA">ADUI</option>
+											<option value="ADDU">ADUS</option>
+											<option value="ADLA">ADLI</option>
+											<option value="ADLU">ADLS</option>
 										</select>
 									</div>
 								</div>

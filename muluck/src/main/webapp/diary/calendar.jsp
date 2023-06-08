@@ -31,7 +31,8 @@
 <!-- bootstrap 4 -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 <!-- fullcalendar -->
@@ -62,23 +63,40 @@
         	    trigger: 'click'
         	  }
         	},// 이벤트 많을 경우 더보기 표시
-       eventSources:[{
-            url: "list",  //ajax이렇게 하는게 아닌가?
-            method: "post",
-            data: JSON.stringify(event),  // 이벤트 데이터를 JSON 문자열로 변환하여 전송
-            contentType: "application/json", //json 타입
-            success: function(response) {//성공되면 콘솔 표시
-              console.log("표시 성공:", response);
-            },
-            error: function(xhr, status, error) {
-              console.log("표시 실패:", status, error);
-            }
-          }],
-          eventSourceSuccess : function(content, response) {
-        	  return content.eventArray;
         	
-        },
-        
+        	events: function (fetchInfo, successCallback, failureCallback) {
+        	    // 서버에서 이벤트 데이터 가져오기
+        	    $.ajax({
+        	      url: 'list',
+        	      method: 'POST',
+        	      data: JSON.stringify(event),
+        	      contentType: 'application/json',
+        	      success: function(response) {
+        	        // 응답 데이터 처리
+        	        console.log(response);
+        	        var events = [];
+        	        for (var i = 0; i < response.length; i++) {
+        	          var event = response[i];
+        	          var processedEvent = {
+        	            title: event.calendar_title,
+        	            start: event.calendar_start,
+        	            end: event.calendar_end,
+        	            calendar_id: event.calendar_id
+        	          };
+        	          events.push(processedEvent);
+        	        }
+        	        // 이벤트 데이터 전달하여 표시
+        	        successCallback(events);
+        	      },
+        	      error: function(xhr, status, error) {
+        	        console.log("표시 실패:", status, error);
+        	        // 오류 발생 시 실패 콜백 호출
+        	        failureCallback(error);
+        	      }
+        	    });
+        	  },
+        	
+
         select: function(info) { // 선택. ; 함수에서 기능들 실행
         	
           $('#addCalendarModal').modal('show'); // 누르면 모달 보여짐
@@ -86,7 +104,11 @@
             addCalendarClickHandler(info); //핸들러 콘트롤러 비슷한 개념인듯
             $('#addCalendarModal').modal('hide'); // 다 적었으면 끔
           });
+          $("#cancelButton").on('click', function() {
+				$('#addCalendarModal').modal('hide'); // 모달 닫는 코드
+				});	
         },
+        
         eventClick: function(info) { // 여기서 내용 수정, fullcalendar가 제공하는 것도 있는듯
           var eventTitle = info.event.title; // 내용 수정 변수
 			
@@ -99,7 +121,9 @@
             deleteCalendarClickHandler(info);
             modal.modal('hide');
           });
-          
+          $("#cancelButton1").on('click', function() {
+				$('#editCalendarModal').modal('hide'); // 모달 닫는 코드
+				});
           modal.modal('show');//모달 보여주기!
         
         }
@@ -111,13 +135,18 @@
           alert("내용을 입력하세요.");
         } else {
           var event = {
-            "calendar_title": content,
-            "calendar_start": info.start, //캘린더내부에서 받아옴
-            "calendar_end": info.end
+            "title": content,
+            "start": info.start, //캘린더내부에서 받아옴
+            "end": info.end
           };
           
           calendar.addEvent(event); //fullcalendar 기능?
           console.log(event);
+          var eventData = {
+        		  "calendar_title": content,
+        		  "calendar_start": info.start,
+        		  "calendar_end": info.end
+        		};
           $("#calendar_content").val(''); // 창 다시 띄울 때 전에 써져있던 내용 안 나오게!
           
           console.log("추가된 일정:", event);
@@ -125,7 +154,7 @@
           $.ajax({
             url: "insert",  //ajax이렇게 하는게 아닌가?
             method: "POST",
-            data: JSON.stringify(event),  // 이벤트 데이터를 JSON 문자열로 변환하여 전송
+            data: JSON.stringify(eventData),  // 이벤트 데이터를 JSON 문자열로 변환하여 전송
             contentType: "application/json", //json 타입
             success: function(response) {//성공되면 콘솔 표시
             var calendarIds = response.calendarIds;	
@@ -151,18 +180,25 @@
         	var end = info.event.end;
         	var event = {
         			"calendar_id": calendar_id,
-                    "calendar_title": eventTitle,
-                    "calendar_start": start,
-                    "calendar_end": end
+                    "title": eventTitle,
+                    "start": start,
+                    "end": end
                     
                   }; //fullcalendar 함수 내용 변경함수, 날짜 관련x, 날짜도 변경 가능하게 해야하나?event.setDates( start, end, [ options ] )
+                  var eventData = {
+                		  "calendar_id": calendar_id,	
+                		  "calendar_title": eventTitle,
+                		  "calendar_start": start,
+                		  "calendar_end": end
+                		};
+                		  
           console.log(event);
           info.event.setProp('title', eventTitle);//이걸로 ui에 변경사항 바로 보이게 함
           // AJAX 사용, 서버 이벤트
           $.ajax({
             url: "update",
             method: "POST",
-            data: JSON.stringify(event), 
+            data: JSON.stringify(eventData), 
             contentType: "application/json",
             success: function(response) {
             	console.log(info.event.extendedProps);
@@ -202,89 +238,12 @@
     });
   </script>
 
- <!-- 토글 - 드롭다운 -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../resources/js/scripts.js"></script>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
 
 </head>
 <body>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="../main/home.jsp">Muluck</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ms-auto py-4 py-lg-0">
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" 
-					id="#userNickname">${member_nickname} 님 환영합니다.</a></li>
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="${pageContext.request.contextPath}/member/mypage">마이페이지</a></li>
-					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-						href="${pageContext.request.contextPath}/member/logout">로그아웃</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<header>
-		<h1 class="site-heading text-center text-faded d-none d-lg-block">
-			<!-- <span class="site-heading-lower">무우럭</span>
-                <span class="site-heading-upper text-primary mb-3">muluck</span> -->
-			<div>
-				<a href="../main/home.jsp">
-				<img src="../resources/assets/img/무우럭.png" /></a>
-			</div>
-		</h1>
-	</header>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand text-uppercase fw-bold d-lg-none"
-				href="index.jsp">Start Bootstrap</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../main/home.jsp">홈</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../community/community.jsp">커뮤니티</a></li>
-					<ul class="navbar-nav px-lg-4">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="myplant.jsp" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 나의 식물 </a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="../diary/calendar.jsp">캘린더</a></li>
-								<li><a class="dropdown-item" href="../diary/cardview.jsp">식물 일지</a></li>
-								<li><a class="dropdown-item" href="../card/list">반려식물 등록증</a></li>
-								<li><a class="dropdown-item" href="../mmti/mmti_main.jsp">MMTI 테스트</a></li>
-							</ul></li>
-					</ul>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase" href="../business/business_main.jsp">거래/나눔</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	
-	<header>
-		<h1 class="site-heading text-center text-faded d-none d-lg-block"
-			style="text-align: center;">
-			<!-- <span class="site-heading-lower">무우럭</span>
-                <span class="site-heading-upper text-primary mb-3">muluck</span> -->
-			<img src="../resources/assets/img/무우럭.png" style="text-align: center;" />
-		</h1>
-	</header>
+	<!-- 네비게이션바 header -->
+	<%@ include file="../nav_header.jsp"%>
 	
 	<div id='calendar'
 		style="width: 80%;"background-color: #F2F1DF; place-content: center; text-align: center;"></div>

@@ -21,15 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- <context:component-scan base-package="com.multi.muluck" /> -->
+	
+	<!-- file Upload -->
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- max upload size in bytes -->
         <beans:property name="maxUploadSize" value="52428800" /> <!-- 50MB -->
         <!-- max size of file in memory (in bytes) -->
         <beans:property name="maxInMemorySize" value="10485760" /> <!-- 10MB -->
     </beans:bean>
 	
-	<context:component-scan base-package="com.multi.muluck" />
-	
+	<context:component-scan base-package="com.multi.muluck.*" />	
+
 	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 	    <beans:property name="host" value="smtp.gmail.com" />
 	    <beans:property name="port" value="587" />

@@ -42,10 +42,16 @@ $(function() { //페이지가 로딩될때 실행
 		// 이메일 형식 확인을 위한 정규 표현식
 	    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	    
+	    // 이메일 칸이 비어있을 때
+	    if (email === "") {
+	        $("#emailResult").html(""); // 오류 메시지 초기화
+	        return;
+	    }
+
 	    // 이메일 형식이 아닌 경우
 	    if (!emailPattern.test(email)) {
-	      $("#emailResult").html("이메일 형식이 아닙니다.").css('color', 'red');
-	      return;
+	        $("#emailResult").html("이메일 형식이 아닙니다.").css('color', 'red');
+	        return;
 	    }
 	    
 	    // 이메일 중복 체크를 위한 Ajax 요청
@@ -55,16 +61,21 @@ $(function() { //페이지가 로딩될때 실행
 			dataType: "json",
 			data: {member_email : email},
 			success: function(result) {
+				//이메일 칸이 비어있지 않을 떄
 				if(email != ""){
-					if(result == 1){
+					//이미 등록된 이메일
+					if(result === 1){
 						$("#emailResult").html("이미 등록된 이메일입니다.").css('color','red');
-					}else if(result == 0){
+					}else if(result === 0){
 						$("#emailResult").html("사용가능한 이메일입니다.").css("color", "green");
 						isValidEmail = true;
 						checkValidation();
 					}
 				}
-			}//seccess 
+			},//success
+	        error: function() {
+	            // 오류 처리
+	        }
 		})//ajax
 	})//email 중복체크 완료
 	

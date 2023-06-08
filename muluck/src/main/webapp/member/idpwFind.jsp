@@ -95,8 +95,8 @@ $(document).ready(function() {
         <div class="center">
             <table id="idpwTable">
                 <tr>
-                    <td><button id="idB" class="cBc">아이디</button></td>
-                    <td><button id="pwB" class="cBc">패스워드</button></td>
+                    <td><button id="idB" class="cBc" style="font-family: 'KOTRAHOPE';">아이디</button></td>
+                    <td><button id="pwB" class="cBc" style="font-family: 'KOTRAHOPE';">패스워드</button></td>
                 </tr>
             </table>
             <div id="result">

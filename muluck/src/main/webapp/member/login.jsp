@@ -1,20 +1,22 @@
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.security.SecureRandom"%>
 <%@ page import="java.math.BigInteger"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+<script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/css/login_join.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
+
 $(function() {
 	// 페이지 로드 시 아이디 저장 체크 박스 상태 확인
 	var savedId = localStorage.getItem('savedId');
@@ -44,7 +46,6 @@ $(function() {
 		} else {
 			localStorage.removeItem('savedId');
 		}
-		
 		$.ajax({
 			url: "login",
 			type: "post",
@@ -76,28 +77,32 @@ $(function() {
 
 });
 
-
-
 </script>
 
 </head>
 <body>
-	<div class="muluck_logo"><a href="login.jsp"><img src="../resources/assets/img/무우럭.png" alt="로고"></a></div>
+	<div class="muluck_logo">
+		<a href="login.jsp"><img src="../resources/assets/img/무우럭.png"
+			alt="로고"></a>
+	</div>
 	<div class="myform">
 		<div id="login_title" class="title">로그인</div>
 		<div class="center">
 			<form id="loginForm" action="login" method="post">
-				<input class="input_login" id="member_id" name="member_id" placeholder="  아이디" value="${member_id}"/>  <!-- 값 넣어놓고 실험 value="hhhj0525" -->
-				<input class="input_login" id="member_pw" name="member_pw" type="password" placeholder="  패스워드"/>
+				<input class="input_login" id="member_id" name="member_id"
+					placeholder="  아이디" value="${member_id}" /> 
+				<input class="input_login" id="member_pw" name="member_pw" type="password"
+					placeholder="  패스워드" />
 				<div class="text1">
-					<input class="input_login" type="checkbox" id="idSave"> 아이디 저장
+					<input class="input_login" type="checkbox" id="idSave"> 아이디
+					저장
 				</div>
 				<div class="sameCheck" id="loginResult"></div>
 				<button class="btn black_btn" type="submit">로그인</button>
 			</form>
 			<a href="join.jsp"><button class="btn white_btn" type="submit">회원가입</button></a>
 			<div class="text1">
-				<a href="idpwFind.jsp">아이디 찾기 / 패스워드 찾기</a>
+				<a href="idpwFind.jsp">아이디 찾기 / 패스워드 변경</a>
 			</div>
 			<hr style="color: gray; margin-left: 5%; margin-right: 5%;">
 			<div id="text2">
@@ -105,13 +110,19 @@ $(function() {
 			</div>
 			<div id="logo">
 				<!-- 네이버 로그인 버튼 노출 영역 -->
-				<div id="naver_id_login"></div>
-				
-				<!-- 카카오 로그인 버튼 노출 영역 --> <!-- 임시로 이미지 넣어둠 -->
-				<!-- <div><img src="../resources/assets/img/member/kakao_login_medium_narrow.png"></div> -->
+				<div id="naver_id_login" style="margin-bottom: 3px;"></div>
+
+				<!-- 카카오 로그인 버튼 노출 영역 -->
+				<a class="p-2"
+					href="https://kauth.kakao.com/oauth/authorize?client_id=30ebd1d9b39e44cffc3efc0e21f64df4&redirect_uri=http://localhost:8888/muluck/member/kakaoLogin&response_type=code">
+					<!-- REST_API키 및 REDIRECT_URi는 본인걸로 수정하세요 --> <img
+					src="${pageContext.request.contextPath}/resources/upload/member/kakao_login.png"
+					style="height: 45px; width: 200px;">
+				</a>
 			</div>
 			<script type="text/javascript">
-				var naver_id_login = new naver_id_login("u4ZSMzPdnSJwhVD6Q0ZO", "http://localhost:8888/muluck/member/callback.jsp");
+				var naver_id_login = new naver_id_login("u4ZSMzPdnSJwhVD6Q0ZO",
+						"http://localhost:8888/muluck/member/callback.jsp");
 				var state = naver_id_login.getUniqState();
 				naver_id_login.setButton("green", 3, 39);
 				naver_id_login.setDomain("http://localhost:8888/muluck/");

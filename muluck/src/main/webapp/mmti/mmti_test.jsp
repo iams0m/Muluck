@@ -8,7 +8,6 @@
 <title>나의 반려식물 MMTI 찾기</title>
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
-<link rel="stylesheet" href="../resources/css/reset.css" type="text/css">
 <link rel="stylesheet" href="../resources/css/test.css" type="text/css">
 </head>
 <body>
@@ -27,37 +26,37 @@
 				<div class="type">
 					<ul class="type_list">
 						<!-- 유형 1 -->
-						<li>PHDA</li>
+						<li>PHUI</li>
 						<!-- 유형 2 -->
-						<li>PHDU</li>
+						<li>PHUS</li>
 						<!-- 유형 3 -->
-						<li>PHLA</li>
+						<li>PHLI</li>
 						<!-- 유형 4 -->
-						<li>PHLU</li>
+						<li>PHLS</li>
 						<!-- 유형 5 -->
-						<li>PDDA</li>
+						<li>PDUI</li>
 						<!-- 유형 6 -->
-						<li>PDDU</li>
+						<li>PDUS</li>
 						<!-- 유형 7 -->
-						<li>PDLA</li>
+						<li>PDLI</li>
 						<!-- 유형 8 -->
-						<li>PDLU</li>
+						<li>PDLS</li>
 						<!-- 유형 9 -->
-						<li>AHDU</li>
+						<li>AHUI</li>
 						<!-- 유형 10 -->
-						<li>AHDA</li>
+						<li>AHUS</li>
 						<!-- 유형 11 -->
-						<li>AHLU</li>
+						<li>AHLI</li>
 						<!-- 유형 12 -->
-						<li>AHLA</li>
+						<li>AHLS</li>
 						<!-- 유형 13 -->
-						<li>ADDA</li>
+						<li>ADUI</li>
 						<!-- 유형 14 -->
-						<li>ADDU</li>
+						<li>ADUS</li>
 						<!-- 유형 15 -->
-						<li>ADLA</li>
+						<li>ADLI</li>
 						<!-- 유형 16 -->
-						<li>ADLU</li>
+						<li>ADLS</li>
 					</ul>
 				</div>
 			</div>

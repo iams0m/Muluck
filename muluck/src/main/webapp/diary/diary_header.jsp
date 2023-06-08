@@ -6,7 +6,7 @@
 <script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 
 <!-- Core theme JS-->
-<script src="../js/scripts.js"></script>
+<script src="../resources/js/scripts.js"></script>
 
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
@@ -38,14 +38,13 @@ function readURL(input) {
 <!-- 식물 기분 선택 시 선택한 이미지 표시 -->
 <script type="text/javascript">
 $(function() {
-    $('.dropdown-item').click(function() {
-        var content = $(this).html(); // 클릭한 요소의 내용을 가져옴
-
-        $.ajax({
-            success: function() {
-                $('#feel').html(content); // id가 "feel"인 div에 내용을 설정
-            }
-        });
+    $('.dropdown').click(function() { //diary_mood
+        var content = $(".dropdown option:selected").text(); // 클릭한 요소의 내용을 가져옴
+        var value = $(".dropdown option:selected").val(); // 클릭한 요소의 내용을 가져옴
+        console.log('content', content)
+         $('#feel').html(content); // id가 "feel"인 div에 내용을 설정
+         $('#diary_mood').val(value); // id가 "feel"인 div에 내용을 설정
+         
     });
 });
 </script>

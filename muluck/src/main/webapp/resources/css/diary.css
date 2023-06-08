@@ -10,6 +10,15 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+ @font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ 
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -93,8 +102,8 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
+  font-family: 'KOTRAHOPE'; important;
+  font-size: 20px; important;
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
@@ -11102,7 +11111,11 @@ body {
 
 .viewcard_nickname {
 	font-size: 20px; 
+<<<<<<< HEAD
 	text-decoration: none;
+=======
+	text-decoration: none !important; 
+>>>>>>> 82181d07d0ffe751cff1445454c1154c47e07235
 }
 
 .viewcard_date {
