@@ -53,6 +53,7 @@ $(function() {
 			success : function() {
 				alert('댓글 작성 완료')
 				$('#reply_list').append(div);
+				$('#reply').val('')
 			}
 		})
 	}) //b1
@@ -197,7 +198,7 @@ div {
 	</div>
 	<!-- 유저 프로필 -->
 	<div class="user">
-		<button id="user" class="button2"><img src="../resources/assets/img/plant.png" width=40 height=40></button>
+		<img id="user" src="../resources/upload/member/myprofile.png" width=40 height=40  style="border-radius: 50px;">
 		${member_nickname}
 		<!-- 팔로우 버튼 -->
 		<button id="follow">팔로우</button>
@@ -205,7 +206,7 @@ div {
 	<!-- 검색 결과 -->
 	<div class="bbs_one">
 		<h3>${bag.bbs_title}</h3><br>
-		<img src="../resources/assets/upload/${bag.bbs_img}" width=250 height=250><br><br>
+		<img src="../resources/upload/community/${bag.bbs_img}" width=250 height=250 onerror="this.src='../resources/assets/img/무우럭.png'"><br><br>
 		${bag.bbs_content}<br>
 	</div>
 	  <!-- 세션(본인만 수정/삭제 가능) -->

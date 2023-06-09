@@ -67,7 +67,7 @@ div {
 				content : <input name="bbs_content">
 			</div>
 			<div class="bbs_insert">
-				img : <input id="img" multiple="multiple" type="file" name="bbs_img">
+				img : <input id="img" type="file" name="bbs_img">
 			</div>
 			<div class="bbs_insert">
 				<button type="submit" class="button1">작성</button>

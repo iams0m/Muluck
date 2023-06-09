@@ -14,7 +14,13 @@
 	rel="stylesheet">
 <!-- jquery  -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <!-- 토글 - 드롭다운 -->
+
+<script type="text/javascript">
+	function logout() {
+		window.location.href = "member/logout";
+	}
+</script>
+<!-- 토글 - 드롭다운 -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../resources/js/scripts.js"></script>
@@ -28,7 +34,7 @@
 	<IMG SRC="../resources/upload/${savedName}">
 	<div class="container">
 		<div class="mb-3 ">
-				<button class="btn btn-primary">완료</button>
+				<button class="btn btn-primary" onclick="location.href='../business/business_main.jsp';">완료</button>
 		</div>
 	</div>
 </body>

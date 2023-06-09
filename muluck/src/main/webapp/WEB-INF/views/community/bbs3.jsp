@@ -78,7 +78,7 @@ div {
 	<div id="bbs_list">
 		<c:forEach items="${list}" var="bag">
 		<div class="bbs_post">
-			<img src="../resources/assets/upload/${bag.bbs_img}" width=100 height=100><br>
+			<img src="../resources/upload/community/${bag.bbs_img}" width=100 height=100 onerror="this.src='../resources/assets/img/무우럭.png"><br>
 			<div class="bbs_content">
 				<h5><a href="bbs_one3?bbs_no=${bag.bbs_no}">${bag.bbs_title}</a></h5><br>
 				${bag.bbs_content}

@@ -1,3 +1,4 @@
+<%@page import="com.multi.muluck.business.BusinessVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,11 +8,12 @@
 <meta charset="UTF-8">
 <title>나눔</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
- <!-- 토글 - 드롭다운 -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../resources/js/scripts.js"></script>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script type="text/javascript">
+	function logout() {
+		window.location.href = "member/logout";
+	}
+</script>
+
 <style>
 td {
 	background: white;
@@ -25,12 +27,18 @@ td {
   <link href="${pageContext.request.contextPath}/resources/css/business.css" rel="stylesheet">
   <!-- jquery  -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- 토글 - 드롭다운 -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../resources/js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  
 </head>
 <body>
 <!-- 네비게이션바 header -->
 <%@ include file="../../../nav_header.jsp"%>
-
-	<h1 class="mt-2"> </h1>
+	
 	<figure>
 	<video src="${pageContext.request.contextPath}/resources/img/pot.mp4" autoplay muted loop></video>
 	<div class="inner">
@@ -39,25 +47,61 @@ td {
 	</div>
 	</figure>
 
-	<section>
+<section>
 	<div class="inner">
-	 <table>
-   <tr>
-      <td class="left">b_no</td>
-      <td class="left">member_no</td>
-      <td class="left">제목</td>
-      <td class="left">작성자</td>
-   </tr>
-   <c:forEach items="${list}" var="one">
-   <tr>
-      <td class="right">${one.b_no}</td> 
-      <td class="right">${one.member_no}</td> 
-      <td class="right"><a href="businessOne?title=${one.b_no}">${one.b_title}</a></td>   
-      <td class="right">${one.b_share}</td>
-   </tr>
-   </c:forEach>
-</table>
- </div>
+		<div class="post">
+			<div class="post-header">
+				<h2 class="post-title" style="font-family: 'KOTRAHOPE'; font-size:60px">${vo.business_title}</h2>
+				<h3 style="font-family: 'KOTRAHOPE'">
+				<c:if test= "${vo.business_share== false}"> 거래 </c:if>
+				<c:if test= "${vo.business_share== true}"> 나눔 </c:if>
+				</h3>
+				<p class="post-author">작성자: ${vo.member_nickname}</p>
+			</div>
+			<hr>
+			
+			<div class="post-content">
+			<%
+				BusinessVO vo=new BusinessVO();
+				String BusinessImage=vo.getBusiness_image();
+				if(BusinessImage==null){
+					BusinessImage="LOGO.png";
+				}
+			%>
+					<IMG SRC="../resources/upload/${vo.business_image}" width="550px" hight="500px">
+					
+				<div> ${vo.business_write}</div>
+				
+				<div id="map" style="width:100%;height:350px;"></div>
+				<div id="clickLatlng"></div>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1dbba6b49b07b20d9d61a143073f3d6c"></script>
+				<script>
+					var mapContainer = document.getElementById('map');
+					var mapOption = {
+						center: new kakao.maps.LatLng(${latitude},${longitude}),
+						level: 3
+					};
+					var map = new kakao.maps.Map(mapContainer, mapOption);
+					var marker = new kakao.maps.Marker({
+						position: map.getCenter()
+					});
+					marker.setMap(map);
+					kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+						var latlng = mouseEvent.latLng;
+						marker.setPosition(latlng);
+						var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+						message += '경도는 ' + latlng.getLng() + ' 입니다';
+						var resultDiv = document.getElementById('clickLatlng');
+						resultDiv.innerHTML = message;
+					});
+				</script>
+				<hr>
+				<table>
+					<!-- 추가적인 게시글 내용 표시 -->
+				</table>
+			</div>
+		</div>
+	</div>
 </section>
 	
 </body>

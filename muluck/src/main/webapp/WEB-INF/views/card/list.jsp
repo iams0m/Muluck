@@ -45,6 +45,7 @@ div {
 	border-color: none;
 	color: #eaf2df;
 	font-weight: bold;
+	margin-right: 20px;
 }
 
 .parent-container {
