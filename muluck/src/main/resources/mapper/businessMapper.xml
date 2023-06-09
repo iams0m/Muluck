@@ -3,48 +3,56 @@
 <mapper namespace="business">
 
 	<insert id="create" parameterType="businessVO">
-		insert into business (b_title, b_date, b_write, b_image , b_place, member_no, b_share)
+		insert into business (business_title,
+		business_date, business_write, business_image , business_place, member_no, business_share)
 		values
-		(#{b_title}, SYSDATE(), #{b_write}, #{b_image},#{b_place},2,#{b_share})	
+		(#{business_title}, SYSDATE(), #{business_write},
+		#{business_image},#{business_place},#{member_no},#{business_share})
 	</insert>
-	
-	
-	<select id="one" parameterType="businessVO" resultType="businessVO">
-		select * from
-		business where b_title = #{b_title}
-	</select>
-	
-	<select id="all" resultType="businessVO" parameterType="pageVO">
-		SELECT b_sub.b_no , b_title, b_date, b_write, b_image, b_place, member_no, b_choose, b_share
-		FROM (
-  		SELECT ROW_NUMBER() OVER (ORDER BY b_date DESC) AS b_no, b_no AS num, b_title, b_date, b_write, b_image, b_place, member_no, b_choose, b_share
-  		FROM business where b_share =1
-		) AS b_sub
-		WHERE b_sub.b_no  BETWEEN #{start} and #{end};
-	</select>
-	
-	<select id="list" resultType="businessVO">
-		select * from business b  order by b_date desc limit 5,6
-	</select>
-	
-	
-	<select id="list2" resultType="businessVO" parameterType="pageVO">
-		select *
-		from (
-		select ROW_NUMBER() over(order by b_date desc) as b_no1, b.*
-		from business b) business2
-		where business2.b_no between #{start} and #{end}
-	</select>
-	
-	<select id="count" resultType="Integer">
-		select count(*) from business where b_share = 1
-	</select>
-	
-	<select id="count1" resultType="Integer">
-		select count(*) from business where b_share = 0
+
+
+	<select id="one" parameterType="businessVO"
+		resultType="businessVO">
+		select b.* , m.member_nickname from business b join `member` m on b.member_no = m.member_no where business_no = #{business_no}
 	</select>
 	
 
+	<select id="all" resultType="businessVO" parameterType="pageVO">
+	select b.* , m.member_nickname from business b join `member` m on b.member_no = m.member_no where b.business_share =1 limit #{start}, #{end}
+	</select>
 	
-	
+	<select id="all2" resultType="businessVO" parameterType="pageVO">
+		select b.* , m.member_nickname from business b join `member` m on b.member_no = m.member_no where b.business_share = 0 limit #{start}, #{end}
+	</select>
+
+	<select id="list" resultType="businessVO">
+		select * from business b order by
+		business_date desc limit 5,6
+	</select>
+
+
+	<select id="list2" resultType="businessVO"
+		parameterType="pageVO">
+		select *
+		from (
+		select ROW_NUMBER() over(order by business_date
+		desc) as b_no1, b.*
+		from business b) business2
+		where business2.business_no
+		between #{start} and #{end}
+	</select>
+
+	<select id="count" resultType="Integer">
+		select count(*) from business
+		where business_share = 1
+	</select>
+
+	<select id="count1" resultType="Integer">
+		select count(*) from business
+		where business_share = 0
+	</select>
+
+
+
+
 </mapper>

@@ -5,8 +5,8 @@
 	
 	<!-- diary_.jsp에 받을 mapper -->
 	<insert id="create" parameterType="diaryVO">
-		insert into diary(diary_img, diary_title, diary_contents, diary_mood, diary_date, member_no)
-		values (#{diary_img}, #{diary_title}, #{diary_contents}, #{diary_mood}, sysdate(), #{member_no})
+		insert into diary(diary_img, diary_nickname, diary_title, diary_contents, diary_mood, diary_date, member_no)
+		values (#{diary_img}, #{diary_nickname}, #{diary_title}, #{diary_contents}, #{diary_mood}, sysdate(), #{member_no})
 	</insert>
 
 	<!-- diary__first에 받을 mapper -->
