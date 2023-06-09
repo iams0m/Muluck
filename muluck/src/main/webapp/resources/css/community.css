@@ -1,5 +1,31 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'KOTRAHOPE';
+	font-size: 20px;
+}
+
+a {
+	 text-decoration-line: none;
+}
+
+#h5 {
+	 font-family: 'KOTRAHOPE';
+	 font-size: 30px;
+}
+
+#h3 {
+	 font-family: 'KOTRAHOPE';
+	 font-size: 30px;
+}
+
 hr {
 	margin-left : auto;
 	margin-right : auto;
@@ -69,6 +95,8 @@ input {
 .category {
 	color: black;
 	font-weight: bold;
+	 font-family: 'KOTRAHOPE';
+	 font-size: 50px;
 }
 
 /* 글쓰기 버튼(우측 상단) */
@@ -143,7 +171,7 @@ input {
 }
 
 #reply_list {
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .user {
