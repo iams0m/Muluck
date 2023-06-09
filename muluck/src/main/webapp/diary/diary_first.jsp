@@ -17,10 +17,10 @@
 <%@ include file="../nav_header.jsp"%>
 
 	<section class="page-section about-heading" id="text">
+	<form action="insert2" method="POST" enctype="multipart/form-data">
 		<div class="container">
 			<div class="row">
 				<div class="photo">
-				<form action="insert2" method="POST" enctype="multipart/form-data">
 					<img class="photo_preview" id="preview" src="" onerror="this.src='../resources/img/mulucklogo.jpg';" />
 					<input multiple="multiple" type="file" name="file" onchange="readURL(this)">
 					<ul class="navbar-nav px-lg-4">
@@ -50,12 +50,12 @@
 						<input class="diary_title" name="diary_title" type="text" value="일기 제목 쓰세요" onfocus="this.value=''"></span>
 					</h2>
 					<p><input class="diary_contents" type="text" name="diary_contents" value="일기 내용 쓰세요" onfocus="this.value=''"></p>
-					<input  type="hidden" name="member_no" value="1">
+					<input  type="hidden" name="member_no" value="${member_no}">
 					<button class="button" type="submit">등록</button>
 				</div>
-							</form>
 			</div>
 		</div>
+	</form>
 	</section>
 </body>
 </html>

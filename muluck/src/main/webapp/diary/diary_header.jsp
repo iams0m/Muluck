@@ -19,6 +19,9 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- favicon.ico -->
+<link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
+
 
 <!-- 일기쓰기 페이지 사진 등록 시 프리뷰 기능 -->
 <script type="text/javascript">

@@ -12,11 +12,7 @@
 	rel="stylesheet">
 <!-- jquery  -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <!-- 토글 - 드롭다운 -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../resources/js/scripts.js"></script>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
 <script type="text/javascript">
 	function logout() {
 		window.location.href = "member/logout";
@@ -51,13 +47,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
-
+<!-- 토글 - 드롭다운 -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../resources/js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </head>
 <body>
 <!-- 네비게이션바 header -->
 <%@ include file="../nav_header.jsp"%>
-
-	<h1 class="mt-2"></h1>
+	
 	<figure>
 		<video src="${pageContext.request.contextPath}/resources/img/pot.mp4"
 			autoplay muted loop></video>
@@ -69,8 +68,8 @@
 
 	<section>
 		<div class="inner">
-			<h1>MENU</h1>
-			<button type="button" class="btn btn-success"
+			<h1 style="font-family: 'KOTRAHOPE'; font-size:40px">MENU</h1>
+			<button type="button" class="btn btn-success" style="font-family: 'KOTRAHOPE'; font-size: 20px"
 				onclick="location.href='business_Write.jsp'; ">글쓰기</button>
 			<h1></h1>
 			<div class="wrap">
@@ -82,9 +81,9 @@
 								alt="이미지1"></a>
 						</div>
 						<h2>
-							<a href="shareList?page=1">나눔페이지로</a>
+							<a href="shareList?page=1" style="font-family: 'KOTRAHOPE'; font-size: 30px">나눔페이지로</a>
 						</h2>
-						<p>나누고 싶은 마음 함께 나눠요!</p>
+						<p style="font-family: 'KOTRAHOPE'; font-size: 15px">나누고 싶은 마음 함께 나눠요!</p>
 					</article>
 
 					<article class="article">
@@ -94,9 +93,9 @@
 								alt="이미지2"></a>
 						</div>
 						<h2>
-							<a href="dealList?page=1">거래페이지로</a>
+							<a href="dealList?page=1" style="font-family: 'KOTRAHOPE'; font-size: 30px">거래페이지로</a>
 						</h2>
-						<p>사용안하는 용품 팔아봐요!</p>
+						<p style="font-family: 'KOTRAHOPE'; font-size: 15px">사용안하는 용품 팔아봐요!</p>
 					</article>
 				</div>
 			</div>
