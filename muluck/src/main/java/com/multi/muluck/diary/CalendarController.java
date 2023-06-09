@@ -1,9 +1,14 @@
 package com.multi.muluck.diary;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.ResponseEntity;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,16 +27,24 @@ public class CalendarController {
 	@Autowired
 	CalendarDAO dao; 
 	
-	@PostMapping("/insert")
+	@RequestMapping("/insert1")
 	@ResponseBody
-	public void insert(@RequestBody calendarVO bag) {
+	public void insert(calendarVO bag, HttpServletResponse response, HttpSession session) throws IOException {
 		System.out.println(bag);
-		dao.insert(bag);
-		calendarVO calendarVO = new calendarVO();
-		System.out.println("새로 생성된 calendar_id: " + bag.getCalendar_id());
+		bag.setMember_no((int)session.getAttribute("member_no"));
+		System.out.println(bag);
+	    dao.insert1(bag);
+	    System.out.println("새로 생성된 calendar_id: " + bag.getCalendar_id());
+	    
+	    // 응답 데이터에 calendar_id 값을 포함하여 전송
+	    JSONObject responseData = new JSONObject();
+	    responseData.put("calendar_id", bag.getCalendar_id());
+
+	    response.setContentType("application/json");
+	    response.getWriter().write(responseData.toString());
 	}
 	
-	@PostMapping("/delete")
+	@RequestMapping("/delete1")
 	@ResponseBody
 	public void delete(@RequestBody calendarVO bag) {
 		System.out.println(bag);
@@ -39,7 +52,7 @@ public class CalendarController {
 		dao.delete(bag);
 	}
 
-	@PostMapping("/update")
+	@RequestMapping("/update1")
 	@ResponseBody
 	public void update(@RequestBody calendarVO bag) {
 		System.out.println(bag);
@@ -47,7 +60,7 @@ public class CalendarController {
 		dao.update(bag);
 	}
 	
-	@PostMapping("/list")
+	@RequestMapping("/list1")
 	@ResponseBody
 	public List<calendarVO> list() {
 	    List<calendarVO> list = dao.list();

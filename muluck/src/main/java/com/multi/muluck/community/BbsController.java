@@ -1,6 +1,7 @@
 package com.multi.muluck.community;
 
 import java.io.File;
+import java.text.Normalizer;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -74,7 +75,7 @@ public class BbsController {
 	public void bbs_insert2(BbsVO bbsVO, HttpServletRequest request, MultipartFile file, Model model) throws Exception {
 		if (file != null && !file.isEmpty()) {
 			String savedName = file.getOriginalFilename();
-			String uploadPath = request.getSession().getServletContext().getRealPath("resources/assets/upload");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/upload/community");
 			File target = new File(uploadPath + "/" + savedName);
 			file.transferTo(target);
 	
@@ -94,7 +95,7 @@ public class BbsController {
 	public void bbs_insert3(BbsVO bbsVO, HttpServletRequest request, MultipartFile file, Model model) throws Exception {
 		if (file != null && !file.isEmpty()) {
 			String savedName = file.getOriginalFilename();
-			String uploadPath = request.getSession().getServletContext().getRealPath("resources/assets/upload");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/upload/community");
 			File target = new File(uploadPath + "/" + savedName);
 			file.transferTo(target);
 	

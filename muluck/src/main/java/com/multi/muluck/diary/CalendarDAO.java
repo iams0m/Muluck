@@ -14,8 +14,10 @@ public class CalendarDAO {
 	@Autowired
 	SqlSessionTemplate my;
 	
-	public void insert(calendarVO bag) {
+	public void insert1(calendarVO bag) {
 		my.insert("Calendar.create", bag);
+		 int generatedId = bag.getCalendar_id();
+		 System.out.println("Generated calendar_id: " + generatedId);
 	}
 	public int delete(calendarVO bag) {
 		  int result = my.delete("Calendar.del", bag);
@@ -27,8 +29,8 @@ public class CalendarDAO {
 	    System.out.println(result);
 	    return result;
 	}
-	public calendarVO one(String courseroad) {
-		calendarVO vo = my.selectOne("Calendar.one", courseroad);
+	public calendarVO one(int calendar_id) {
+		calendarVO vo = my.selectOne("Calendar.one", calendar_id);
 		System.out.println(vo);
 		return vo;
 	}

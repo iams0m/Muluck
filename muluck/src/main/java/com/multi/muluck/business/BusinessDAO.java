@@ -45,5 +45,4 @@ public class BusinessDAO {
 	public List<BusinessVO> all2(PageVO vo){
 		return my.selectList("business.all2",vo);
 	}
-
 }
